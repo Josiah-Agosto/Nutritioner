@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct FoodTrackerApp: App {
-    let persistenceController = PersistenceController.shared
+    let context = PersistentCloudKitContainer.persistentContainer.viewContext
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainView().environment(\.managedObjectContext, context)
         }
     }
 }

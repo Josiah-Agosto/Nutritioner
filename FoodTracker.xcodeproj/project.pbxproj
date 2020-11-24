@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */; };
-		BD2C796425684EAE00D4C578 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796325684EAE00D4C578 /* ContentView.swift */; };
+		BD2C796425684EAE00D4C578 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796325684EAE00D4C578 /* MainView.swift */; };
 		BD2C796625684EB100D4C578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2C796525684EB100D4C578 /* Assets.xcassets */; };
 		BD2C796925684EB100D4C578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2C796825684EB100D4C578 /* Preview Assets.xcassets */; };
-		BD2C796B25684EB100D4C578 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796A25684EB100D4C578 /* Persistence.swift */; };
 		BD2C796E25684EB100D4C578 /* FoodTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */; };
 		BD2C797925684EB100D4C578 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C797825684EB100D4C578 /* FoodTrackerTests.swift */; };
 		BD2C798425684EB100D4C578 /* FoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */; };
+		BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */; };
+		BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */; };
+		BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */; };
+		BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBC7F62569E40E00206122 /* FoodCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +40,9 @@
 /* Begin PBXFileReference section */
 		BD2C795E25684EAE00D4C578 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerApp.swift; sourceTree = "<group>"; };
-		BD2C796325684EAE00D4C578 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD2C796325684EAE00D4C578 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BD2C796525684EB100D4C578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD2C796825684EB100D4C578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD2C796A25684EB100D4C578 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BD2C796D25684EB100D4C578 /* FoodTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodTracker.xcdatamodel; sourceTree = "<group>"; };
 		BD2C796F25684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2C797425684EB100D4C578 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +51,10 @@
 		BD2C797F25684EB100D4C578 /* FoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerUITests.swift; sourceTree = "<group>"; };
 		BD2C798525684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCloudKitContainer.swift; sourceTree = "<group>"; };
+		BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellView.swift; sourceTree = "<group>"; };
+		BDCBC7F62569E40E00206122 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */,
-				BD2C796325684EAE00D4C578 /* ContentView.swift */,
-				BD2C796525684EB100D4C578 /* Assets.xcassets */,
-				BD2C796A25684EB100D4C578 /* Persistence.swift */,
 				BD2C796F25684EB100D4C578 /* Info.plist */,
-				BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */,
+				BD2C796525684EB100D4C578 /* Assets.xcassets */,
+				BD2C799F2568A9A200D4C578 /* CoreData */,
+				BD2C799C2568A98900D4C578 /* Model */,
+				BD2C799D2568A98F00D4C578 /* View */,
+				BD2C799E2568A99400D4C578 /* ViewModel */,
 				BD2C796725684EB100D4C578 /* Preview Content */,
 			);
 			path = FoodTracker;
@@ -134,6 +141,64 @@
 				BD2C798525684EB100D4C578 /* Info.plist */,
 			);
 			path = FoodTrackerUITests;
+			sourceTree = "<group>";
+		};
+		BD2C799C2568A98900D4C578 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BDCBC7F62569E40E00206122 /* FoodCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD2C799D2568A98F00D4C578 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD6C3016256C698B00AE72E7 /* View Modifiers */,
+				BDCBC7FB2569F21300206122 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD2C799E2568A99400D4C578 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BD2C799F2568A9A200D4C578 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */,
+				BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BD6C3016256C698B00AE72E7 /* View Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */,
+			);
+			path = "View Modifiers";
+			sourceTree = "<group>";
+		};
+		BD6C301F256CAC0100AE72E7 /* FoodCellView */ = {
+			isa = PBXGroup;
+			children = (
+				BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */,
+			);
+			path = FoodCellView;
+			sourceTree = "<group>";
+		};
+		BDCBC7FB2569F21300206122 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BD6C301F256CAC0100AE72E7 /* FoodCellView */,
+				BD2C796325684EAE00D4C578 /* MainView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2C796E25684EB100D4C578 /* FoodTracker.xcdatamodeld in Sources */,
-				BD2C796B25684EB100D4C578 /* Persistence.swift in Sources */,
-				BD2C796425684EAE00D4C578 /* ContentView.swift in Sources */,
+				BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */,
+				BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */,
+				BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */,
+				BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */,
+				BD2C796425684EAE00D4C578 /* MainView.swift in Sources */,
 				BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
