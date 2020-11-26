@@ -13,10 +13,11 @@ struct NavigationBarModifier: ViewModifier {
     init(backgroundColor: UIColor, tintColor: UIColor) {
         let barAppearance = UINavigationBarAppearance()
         barAppearance.configureWithOpaqueBackground()
+        barAppearance.backgroundImage = UIImage()
         barAppearance.backgroundColor = backgroundColor
         barAppearance.titleTextAttributes = [.foregroundColor: tintColor]
         barAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
-        
+    
         UINavigationBar.appearance().standardAppearance = barAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = barAppearance
         UINavigationBar.appearance().compactAppearance = barAppearance
@@ -26,7 +27,7 @@ struct NavigationBarModifier: ViewModifier {
     // View Modifier Protocol
     func body(content: Content) -> some View {
         content
-      }
+    }
 }
 
 

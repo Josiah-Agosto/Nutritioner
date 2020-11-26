@@ -11,34 +11,47 @@ import UIKit
 struct MainView: View {
     // MARK: - References / Properties
     var testData: [FoodCell] = [FoodCell(name: "Breakfast", notes: "Something could go here.", date: "".getCurrentTime(), calories: 100), FoodCell(name: "Breakfast", notes: "Something could go here.", date: "".getCurrentTime(), calories: 100), FoodCell(name: "Breakfast", notes: "Something could go here.", date: "".getCurrentTime(), calories: 100), FoodCell(name: "Breakfast", notes: "Something could go here.", date: "".getCurrentTime(), calories: 100)]
+    @State var showingNewFood: Bool = false
 
     init() {
-        UITableView.appearance().backgroundColor = UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0)
+        UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
     
     // MARK: - Body
     var body: some View {
         NavigationView {
-            List {
-                ForEach(testData) { foodCell in
-                    FoodCellView(food: foodCell)
-                        .listRowBackground(Color.clear)
+            ZStack {
+                Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
+                List {
+                    ForEach(testData) { foodCell in
+                        NavigationLink(destination: SelectedFoodView(food: foodCell)) {
+                            FoodCellView(food: foodCell)
+                                .cornerRadius(12)
+                                .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                                .border(Color(red: 224 / 255, green: 224 / 255, blue: 226 / 255), width: 0.1)
+                        }
+                    }
+                    .listRowBackground(Color.clear)
                 }
+                .environment(\.defaultMinListRowHeight, 80)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        showingNewFood.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 27))
+                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    })
+                )
+                NavigationLink(destination: AddFoodView(), isActive: $showingNewFood, label: { })
             }
-            .listStyle(PlainListStyle())
             .navigationBarTitle(Text("August"), displayMode: .large)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    // Go to add view
-                }, label: {
-                    Image(systemName: "plus.circle")
-                })
-                .padding(EdgeInsets(top: 100, leading: 0, bottom: 0, trailing: 0))
-            )
         }
-        .navigationBarColor(backgroundColor: UIColor(red: 58 / 255, green: 58 / 255, blue: 60 / 255, alpha: 1.0), tintColor: UIColor.white)
-        .navigationBarTitleDisplayMode(.large)
+//        .sheet(isPresented: $showingNewFood, content: {
+//            AddFoodView()
+//        })
+        .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
     }
 }

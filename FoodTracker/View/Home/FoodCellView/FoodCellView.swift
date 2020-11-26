@@ -14,14 +14,28 @@ struct FoodCellView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(food.date)
+                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .fontWeight(.medium)
+                    .padding(.top, -12)
+                    .padding(.leading, 8)
                 Text(food.name)
+                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                    .font(.custom("Helvetica Neue", size: 18))
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
                 Text(food.notes)
+                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                    .font(.custom("Helvetica Neue", size: 15))
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                    .lineLimit(2)
             }
             Spacer()
             Text("\(food.calories)")
+                .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                .font(.title2)
+                .padding(.trailing, 8)
         }
-        .padding(.top, 10)
-        .cornerRadius(15)
-        .background(Color(red: 73 / 255, green: 73 / 255, blue: 75 / 255, opacity: 1.0))
+        .frame(height: 80)
+        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
     }
 }
