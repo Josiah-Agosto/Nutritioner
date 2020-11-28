@@ -9,13 +9,13 @@ import SwiftUI
 import Swift
 
 struct SelectedFoodView: View {
-    var food: FoodCell
+    var food: MealCell
     
     var body: some View {
         ZStack {
             Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
             Text("Testing")
-                .navigationBarTitle(food.name, displayMode: .large)
+                .navigationBarTitle(food.name ?? "", displayMode: .large)
                 .navigationBarItems(trailing:
                     Text("\(food.calories)")
                         .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))

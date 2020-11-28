@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C5048k" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
+        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal"/>
+    </entity>
+    <entity name="Meal" representedClassName="Meal" syncable="YES" codeGenerationType="class">
+        <attribute name="calcium" optional="YES" attributeType="String"/>
+        <attribute name="calories" optional="YES" attributeType="String"/>
+        <attribute name="caloriesFromFat" optional="YES" attributeType="String"/>
+        <attribute name="cholesterol" optional="YES" attributeType="String"/>
+        <attribute name="dietaryFiber" optional="YES" attributeType="String"/>
+        <attribute name="iron" optional="YES" attributeType="String"/>
+        <attribute name="protein" optional="YES" attributeType="String"/>
+        <attribute name="saturatedFat" optional="YES" attributeType="String"/>
+        <attribute name="servingSize" optional="YES" attributeType="String"/>
+        <attribute name="servingsPerContainer" optional="YES" attributeType="String"/>
+        <attribute name="sodium" optional="YES" attributeType="String"/>
+        <attribute name="sugars" optional="YES" attributeType="String"/>
+        <attribute name="totalCarbohydrates" optional="YES" attributeType="String"/>
+        <attribute name="totalFat" optional="YES" attributeType="String"/>
+        <attribute name="transFat" optional="YES" attributeType="String"/>
+        <attribute name="vitaminA" optional="YES" attributeType="String"/>
+        <attribute name="vitaminC" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MealCell" representedClassName="MealCell" syncable="YES" codeGenerationType="class">
+        <attribute name="calories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Day" positionX="-63" positionY="-27" width="128" height="44"/>
+        <element name="Meal" positionX="-63" positionY="-18" width="128" height="14"/>
+        <element name="MealCell" positionX="-45" positionY="0" width="128" height="104"/>
     </elements>
 </model>

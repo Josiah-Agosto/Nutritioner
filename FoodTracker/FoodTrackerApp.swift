@@ -15,6 +15,10 @@ struct FoodTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView().environment(\.managedObjectContext, context)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
+                    print("Entered Background, Saving!")
+                    PersistentCloudKitContainer.saveContext()
+                })
         }
     }
 }

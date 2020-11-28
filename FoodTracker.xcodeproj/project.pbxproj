@@ -17,11 +17,14 @@
 		BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */; };
 		BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */; };
 		BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */; };
-		BD8B9934256F4D6400807D83 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B9933256F4D6300807D83 /* TextFieldModifier.swift */; };
-		BD8B993F256F5EF100807D83 /* NewFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B993E256F5EF100807D83 /* NewFood.swift */; };
 		BD8EDC94256DBDDB000A4E3D /* SelectedFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDC93256DBDDB000A4E3D /* SelectedFoodView.swift */; };
-		BD8EDCC8256E19DD000A4E3D /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCC7256E19DD000A4E3D /* AddFoodView.swift */; };
-		BD8EDCD1256E1D19000A4E3D /* AddNutritionFactsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCD0256E1D19000A4E3D /* AddNutritionFactsCellView.swift */; };
+		BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */; };
+		BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */; };
+		BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2576F2570357800C9097D /* MainViewViewModel.swift */; };
+		BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */; };
+		BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25781257035CE00C9097D /* AddMealViewModel.swift */; };
+		BDB257A02571EADC00C9097D /* AddNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2579F2571EADC00C9097D /* AddNutritionView.swift */; };
+		BDB257AF2572038B00C9097D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB257AE2572038B00C9097D /* HealthKit.framework */; };
 		BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBC7F62569E40E00206122 /* FoodCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,11 +62,14 @@
 		BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCloudKitContainer.swift; sourceTree = "<group>"; };
 		BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellView.swift; sourceTree = "<group>"; };
-		BD8B9933256F4D6300807D83 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
-		BD8B993E256F5EF100807D83 /* NewFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFood.swift; sourceTree = "<group>"; };
 		BD8EDC93256DBDDB000A4E3D /* SelectedFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodView.swift; sourceTree = "<group>"; };
-		BD8EDCC7256E19DD000A4E3D /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
-		BD8EDCD0256E1D19000A4E3D /* AddNutritionFactsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNutritionFactsCellView.swift; sourceTree = "<group>"; };
+		BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
+		BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNutritionTextField.swift; sourceTree = "<group>"; };
+		BDB2576F2570357800C9097D /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodViewModel.swift; sourceTree = "<group>"; };
+		BDB25781257035CE00C9097D /* AddMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewModel.swift; sourceTree = "<group>"; };
+		BDB2579F2571EADC00C9097D /* AddNutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNutritionView.swift; sourceTree = "<group>"; };
+		BDB257AE2572038B00C9097D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BDCBC7F62569E40E00206122 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB257AF2572038B00C9097D /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +106,7 @@
 				BD2C797725684EB100D4C578 /* FoodTrackerTests */,
 				BD2C798225684EB100D4C578 /* FoodTrackerUITests */,
 				BD2C795F25684EAE00D4C578 /* Products */,
+				BDB257AD2572038A00C9097D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				BDCBC7F62569E40E00206122 /* FoodCell.swift */,
-				BD8B993E256F5EF100807D83 /* NewFood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,7 +172,8 @@
 		BD2C799D2568A98F00D4C578 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD8EDCC6256E19D1000A4E3D /* AddFood */,
+				BDB2579E2571EAC800C9097D /* AddNutrition */,
+				BD8EDCC6256E19D1000A4E3D /* AddMeal */,
 				BDCBC7FB2569F21300206122 /* Home */,
 				BD8EDC8F256DBD5F000A4E3D /* SelectedFood */,
 				BD6C3016256C698B00AE72E7 /* View Modifiers */,
@@ -176,6 +184,9 @@
 		BD2C799E2568A99400D4C578 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BDB25780257035BB00C9097D /* AddMeal */,
+				BDB257742570357D00C9097D /* SelectedFood */,
+				BDB2576E2570319B00C9097D /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -192,7 +203,6 @@
 		BD6C3016256C698B00AE72E7 /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				BD8B9932256F4D4800807D83 /* TextFieldModifier */,
 				BD8EDCAD256E0D4E000A4E3D /* NavigationBarModifier */,
 			);
 			path = "View Modifiers";
@@ -204,14 +214,6 @@
 				BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */,
 			);
 			path = FoodCellView;
-			sourceTree = "<group>";
-		};
-		BD8B9932256F4D4800807D83 /* TextFieldModifier */ = {
-			isa = PBXGroup;
-			children = (
-				BD8B9933256F4D6300807D83 /* TextFieldModifier.swift */,
-			);
-			path = TextFieldModifier;
 			sourceTree = "<group>";
 		};
 		BD8EDC8F256DBD5F000A4E3D /* SelectedFood */ = {
@@ -230,21 +232,61 @@
 			path = NavigationBarModifier;
 			sourceTree = "<group>";
 		};
-		BD8EDCC6256E19D1000A4E3D /* AddFood */ = {
+		BD8EDCC6256E19D1000A4E3D /* AddMeal */ = {
 			isa = PBXGroup;
 			children = (
-				BD8EDCC7256E19DD000A4E3D /* AddFoodView.swift */,
-				BD8EDCCF256E1D10000A4E3D /* AddNutritionFactsCellView */,
+				BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */,
+				BD8EDCCF256E1D10000A4E3D /* AddNutritionTextField */,
 			);
-			path = AddFood;
+			path = AddMeal;
 			sourceTree = "<group>";
 		};
-		BD8EDCCF256E1D10000A4E3D /* AddNutritionFactsCellView */ = {
+		BD8EDCCF256E1D10000A4E3D /* AddNutritionTextField */ = {
 			isa = PBXGroup;
 			children = (
-				BD8EDCD0256E1D19000A4E3D /* AddNutritionFactsCellView.swift */,
+				BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */,
 			);
-			path = AddNutritionFactsCellView;
+			path = AddNutritionTextField;
+			sourceTree = "<group>";
+		};
+		BDB2576E2570319B00C9097D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2576F2570357800C9097D /* MainViewViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BDB257742570357D00C9097D /* SelectedFood */ = {
+			isa = PBXGroup;
+			children = (
+				BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */,
+			);
+			path = SelectedFood;
+			sourceTree = "<group>";
+		};
+		BDB25780257035BB00C9097D /* AddMeal */ = {
+			isa = PBXGroup;
+			children = (
+				BDB25781257035CE00C9097D /* AddMealViewModel.swift */,
+			);
+			path = AddMeal;
+			sourceTree = "<group>";
+		};
+		BDB2579E2571EAC800C9097D /* AddNutrition */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2579F2571EADC00C9097D /* AddNutritionView.swift */,
+			);
+			path = AddNutrition;
+			sourceTree = "<group>";
+		};
+		BDB257AD2572038A00C9097D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDB257AE2572038B00C9097D /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BDCBC7FB2569F21300206122 /* Home */ = {
@@ -387,16 +429,18 @@
 			files = (
 				BD2C796E25684EB100D4C578 /* FoodTracker.xcdatamodeld in Sources */,
 				BD8EDC94256DBDDB000A4E3D /* SelectedFoodView.swift in Sources */,
-				BD8B993F256F5EF100807D83 /* NewFood.swift in Sources */,
 				BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */,
 				BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */,
 				BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */,
 				BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */,
+				BDB257A02571EADC00C9097D /* AddNutritionView.swift in Sources */,
 				BD2C796425684EAE00D4C578 /* MainView.swift in Sources */,
-				BD8EDCD1256E1D19000A4E3D /* AddNutritionFactsCellView.swift in Sources */,
+				BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */,
+				BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */,
+				BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */,
 				BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */,
-				BD8B9934256F4D6400807D83 /* TextFieldModifier.swift in Sources */,
-				BD8EDCC8256E19DD000A4E3D /* AddFoodView.swift in Sources */,
+				BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */,
+				BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -588,7 +632,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
