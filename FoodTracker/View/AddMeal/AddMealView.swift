@@ -29,8 +29,6 @@ struct AddMealView: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     }
                     Group {
-                        AddNutritionTextField(placeholder: "Calories From Fat", input: $viewModel.caloriesFromFat, viewModel: viewModel)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Total Fat", input: $viewModel.totalFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Saturated Fat", input: $viewModel.saturatedFat, viewModel: viewModel)
@@ -131,9 +129,6 @@ struct AddMealView: View {
                     .cornerRadius(10)
                     .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                 }
-                .blur(radius: viewModel.showingAddNutrientView ? 3.0 : 0)
-                .animation(.easeInOut)
-                .disabled(viewModel.showingAddNutrientView)
                 .background(Color.clear)
             }
             .background(Color.clear)

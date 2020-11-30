@@ -27,4 +27,12 @@ extension String {
         formatter.pmSymbol = "PM"
         return formatter.string(from: date)
     }
+    
+    /// Converts String value to Double.
+    public func convertToDouble(_ from: String) -> Double {
+        let input = from
+        guard input.isEmpty != true else { return 0.0 }
+        guard let inputInt = Double(input) else { return 0.0 }
+        return inputInt
+    }
 }

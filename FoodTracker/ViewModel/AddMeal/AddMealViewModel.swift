@@ -18,7 +18,6 @@ class AddMealViewModel: ObservableObject {
     @Published var servingSize: String = ""
     @Published var servingsPerContainer: String = ""
     @Published var calories: String = ""
-    @Published var caloriesFromFat: String = ""
     @Published var totalFat: String = ""
     @Published var saturatedFat: String = ""
     @Published var transFat: String = ""
@@ -73,7 +72,6 @@ class AddMealViewModel: ObservableObject {
         let newMealCell = MealCell(context: managedObjectContext)
         let newMeal = Meal(context: managedObjectContext)
         newMeal.calories = calories
-        newMeal.caloriesFromFat = caloriesFromFat
         newMeal.totalFat = totalFat
         newMeal.saturatedFat = saturatedFat
         newMeal.cholesterol = cholesterol
@@ -88,7 +86,6 @@ class AddMealViewModel: ObservableObject {
         newMeal.iron = iron
         newMeal.biotin = biotin
         newMeal.caffeine = caffeine
-        newMeal.calcium = calcium
         newMeal.chromium = chromium
         newMeal.copper = copper
         newMeal.fatMonounsaturated = monounsaturatedFat
@@ -104,19 +101,14 @@ class AddMealViewModel: ObservableObject {
         newMeal.potassium = potassium
         newMeal.riboflavin = riboflavin
         newMeal.selenium = selenium
-        newMeal.vitaminA = vitaminA
         newMeal.vitaminE = vitaminE
         newMeal.vitaminK = vitaminK
         newMeal.vitaminB6 = vitaminB6
         newMeal.vitaminB12 = vitaminB12
         newMeal.vitaminD = vitaminD
         newMeal.zinc = zinc
-        
+        //
         PersistentCloudKitContainer.saveContext()
-    }
-    
-    // TODO: Make a string translate to Nutrient
-    private func translateStringToDietaryNutrient() {
     }
     
 }
