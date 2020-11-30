@@ -9,32 +9,114 @@ import SwiftUI
 import Combine
 import CoreData
 
-class AddMealViewModel {
+class AddMealViewModel: ObservableObject {
     // MARK: - References / Properties
     @Environment(\.managedObjectContext) var managedObjectContext
+    // MARK: - Add Meal View
+    // Add Meal Properties
+    @Published var mealName: String = ""
+    @Published var servingSize: String = ""
+    @Published var servingsPerContainer: String = ""
+    @Published var calories: String = ""
+    @Published var caloriesFromFat: String = ""
+    @Published var totalFat: String = ""
+    @Published var saturatedFat: String = ""
+    @Published var transFat: String = ""
+    @Published var cholesterol: String = ""
+    @Published var sodium: String = ""
+    @Published var totalCarbohydrate: String = ""
+    @Published var fiber: String = ""
+    @Published var sugars: String = ""
+    @Published var protein: String = ""
+    @Published var vitaminA: String = ""
+    @Published var vitaminC: String = ""
+    @Published var calcium: String = ""
+    @Published var iron: String = ""
+    @Published var biotin: String = ""
+    @Published var zinc: String = ""
+    @Published var niacin: String = ""
+    @Published var folate: String = ""
+    @Published var iodine: String = ""
+    @Published var copper: String = ""
+    @Published var thiamin: String = ""
+    @Published var selenium: String = ""
+    @Published var chromium: String = ""
+    @Published var chloride: String = ""
+    @Published var caffeine: String = ""
+    @Published var magnesium: String = ""
+    @Published var manganese: String = ""
+    @Published var potassium: String = ""
+    @Published var riboflavin: String = ""
+    @Published var phosphorus: String = ""
+    @Published var molybdenum: String = ""
+    @Published var carbohydrates: String = ""
+    @Published var vitaminD: String = ""
+    @Published var vitaminE: String = ""
+    @Published var vitaminK: String = ""
+    @Published var vitaminB6: String = ""
+    @Published var vitaminB12: String = ""
+    @Published var pantothenicAcid: String = ""
+    @Published var polyunsaturatedFat: String = ""
+    @Published var monounsaturatedFat: String = ""
+    // MARK: - Add Nutrition View
+    // Add Nutrition Properties
+    @Published var addNutritionData = Nutrient.allCases
+    @Published var selectedNutrient = Nutrient.dietaryServingSize
+    @Published var selectedBinding: String = ""
+    // Text Field
+    @Published var placeholderText: String = ""
+    @Published var inputedText: String = ""
     
     ///
-    public func addNewMeal(_ servingSize: String, _ servingsPerContainer: String, _ calories: Int, _ caloriesFromFat: Int, _ totalFat: String, _ saturatedFat: String, _ transFat: String, _ cholesterol: String, _ sodium: String, _ totalCarbohydrates: String, _ dietaryFiber: String, _ sugars: String, _ protein: String, _ vitaminA: String, _ vitaminC: String, _ calcium: String, _ iron: String, _ extraArguments: [String]? = nil) {
+    public func addNewMeal() {
+        let newDay = Day(context: managedObjectContext)
+        let newMealCell = MealCell(context: managedObjectContext)
         let newMeal = Meal(context: managedObjectContext)
-        newMeal.servingSize = servingSize
-        newMeal.servingsPerContainer = servingsPerContainer
-        newMeal.calories = String(calories)
-        newMeal.caloriesFromFat = String(caloriesFromFat)
+        newMeal.calories = calories
+        newMeal.caloriesFromFat = caloriesFromFat
         newMeal.totalFat = totalFat
         newMeal.saturatedFat = saturatedFat
-        newMeal.transFat = transFat
         newMeal.cholesterol = cholesterol
         newMeal.sodium = sodium
-        newMeal.totalCarbohydrates = totalCarbohydrates
-        newMeal.dietaryFiber = dietaryFiber
+        newMeal.totalCarbohydrates = totalCarbohydrate
+        newMeal.fiber = fiber
         newMeal.sugars = sugars
         newMeal.protein = protein
         newMeal.vitaminA = vitaminA
         newMeal.vitaminC = vitaminC
         newMeal.calcium = calcium
         newMeal.iron = iron
-        // TODO: Add all possible Nutrition Facts
+        newMeal.biotin = biotin
+        newMeal.caffeine = caffeine
+        newMeal.calcium = calcium
+        newMeal.chromium = chromium
+        newMeal.copper = copper
+        newMeal.fatMonounsaturated = monounsaturatedFat
+        newMeal.fatPolyunsaturated = polyunsaturatedFat
+        newMeal.folate = folate
+        newMeal.iodine = iodine
+        newMeal.magnesium = magnesium
+        newMeal.manganese = manganese
+        newMeal.molybdenum = molybdenum
+        newMeal.niacin = niacin
+        newMeal.pantothenicAcid = pantothenicAcid
+        newMeal.phosphorus = phosphorus
+        newMeal.potassium = potassium
+        newMeal.riboflavin = riboflavin
+        newMeal.selenium = selenium
+        newMeal.vitaminA = vitaminA
+        newMeal.vitaminE = vitaminE
+        newMeal.vitaminK = vitaminK
+        newMeal.vitaminB6 = vitaminB6
+        newMeal.vitaminB12 = vitaminB12
+        newMeal.vitaminD = vitaminD
+        newMeal.zinc = zinc
+        
         PersistentCloudKitContainer.saveContext()
+    }
+    
+    // TODO: Make a string translate to Nutrient
+    private func translateStringToDietaryNutrient() {
     }
     
 }

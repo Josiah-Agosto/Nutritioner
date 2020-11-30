@@ -1,5 +1,5 @@
 //
-//  SelectedFoodView.swift
+//  SelectedMealView.swift
 //  FoodTracker
 //
 //  Created by Josiah Agosto on 11/24/20.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Swift
 
-struct SelectedFoodView: View {
+struct SelectedMealView: View {
     var food: MealCell
     
     var body: some View {
@@ -17,8 +17,8 @@ struct SelectedFoodView: View {
             Text("Testing")
                 .navigationBarTitle(food.name ?? "", displayMode: .large)
                 .navigationBarItems(trailing:
-                    Text("\(food.calories)")
-                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                Text("\(food.calories ?? "")")
+                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 )
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarColor(backgroundColor: UIColor(red: 58 / 255, green: 58 / 255, blue: 60 / 255, alpha: 1.0), tintColor: UIColor.white)

@@ -10,30 +10,8 @@ import UIKit
 
 struct AddMealView: View {
     // MARK: - References/Properties
-    // Required Nutrition Fact Types
-    @State private var servingSize: String = ""
-    @State private var servingsPerContainer: String = ""
-    @State private var calories: String = ""
-    @State private var caloriesFromFat: String = ""
-    @State private var totalFat: String = ""
-    @State private var saturatedFat: String = ""
-    @State private var transFat: String = ""
-    @State private var cholesterol: String = ""
-    @State private var sodium: String = ""
-    @State private var totalCarbohydrate: String = ""
-    @State private var dietaryFiber: String = ""
-    @State private var sugars: String = ""
-    @State private var protein: String = ""
-    @State private var vitaminA: String = ""
-    @State private var vitaminC: String = ""
-    @State private var calcium: String = ""
-    @State private var iron: String = ""
-    @State private var showingAddNutrientView = false
-    
-    init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
-        UITableViewCell.appearance().backgroundColor = UIColor.clear
-    }
+    // Observable Object
+    @ObservedObject var viewModel = AddMealViewModel()
     
     var body: some View {
         GeometryReader { geometry in
@@ -41,83 +19,140 @@ struct AddMealView: View {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
                 List {
                     Group {
-                        AddNutritionTextField(placeholderText: "Serving Size", inputedText: $servingSize)
+                        AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Servings Per Container", inputedText: $servingsPerContainer)
+                        AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.inputedText, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Calories", inputedText: $calories)
+                        AddNutritionTextField(placeholder: "Servings Per Container", input: $viewModel.servingsPerContainer, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Calories From Fat", inputedText: $caloriesFromFat)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Total Fat", inputedText: $totalFat)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Saturated Fat", inputedText: $saturatedFat)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Trans Fat", inputedText: $transFat)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Cholesterol", inputedText: $cholesterol)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Sodium", inputedText: $sodium)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Total Carbohydrates", inputedText: $totalCarbohydrate)
+                        AddNutritionTextField(placeholder: "Calories", input: $viewModel.calories, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     }
                     Group {
-                        AddNutritionTextField(placeholderText: "Dietary Fiber", inputedText: $dietaryFiber)
+                        AddNutritionTextField(placeholder: "Calories From Fat", input: $viewModel.caloriesFromFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Sugars", inputedText: $sugars)
+                        AddNutritionTextField(placeholder: "Total Fat", input: $viewModel.totalFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Protein", inputedText: $protein)
+                        AddNutritionTextField(placeholder: "Saturated Fat", input: $viewModel.saturatedFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Vitamin A", inputedText: $vitaminA)
+                        AddNutritionTextField(placeholder: "Trans Fat", input: $viewModel.transFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Vitamin C", inputedText: $vitaminC)
+                        AddNutritionTextField(placeholder: "Cholesterol", input: $viewModel.cholesterol, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Calcium", inputedText: $calcium)
+                        AddNutritionTextField(placeholder: "Sodium", input: $viewModel.sodium, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholderText: "Iron", inputedText: $iron)
+                        AddNutritionTextField(placeholder: "Total Carbohydrates", input: $viewModel.totalCarbohydrate, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Fiber", input: $viewModel.fiber, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Sugars", input: $viewModel.sugars, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Protein", input: $viewModel.protein, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     }
+                    Group {
+                        AddNutritionTextField(placeholder: "Vitamin A", input: $viewModel.vitaminA, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin C", input: $viewModel.vitaminC, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Calcium", input: $viewModel.calcium, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Iron", input: $viewModel.iron, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Biotin", input: $viewModel.biotin, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Zinc", input: $viewModel.zinc, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Niacin", input: $viewModel.niacin, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Folate", input: $viewModel.folate, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Iodine", input: $viewModel.iodine, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Copper", input: $viewModel.copper, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                    }
+                    Group {
+                        AddNutritionTextField(placeholder: "Thiamin", input: $viewModel.thiamin, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Selenium", input: $viewModel.selenium, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Chromium", input: $viewModel.chromium, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Chloride", input: $viewModel.chloride, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Caffeine", input: $viewModel.caffeine, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Magnesium", input: $viewModel.magnesium, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Potassium", input: $viewModel.potassium, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Riboflavin", input: $viewModel.riboflavin, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Phosphorus", input: $viewModel.phosphorus, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Molybdenum", input: $viewModel.molybdenum, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                    }
+                    Group {
+                        AddNutritionTextField(placeholder: "Carbohydrates", input: $viewModel.carbohydrates, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin D", input: $viewModel.vitaminD, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin E", input: $viewModel.vitaminE, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin K", input: $viewModel.vitaminK, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin B6", input: $viewModel.vitaminB6, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Vitamin B12", input: $viewModel.vitaminB12, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Pantothenic Acid", input: $viewModel.pantothenicAcid, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Polyunsaturated Fat", input: $viewModel.polyunsaturatedFat, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Monounsaturated Fat", input: $viewModel.monounsaturatedFat, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                    }
+                    Group {
+                        Button(action: {
+                            print("Added!")
+                        }, label: {
+                            HStack {
+                                Spacer()
+                                Text("Add ... to HealthKit Log")
+                                Spacer()
+                            }
+                        })
+                        .frame(height: 55)
+                        .background(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255), alignment: .center)
+                    }
+                    .listRowBackground(Color.clear)
+                    .cornerRadius(10)
+                    .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                 }
-                .blur(radius: showingAddNutrientView ? 3.0 : 0)
+                .blur(radius: viewModel.showingAddNutrientView ? 3.0 : 0)
                 .animation(.easeInOut)
-                .disabled(showingAddNutrientView)
+                .disabled(viewModel.showingAddNutrientView)
                 .background(Color.clear)
-                
-                AddNutritionView()
-                    .animation(.easeInOut)
-                    .frame(width: .infinity, height: 400, alignment: .center)
-                    .position(x: geometry.size.width / 2, y: showingAddNutrientView ? geometry.size.height - 100 : geometry.size.height + 200)
             }
             .background(Color.clear)
             .navigationBarTitle("New Food")
             .navigationBarItems(trailing:
-                HStack {
-                    Button(action: {  }, label: {
-                        Image(systemName: "doc.text.viewfinder")
-                            .font(.system(size: 27))
-                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
-                    })
-                    Button(action: {
-                        showingAddNutrientView.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 27))
-                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
-                    })
-                }
+                Button(action: {  }, label: {
+                    Image(systemName: "doc.text.viewfinder")
+                        .font(.system(size: 27))
+                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                })
+                
             )
+        }
+        .onAppear {
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
     }
     
-}
-
-// Transparent Group Box
-struct TransparentGroupBox: GroupBoxStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.content
-            .background(RoundedRectangle(cornerRadius: 8.0).fill(Color.red))
-    }
 }
 
 

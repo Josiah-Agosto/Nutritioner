@@ -31,7 +31,7 @@ struct FoodCellView: View {
                     .lineLimit(2)
             }
             Spacer()
-            Text("\(food.calories)")
+            Text("\(food.calories ?? "")")
                 .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 .font(.title2)
                 .padding(.trailing, 8)

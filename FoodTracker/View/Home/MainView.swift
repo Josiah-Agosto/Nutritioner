@@ -11,10 +11,10 @@ import Combine
 
 struct MainView: View {
     // MARK: - References / Properties
-    // Bindings
+    // View Models
     @ObservedObject var mainViewModel = MainViewViewModel()
+    @ObservedObject var addMealViewModel = AddMealViewModel()
     @State var showingNewFood: Bool = false
-    public let addFoodView = AddMealView()
 
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
@@ -28,7 +28,7 @@ struct MainView: View {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
                 List {
                     ForEach(mainViewModel.mealCellData, id: \.self) { mealCell in
-                        NavigationLink(destination: SelectedFoodView(food: mealCell)) {
+                        NavigationLink(destination: SelectedMealView(food: mealCell)) {
                             FoodCellView(food: mealCell)
                                 .cornerRadius(12)
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -47,7 +47,7 @@ struct MainView: View {
                             .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                     })
                 )
-                NavigationLink(destination: addFoodView, isActive: $showingNewFood, label: { })
+                NavigationLink(destination: AddMealView(viewModel: addMealViewModel), isActive: $showingNewFood, label: { })
             }
             .navigationBarTitle(Text("August"), displayMode: .large)
         }
