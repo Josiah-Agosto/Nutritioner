@@ -21,7 +21,7 @@ struct AddMealView: View {
                     Group {
                         AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.inputedText, viewModel: viewModel)
+                        AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.servingSize, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Servings Per Container", input: $viewModel.servingsPerContainer, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -111,7 +111,20 @@ struct AddMealView: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Monounsaturated Fat", input: $viewModel.monounsaturatedFat, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        AddNutritionTextField(placeholder: "Notes", input: $viewModel.notesText, viewModel: viewModel)
+                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     }
+//                    Group {
+//                        VStack(alignment: .leading) {
+//                            Text("Notes")
+//                                .font(.custom("Helvetica Neue", size: 14))
+//                                .background(Color.clear)
+//                                .padding(EdgeInsets(top: 3, leading: 4, bottom: -7, trailing: 0))
+//                                .foregroundColor(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+//                            DynamicHeightTextField(text: $viewModel.notesText, height: $viewModel.notesTextHeight)
+//                                .padding(EdgeInsets(top: 0, leading: 4, bottom: 3, trailing: 0))
+//                        }
+//                    }
                     Group {
                         Button(action: {
                             print("Added!")
@@ -129,9 +142,9 @@ struct AddMealView: View {
                     .cornerRadius(10)
                     .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                 }
-                .background(Color.clear)
+                .background(Color.clear).edgesIgnoringSafeArea(.all)
             }
-            .background(Color.clear)
+            .background(Color.clear).edgesIgnoringSafeArea(.all)
             .navigationBarTitle("New Food")
             .navigationBarItems(trailing:
                 Button(action: {  }, label: {
@@ -146,6 +159,21 @@ struct AddMealView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
+    }
+    
+    var textFieldHeight: CGFloat {
+        let minimumHeight: CGFloat = 50
+        let maximumHeight: CGFloat = 100
+        
+        if viewModel.notesTextHeight < minimumHeight {
+            return minimumHeight
+        }
+        
+        if viewModel.notesTextHeight > maximumHeight {
+            return maximumHeight
+        }
+        
+        return viewModel.notesTextHeight
     }
     
 }

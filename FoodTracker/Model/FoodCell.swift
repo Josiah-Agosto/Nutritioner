@@ -17,7 +17,7 @@ struct FoodCell: Identifiable {
 
 
 extension String {
-    /// Retrieves current time, HH:MM AM/PM.
+    /// Retrieves current time as String, HH:MM AM/PM.
     public func getCurrentTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
@@ -26,6 +26,19 @@ extension String {
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
         return formatter.string(from: date)
+    }
+    
+    /// Retrieves a date and formats it, then returns it.
+    public func getCurrentDate() -> Date {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        let stringFormat = formatter.string(from: date)
+        guard let dateFromString = formatter.date(from: stringFormat) else { return Date() }
+        return dateFromString
     }
     
     /// Converts String value to Double.

@@ -22,7 +22,6 @@ struct AddNutritionTextField: View {
                 .padding(EdgeInsets(top: 3, leading: 4, bottom: -7, trailing: 0))
                 .foregroundColor(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
             TextField(placeholder, text: $input)
-                .keyboardType(.numberPad)
                 .background(Color.clear)
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 3, trailing: 0))
                 .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255))

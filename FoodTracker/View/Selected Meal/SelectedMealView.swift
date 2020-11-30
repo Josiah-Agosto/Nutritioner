@@ -17,7 +17,7 @@ struct SelectedMealView: View {
             Text("Testing")
                 .navigationBarTitle(food.name ?? "", displayMode: .large)
                 .navigationBarItems(trailing:
-                Text("\(food.calories ?? "")")
+                Text("\(food.calories)")
                     .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 )
             .navigationBarTitleDisplayMode(.inline)

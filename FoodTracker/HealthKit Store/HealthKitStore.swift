@@ -70,7 +70,6 @@ class HealthKitStore {
         }
     }
     
-    
     /// Saves data to HealthKit.
     /// - Parameter completion: True if successful false if error.
     public func saveMealToHealthKit(with completion: @escaping(Bool) -> Void) {

@@ -64,49 +64,55 @@ class AddMealViewModel: ObservableObject {
     @Published var selectedBinding: String = ""
     // Text Field
     @Published var placeholderText: String = ""
-    @Published var inputedText: String = ""
+    @Published var notesText: String = ""
+    @Published var notesTextHeight: CGFloat = 0
     
     ///
     public func addNewMeal() {
         let newDay = Day(context: managedObjectContext)
         let newMealCell = MealCell(context: managedObjectContext)
         let newMeal = Meal(context: managedObjectContext)
-        newMeal.calories = calories
-        newMeal.totalFat = totalFat
-        newMeal.saturatedFat = saturatedFat
-        newMeal.cholesterol = cholesterol
-        newMeal.sodium = sodium
-        newMeal.totalCarbohydrates = totalCarbohydrate
-        newMeal.fiber = fiber
-        newMeal.sugars = sugars
-        newMeal.protein = protein
-        newMeal.vitaminA = vitaminA
-        newMeal.vitaminC = vitaminC
-        newMeal.calcium = calcium
-        newMeal.iron = iron
-        newMeal.biotin = biotin
-        newMeal.caffeine = caffeine
-        newMeal.chromium = chromium
-        newMeal.copper = copper
-        newMeal.fatMonounsaturated = monounsaturatedFat
-        newMeal.fatPolyunsaturated = polyunsaturatedFat
-        newMeal.folate = folate
-        newMeal.iodine = iodine
-        newMeal.magnesium = magnesium
-        newMeal.manganese = manganese
-        newMeal.molybdenum = molybdenum
-        newMeal.niacin = niacin
-        newMeal.pantothenicAcid = pantothenicAcid
-        newMeal.phosphorus = phosphorus
-        newMeal.potassium = potassium
-        newMeal.riboflavin = riboflavin
-        newMeal.selenium = selenium
-        newMeal.vitaminE = vitaminE
-        newMeal.vitaminK = vitaminK
-        newMeal.vitaminB6 = vitaminB6
-        newMeal.vitaminB12 = vitaminB12
-        newMeal.vitaminD = vitaminD
-        newMeal.zinc = zinc
+        newMeal.calories = calories.convertToDouble(calories)
+        newMeal.totalFat = totalFat.convertToDouble(totalFat)
+        newMeal.saturatedFat = saturatedFat.convertToDouble(saturatedFat)
+        newMeal.cholesterol = cholesterol.convertToDouble(cholesterol)
+        newMeal.sodium = sodium.convertToDouble(sodium)
+        newMeal.totalCarbohydrates = totalCarbohydrate.convertToDouble(totalCarbohydrate)
+        newMeal.fiber = fiber.convertToDouble(fiber)
+        newMeal.sugars = sugars.convertToDouble(sugars)
+        newMeal.protein = protein.convertToDouble(protein)
+        newMeal.vitaminA = vitaminA.convertToDouble(vitaminA)
+        newMeal.vitaminC = vitaminC.convertToDouble(vitaminC)
+        newMeal.calcium = calcium.convertToDouble(calcium)
+        newMeal.iron = iron.convertToDouble(iron)
+        newMeal.biotin = biotin.convertToDouble(biotin)
+        newMeal.caffeine = caffeine.convertToDouble(caffeine)
+        newMeal.chromium = chromium.convertToDouble(chromium)
+        newMeal.copper = copper.convertToDouble(copper)
+        newMeal.fatMonounsaturated = monounsaturatedFat.convertToDouble(monounsaturatedFat)
+        newMeal.fatPolyunsaturated = polyunsaturatedFat.convertToDouble(polyunsaturatedFat)
+        newMeal.folate = folate.convertToDouble(folate)
+        newMeal.iodine = iodine.convertToDouble(iodine)
+        newMeal.magnesium = magnesium.convertToDouble(magnesium)
+        newMeal.manganese = manganese.convertToDouble(manganese)
+        newMeal.molybdenum = molybdenum.convertToDouble(molybdenum)
+        newMeal.niacin = niacin.convertToDouble(niacin)
+        newMeal.pantothenicAcid = pantothenicAcid.convertToDouble(pantothenicAcid)
+        newMeal.phosphorus = phosphorus.convertToDouble(phosphorus)
+        newMeal.potassium = potassium.convertToDouble(potassium)
+        newMeal.riboflavin = riboflavin.convertToDouble(riboflavin)
+        newMeal.selenium = selenium.convertToDouble(selenium)
+        newMeal.vitaminE = vitaminE.convertToDouble(vitaminE)
+        newMeal.vitaminK = vitaminK.convertToDouble(vitaminK)
+        newMeal.vitaminB6 = vitaminB6.convertToDouble(vitaminB6)
+        newMeal.vitaminB12 = vitaminB12.convertToDouble(vitaminB12)
+        newMeal.vitaminD = vitaminD.convertToDouble(vitaminD)
+        newMeal.zinc = zinc.convertToDouble(zinc)
+        //
+        newMealCell.calories = newMeal.calories
+        newMealCell.date = "".getCurrentDate()
+        newMealCell.name = mealName
+//        newMealCell.addToMeal(newMeal)
         //
         PersistentCloudKitContainer.saveContext()
     }
