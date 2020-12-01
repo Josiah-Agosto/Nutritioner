@@ -14,11 +14,12 @@ struct MainView: View {
     // View Models
     @ObservedObject var mainViewModel = MainViewViewModel()
     @ObservedObject var addMealViewModel = AddMealViewModel()
-    @State var showingNewFood: Bool = false
+    @State var showingNewMeal: Bool = false
 
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue", size: 10)!]
     }
     
     // MARK: - Body
@@ -40,16 +41,16 @@ struct MainView: View {
                 .environment(\.defaultMinListRowHeight, 80)
                 .navigationBarItems(trailing:
                     Button(action: {
-                        showingNewFood.toggle()
+                        showingNewMeal.toggle()
                     }, label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 27))
                             .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                     })
                 )
-                NavigationLink(destination: AddMealView(viewModel: addMealViewModel), isActive: $showingNewFood, label: { })
+                NavigationLink(destination: AddMealView(viewModel: addMealViewModel), isActive: $showingNewMeal, label: { })
             }
-            .navigationBarTitle(Text("August"), displayMode: .large)
+            .navigationBarTitle(Text(mainViewModel.navigationBarTitle), displayMode: .large)
         }
         .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
