@@ -10,8 +10,9 @@ import UIKit
 
 struct AddMealView: View {
     // MARK: - References/Properties
-    // Observable Object
+    @Environment(\.managedObjectContext) var managedContext
     @Environment(\.presentationMode) private var presentationMode
+    // Observable Object
     @ObservedObject var viewModel: AddMealViewModel
     
     var body: some View {
@@ -21,7 +22,7 @@ struct AddMealView: View {
                 Group {
                     AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                    AddNutritionTextField(placeholder: "Serving Size (g)", input: $viewModel.servingSize, viewModel: viewModel)
+                    AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.servingSize, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Servings Per Container", input: $viewModel.servingsPerContainer, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -114,7 +115,7 @@ struct AddMealView: View {
                 }
                 Group {
                     Button(action: {
-                        viewModel.addToHomeKitPressed()
+                        viewModel.addToHomeKitPressed(managedContext)
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack {
@@ -146,7 +147,7 @@ struct AddMealView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
-        .environment(\.managedObjectContext, viewModel.managedObjectContext)
+        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
     
 }

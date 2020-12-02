@@ -11,6 +11,8 @@ import Combine
 
 struct MainView: View {
     // MARK: - References / Properties
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    @FetchRequest(entity: MealCell.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \MealCell.calories, ascending: true)]) var mealCellData: FetchedResults<MealCell>
     // View Models
     @ObservedObject var mainViewModel = MainViewViewModel()
     @ObservedObject var addMealViewModel = AddMealViewModel()
@@ -28,7 +30,7 @@ struct MainView: View {
             ZStack {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
                 List {
-                    ForEach(mainViewModel.mealCellData, id: \.id) { mealCell in
+                    ForEach(mealCellData, id: \.id) { mealCell in
                         NavigationLink(destination: SelectedMealView(food: mealCell)) {
                             FoodCellView(food: mealCell)
                                 .cornerRadius(12)
@@ -49,15 +51,12 @@ struct MainView: View {
                             .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                     })
                 )
-                NavigationLink(destination: AddMealView(viewModel: addMealViewModel).environment(\.managedObjectContext, mainViewModel.managedObjectContext), isActive: $showingNewMeal, label: { })
+                NavigationLink(destination: AddMealView(managedContext: _managedObjectContext, viewModel: addMealViewModel).environment(\.managedObjectContext, managedObjectContext), isActive: $showingNewMeal, label: { })
             }
             .navigationBarTitle(Text(mainViewModel.navigationBarTitle), displayMode: .large)
         }
         .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            print("Meal Cell Data: \(mainViewModel.mealCellData)")
-        }
     }
 }
 

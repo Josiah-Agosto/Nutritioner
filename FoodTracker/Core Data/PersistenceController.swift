@@ -15,7 +15,7 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let mealCell = MealCell(context: viewContext)
-            mealCell.calories = 245.0
+            mealCell.calories = 120
             mealCell.date = Date()
             mealCell.id = UUID()
             mealCell.meal = NSSet(object: [Meal()])

@@ -39,6 +39,8 @@ extension Date {
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
         formatter.dateFormat = "h:mm a"
         let stringFormat = formatter.string(from: date)
         guard let dateFromString = formatter.date(from: stringFormat) else { return Date() }

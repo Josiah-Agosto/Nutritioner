@@ -65,10 +65,10 @@ class AddMealViewModel: ObservableObject {
     
     // MARK: - Public Functions
     /// Adds Meal to Core Data
-    public func addNewMeal() {
-        let newDay = Day(context: managedObjectContext)
-        let newMealCell = MealCell(context: managedObjectContext)
-        let newMeal = Meal(context: managedObjectContext)
+    public func addNewMeal(_ context: NSManagedObjectContext) {
+        let newDay = Day(context: context)
+        let newMealCell = MealCell(context: context)
+        let newMeal = Meal(context: context)
         newMeal.calories = Double(calories) ?? 0.0
         newMeal.totalFat = Double(totalFat) ?? 0.0
         newMeal.saturatedFat = Double(saturatedFat) ?? 0.0
@@ -107,8 +107,8 @@ class AddMealViewModel: ObservableObject {
         newMeal.zinc = Double(zinc) ?? 0.0
         //
         newMealCell.id = UUID(uuidString: mealName)
-        newMealCell.calories = Double(calories) ?? 0.0
-        newMealCell.date = Date().getFullFormattedDate()
+        newMealCell.calories = Int16(calories) ?? 0
+        newMealCell.date = Date().getCurrentFullDate()
         newMealCell.name = mealName
         newMealCell.notes = notesText
         newMealCell.addToMeal(newMeal)
@@ -116,7 +116,7 @@ class AddMealViewModel: ObservableObject {
         newDay.date = Date().getFullFormattedDate()
         newDay.addToMealCell(newMealCell)
         do {
-            try managedObjectContext.save()
+            try context.save()
             print("Saved to Core Data!")
         } catch let error {
             print("Error saving to Core Data!, \(error.localizedDescription)")
@@ -124,8 +124,8 @@ class AddMealViewModel: ObservableObject {
     }
     
     // MARK: - Actions
-    public func addToHomeKitPressed() {
-        addNewMeal()
+    public func addToHomeKitPressed(_ context: NSManagedObjectContext) {
+        addNewMeal(context)
         HealthKitStore(self).saveMealToHealthKit { (success) in
             if success {
                 print("Successful, Check HealthKit.")

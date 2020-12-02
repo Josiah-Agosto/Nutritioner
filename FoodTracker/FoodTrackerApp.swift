@@ -10,11 +10,12 @@ import CoreData
 
 @main
 struct FoodTrackerApp: App {
-    let context = PersistenceController.shared.container.viewContext
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            MainView().environment(\.managedObjectContext, context)
+            MainView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
                     PersistentCloudKitContainer.saveContext()
                 })
