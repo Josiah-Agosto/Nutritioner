@@ -20,6 +20,7 @@
 		BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */; };
 		BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */; };
 		BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */; };
+		BD73AC3325775E7B00D376B6 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73AC3225775E7B00D376B6 /* PersistenceController.swift */; };
 		BD8EDC94256DBDDB000A4E3D /* SelectedMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDC93256DBDDB000A4E3D /* SelectedMealView.swift */; };
 		BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */; };
 		BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */; };
@@ -68,6 +69,7 @@
 		BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerExtensions.swift; sourceTree = "<group>"; };
 		BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		BD6C3020256CAC0F00AE72E7 /* FoodCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellView.swift; sourceTree = "<group>"; };
+		BD73AC3225775E7B00D376B6 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		BD8EDC93256DBDDB000A4E3D /* SelectedMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMealView.swift; sourceTree = "<group>"; };
 		BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNutritionTextField.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */,
 				BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */,
+				BD73AC3225775E7B00D376B6 /* PersistenceController.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			files = (
 				BD2C796E25684EB100D4C578 /* FoodTracker.xcdatamodeld in Sources */,
 				BD8EDC94256DBDDB000A4E3D /* SelectedMealView.swift in Sources */,
+				BD73AC3325775E7B00D376B6 /* PersistenceController.swift in Sources */,
 				BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */,
 				BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */,
 				BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */,
@@ -529,6 +533,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -590,6 +595,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

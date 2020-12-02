@@ -63,49 +63,51 @@ class AddMealViewModel: ObservableObject {
     @Published var notesText: String = ""
     @Published var notesTextHeight: CGFloat = 0
     
+    // MARK: - Public Functions
     /// Adds Meal to Core Data
     public func addNewMeal() {
         let newDay = Day(context: managedObjectContext)
         let newMealCell = MealCell(context: managedObjectContext)
         let newMeal = Meal(context: managedObjectContext)
-        newMeal.calories = 0.0.convertToDouble(calories)
-        newMeal.totalFat = 0.0.convertToDouble(totalFat)
-        newMeal.saturatedFat = 0.0.convertToDouble(saturatedFat)
-        newMeal.cholesterol = 0.0.convertToDouble(cholesterol)
-        newMeal.sodium = 0.0.convertToDouble(sodium)
-        newMeal.totalCarbohydrates = 0.0.convertToDouble(totalCarbohydrate)
-        newMeal.fiber = 0.0.convertToDouble(fiber)
-        newMeal.sugars = 0.0.convertToDouble(sugars)
-        newMeal.protein = 0.0.convertToDouble(protein)
-        newMeal.vitaminA = 0.0.convertToDouble(vitaminA)
-        newMeal.vitaminC = 0.0.convertToDouble(vitaminC)
-        newMeal.calcium = 0.0.convertToDouble(calcium)
-        newMeal.iron = 0.0.convertToDouble(iron)
-        newMeal.biotin = 0.0.convertToDouble(biotin)
-        newMeal.caffeine = 0.0.convertToDouble(caffeine)
-        newMeal.chromium = 0.0.convertToDouble(chromium)
-        newMeal.copper = 0.0.convertToDouble(copper)
-        newMeal.fatMonounsaturated = 0.0.convertToDouble(monounsaturatedFat)
-        newMeal.fatPolyunsaturated = 0.0.convertToDouble(polyunsaturatedFat)
-        newMeal.folate = 0.0.convertToDouble(folate)
-        newMeal.iodine = 0.0.convertToDouble(iodine)
-        newMeal.magnesium = 0.0.convertToDouble(magnesium)
-        newMeal.manganese = 0.0.convertToDouble(manganese)
-        newMeal.molybdenum = 0.0.convertToDouble(molybdenum)
-        newMeal.niacin = 0.0.convertToDouble(niacin)
-        newMeal.pantothenicAcid = 0.0.convertToDouble(pantothenicAcid)
-        newMeal.phosphorus = 0.0.convertToDouble(phosphorus)
-        newMeal.potassium = 0.0.convertToDouble(potassium)
-        newMeal.riboflavin = 0.0.convertToDouble(riboflavin)
-        newMeal.selenium = 0.0.convertToDouble(selenium)
-        newMeal.vitaminE = 0.0.convertToDouble(vitaminE)
-        newMeal.vitaminK = 0.0.convertToDouble(vitaminK)
-        newMeal.vitaminB6 = 0.0.convertToDouble(vitaminB6)
-        newMeal.vitaminB12 = 0.0.convertToDouble(vitaminB12)
-        newMeal.vitaminD = 0.0.convertToDouble(vitaminD)
-        newMeal.zinc = 0.0.convertToDouble(zinc)
+        newMeal.calories = Double(calories) ?? 0.0
+        newMeal.totalFat = Double(totalFat) ?? 0.0
+        newMeal.saturatedFat = Double(saturatedFat) ?? 0.0
+        newMeal.cholesterol = Double(cholesterol) ?? 0.0
+        newMeal.sodium = Double(sodium) ?? 0.0
+        newMeal.totalCarbohydrates = Double(totalCarbohydrate) ?? 0.0
+        newMeal.fiber = Double(fiber) ?? 0.0
+        newMeal.sugars = Double(sugars) ?? 0.0
+        newMeal.protein = Double(protein) ?? 0.0
+        newMeal.vitaminA = Double(vitaminA) ?? 0.0
+        newMeal.vitaminC = Double(vitaminC) ?? 0.0
+        newMeal.calcium = Double(calcium) ?? 0.0
+        newMeal.iron = Double(iron) ?? 0.0
+        newMeal.biotin = Double(biotin) ?? 0.0
+        newMeal.caffeine = Double(caffeine) ?? 0.0
+        newMeal.chromium = Double(chromium) ?? 0.0
+        newMeal.copper = Double(copper) ?? 0.0
+        newMeal.fatMonounsaturated = Double(monounsaturatedFat) ?? 0.0
+        newMeal.fatPolyunsaturated = Double(polyunsaturatedFat) ?? 0.0
+        newMeal.folate = Double(folate) ?? 0.0
+        newMeal.iodine = Double(iodine) ?? 0.0
+        newMeal.magnesium = Double(magnesium) ?? 0.0
+        newMeal.manganese = Double(manganese) ?? 0.0
+        newMeal.molybdenum = Double(molybdenum) ?? 0.0
+        newMeal.niacin = Double(niacin) ?? 0.0
+        newMeal.pantothenicAcid = Double(pantothenicAcid) ?? 0.0
+        newMeal.phosphorus = Double(phosphorus) ?? 0.0
+        newMeal.potassium = Double(potassium) ?? 0.0
+        newMeal.riboflavin = Double(riboflavin) ?? 0.0
+        newMeal.selenium = Double(selenium) ?? 0.0
+        newMeal.vitaminE = Double(vitaminE) ?? 0.0
+        newMeal.vitaminK = Double(vitaminK) ?? 0.0
+        newMeal.vitaminB6 = Double(vitaminB6) ?? 0.0
+        newMeal.vitaminB12 = Double(vitaminB12) ?? 0.0
+        newMeal.vitaminD = Double(vitaminD) ?? 0.0
+        newMeal.zinc = Double(zinc) ?? 0.0
         //
-        newMealCell.calories = 0.0.convertToDouble(calories)
+        newMealCell.id = UUID(uuidString: mealName)
+        newMealCell.calories = Double(calories) ?? 0.0
         newMealCell.date = Date().getFullFormattedDate()
         newMealCell.name = mealName
         newMealCell.notes = notesText
@@ -113,7 +115,23 @@ class AddMealViewModel: ObservableObject {
         //
         newDay.date = Date().getFullFormattedDate()
         newDay.addToMealCell(newMealCell)
-        PersistentCloudKitContainer.saveContext()
+        do {
+            try managedObjectContext.save()
+            print("Saved to Core Data!")
+        } catch let error {
+            print("Error saving to Core Data!, \(error.localizedDescription)")
+        }
     }
     
+    // MARK: - Actions
+    public func addToHomeKitPressed() {
+        addNewMeal()
+        HealthKitStore(self).saveMealToHealthKit { (success) in
+            if success {
+                print("Successful, Check HealthKit.")
+            } else {
+                print("Error!")
+            }
+        }
+    }
 }

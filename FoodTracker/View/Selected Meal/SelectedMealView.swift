@@ -14,7 +14,6 @@ struct SelectedMealView: View {
     var body: some View {
         ZStack {
             Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
-            Text("Testing")
                 .navigationBarTitle(food.name ?? "", displayMode: .large)
                 .navigationBarItems(trailing:
                 Text("\(food.calories)")

@@ -10,15 +10,17 @@ import CoreData
 
 @main
 struct FoodTrackerApp: App {
-    let context = PersistentCloudKitContainer.persistentContainer.viewContext
+    let context = PersistenceController.shared.container.viewContext
 
     var body: some Scene {
         WindowGroup {
             MainView().environment(\.managedObjectContext, context)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
-                    print("Entered Background, Saving!")
                     PersistentCloudKitContainer.saveContext()
                 })
+                .onAppear {
+                    HealthKitStore().settingUpHealthKit()
+                }
         }
     }
 }

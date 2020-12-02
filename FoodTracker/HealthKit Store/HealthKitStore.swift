@@ -7,59 +7,60 @@
 
 import Foundation
 import HealthKit
-import SwiftUI
 
 class HealthKitStore {
     // MARK: - References / Properties
-    static let shared = HealthKitStore()
-    @ObservedObject private var viewModel = AddMealViewModel()
-    let hkHealthStore = HKHealthStore()
+    private var viewModel: AddMealViewModel? = nil
+    private let hkHealthStore = HKHealthStore()
     // Date
-    let currentDate = Date().getCurrentFullDate()
+    private let currentDate = Date().getCurrentFullDate()
     // Quantities
-    let calories = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!
-    let totalFat = HKObjectType.quantityType(forIdentifier: .dietaryFatTotal)!
-    let saturatedFat = HKObjectType.quantityType(forIdentifier: .dietaryFatSaturated)!
-    let cholesterol = HKObjectType.quantityType(forIdentifier: .dietaryCholesterol)!
-    let sodium = HKObjectType.quantityType(forIdentifier: .dietarySodium)!
-    let totalCarbohydrate = HKObjectType.quantityType(forIdentifier: .dietaryCarbohydrates)!
-    let fiber = HKObjectType.quantityType(forIdentifier: .dietaryFiber)!
-    let sugar = HKObjectType.quantityType(forIdentifier: .dietarySugar)!
-    let protein = HKObjectType.quantityType(forIdentifier: .dietaryProtein)!
-    let vitaminA = HKObjectType.quantityType(forIdentifier: .dietaryVitaminA)!
-    let vitaminC = HKObjectType.quantityType(forIdentifier: .dietaryVitaminC)!
-    let calcium = HKObjectType.quantityType(forIdentifier: .dietaryCalcium)!
-    let iron = HKObjectType.quantityType(forIdentifier: .dietaryIron)!
-    let biotin = HKObjectType.quantityType(forIdentifier: .dietaryBiotin)!
-    let caffeine = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine)!
-    let chromium = HKObjectType.quantityType(forIdentifier: .dietaryChromium)!
-    let copper = HKObjectType.quantityType(forIdentifier: .dietaryCopper)!
-    let fatMonounsaturated = HKObjectType.quantityType(forIdentifier: .dietaryFatMonounsaturated)!
-    let fatPolyunsaturated = HKObjectType.quantityType(forIdentifier: .dietaryFatPolyunsaturated)!
-    let folate = HKObjectType.quantityType(forIdentifier: .dietaryFolate)!
-    let iodine = HKObjectType.quantityType(forIdentifier: .dietaryIodine)!
-    let magnesium = HKObjectType.quantityType(forIdentifier: .dietaryMagnesium)!
-    let manganese = HKObjectType.quantityType(forIdentifier: .dietaryManganese)!
-    let molybdenum = HKObjectType.quantityType(forIdentifier: .dietaryMolybdenum)!
-    let niacin = HKObjectType.quantityType(forIdentifier: .dietaryNiacin)!
-    let pantothenicAcid = HKObjectType.quantityType(forIdentifier: .dietaryPantothenicAcid)!
-    let phosphorus = HKObjectType.quantityType(forIdentifier: .dietaryPhosphorus)!
-    let potassium = HKObjectType.quantityType(forIdentifier: .dietaryPotassium)!
-    let riboflavin = HKObjectType.quantityType(forIdentifier: .dietaryRiboflavin)!
-    let selenium = HKObjectType.quantityType(forIdentifier: .dietarySelenium)!
-    let vitaminE = HKObjectType.quantityType(forIdentifier: .dietaryVitaminE)!
-    let vitaminK = HKObjectType.quantityType(forIdentifier: .dietaryVitaminK)!
-    let vitaminB6 = HKObjectType.quantityType(forIdentifier: .dietaryVitaminB6)!
-    let vitaminB12 = HKObjectType.quantityType(forIdentifier: .dietaryVitaminB12)!
-    let vitaminD = HKObjectType.quantityType(forIdentifier: .dietaryVitaminD)!
-    let zinc = HKObjectType.quantityType(forIdentifier: .dietaryZinc)!
+    private let calories = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!
+    private let totalFat = HKObjectType.quantityType(forIdentifier: .dietaryFatTotal)!
+    private let saturatedFat = HKObjectType.quantityType(forIdentifier: .dietaryFatSaturated)!
+    private let cholesterol = HKObjectType.quantityType(forIdentifier: .dietaryCholesterol)!
+    private let sodium = HKObjectType.quantityType(forIdentifier: .dietarySodium)!
+    private let totalCarbohydrate = HKObjectType.quantityType(forIdentifier: .dietaryCarbohydrates)!
+    private let fiber = HKObjectType.quantityType(forIdentifier: .dietaryFiber)!
+    private let sugar = HKObjectType.quantityType(forIdentifier: .dietarySugar)!
+    private let protein = HKObjectType.quantityType(forIdentifier: .dietaryProtein)!
+    private let vitaminA = HKObjectType.quantityType(forIdentifier: .dietaryVitaminA)!
+    private let vitaminC = HKObjectType.quantityType(forIdentifier: .dietaryVitaminC)!
+    private let calcium = HKObjectType.quantityType(forIdentifier: .dietaryCalcium)!
+    private let iron = HKObjectType.quantityType(forIdentifier: .dietaryIron)!
+    private let biotin = HKObjectType.quantityType(forIdentifier: .dietaryBiotin)!
+    private let caffeine = HKObjectType.quantityType(forIdentifier: .dietaryCaffeine)!
+    private let chromium = HKObjectType.quantityType(forIdentifier: .dietaryChromium)!
+    private let copper = HKObjectType.quantityType(forIdentifier: .dietaryCopper)!
+    private let fatMonounsaturated = HKObjectType.quantityType(forIdentifier: .dietaryFatMonounsaturated)!
+    private let fatPolyunsaturated = HKObjectType.quantityType(forIdentifier: .dietaryFatPolyunsaturated)!
+    private let folate = HKObjectType.quantityType(forIdentifier: .dietaryFolate)!
+    private let iodine = HKObjectType.quantityType(forIdentifier: .dietaryIodine)!
+    private let magnesium = HKObjectType.quantityType(forIdentifier: .dietaryMagnesium)!
+    private let manganese = HKObjectType.quantityType(forIdentifier: .dietaryManganese)!
+    private let molybdenum = HKObjectType.quantityType(forIdentifier: .dietaryMolybdenum)!
+    private let niacin = HKObjectType.quantityType(forIdentifier: .dietaryNiacin)!
+    private let pantothenicAcid = HKObjectType.quantityType(forIdentifier: .dietaryPantothenicAcid)!
+    private let phosphorus = HKObjectType.quantityType(forIdentifier: .dietaryPhosphorus)!
+    private let potassium = HKObjectType.quantityType(forIdentifier: .dietaryPotassium)!
+    private let riboflavin = HKObjectType.quantityType(forIdentifier: .dietaryRiboflavin)!
+    private let selenium = HKObjectType.quantityType(forIdentifier: .dietarySelenium)!
+    private let vitaminE = HKObjectType.quantityType(forIdentifier: .dietaryVitaminE)!
+    private let vitaminK = HKObjectType.quantityType(forIdentifier: .dietaryVitaminK)!
+    private let vitaminB6 = HKObjectType.quantityType(forIdentifier: .dietaryVitaminB6)!
+    private let vitaminB12 = HKObjectType.quantityType(forIdentifier: .dietaryVitaminB12)!
+    private let vitaminD = HKObjectType.quantityType(forIdentifier: .dietaryVitaminD)!
+    private let zinc = HKObjectType.quantityType(forIdentifier: .dietaryZinc)!
     
-    init() {
-        settingUpHealthKit()
+    init(_ viewModel: AddMealViewModel) {
+        self.viewModel = viewModel
     }
     
-    //
-    private func settingUpHealthKit() {
+    init() {
+    }
+    
+    /// Initial health Kit setup
+    public func settingUpHealthKit() {
         if HKHealthStore.isHealthDataAvailable() {
             let allTypes = Set([calories, totalFat, saturatedFat, cholesterol, sodium, totalCarbohydrate, fiber, sugar, protein, vitaminA, vitaminC, calcium, iron, biotin, caffeine, chromium, copper, fatMonounsaturated, fatPolyunsaturated, folate, iodine, magnesium, manganese, molybdenum, niacin, pantothenicAcid, phosphorus, potassium, riboflavin, selenium, vitaminE, vitaminK, vitaminB6, vitaminB12, vitaminD, zinc])
             hkHealthStore.requestAuthorization(toShare: allTypes, read: nil) { (success, error) in
@@ -67,6 +68,8 @@ class HealthKitStore {
                     print("Error, \(error!.localizedDescription)")
                 }
             }
+        } else {
+            print("Error, HealthKit not available. \(HKError.errorHealthDataUnavailable)")
         }
     }
     
@@ -74,42 +77,42 @@ class HealthKitStore {
     /// - Parameter completion: True if successful false if error.
     public func saveMealToHealthKit(with completion: @escaping(Bool) -> Void) {
         // Quantities
-        let caloriesQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.calories))
-        let totalFatQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.totalFat))
-        let saturatedFatQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.saturatedFat))
-        let cholesterolQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.cholesterol))
-        let sodiumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.sodium))
-        let totalCarbohydrateQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.totalCarbohydrate))
-        let fiberQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.fiber))
-        let sugarQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.sugars))
-        let proteinQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.protein))
-        let vitaminAQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminA))
-        let vitaminCQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminC))
-        let calciumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.calcium))
-        let ironQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.iron))
-        let biotinQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.biotin))
-        let caffeineQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.caffeine))
-        let chromiumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.chromium))
-        let copperQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.copper))
-        let fatMonounsaturatedQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.monounsaturatedFat))
-        let fatPolyunsaturatedQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.polyunsaturatedFat))
-        let folateQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.folate))
-        let iodineQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.iodine))
-        let magnesiumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.magnesium))
-        let manganeseQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.manganese))
-        let molybdenumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.molybdenum))
-        let niacinQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.niacin))
-        let pantothenicAcidQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.pantothenicAcid))
-        let phosphorusQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.phosphorus))
-        let potassiumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.potassium))
-        let riboflavinQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.riboflavin))
-        let seleniumQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.selenium))
-        let vitaminEQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminE))
-        let vitaminKQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminK))
-        let vitaminB6Quantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminB6))
-        let vitaminB12Quantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminB12))
-        let vitaminDQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.vitaminD))
-        let zincQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: 0.convertToDouble(viewModel.zinc))
+        let caloriesQuantity = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: Double(viewModel?.calories ?? "") ?? 0.0)
+        let totalFatQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.totalFat ?? "") ?? 0.0)
+        let saturatedFatQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.saturatedFat ?? "") ?? 0.0)
+        let cholesterolQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.cholesterol ?? "") ?? 0.0)
+        let sodiumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.sodium ?? "") ?? 0.0)
+        let totalCarbohydrateQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.totalCarbohydrate ?? "") ?? 0.0)
+        let fiberQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.fiber ?? "") ?? 0.0)
+        let sugarQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.sugars ?? "") ?? 0.0)
+        let proteinQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.protein ?? "") ?? 0.0)
+        let vitaminAQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.vitaminA ?? "") ?? 0.0)
+        let vitaminCQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.vitaminC ?? "") ?? 0.0)
+        let calciumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.calcium ?? "") ?? 0.0)
+        let ironQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.iron ?? "") ?? 0.0)
+        let biotinQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.biotin ?? "") ?? 0.0)
+        let caffeineQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.caffeine ?? "") ?? 0.0)
+        let chromiumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.chromium ?? "") ?? 0.0)
+        let copperQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.copper ?? "") ?? 0.0)
+        let fatMonounsaturatedQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.monounsaturatedFat ?? "") ?? 0.0)
+        let fatPolyunsaturatedQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.polyunsaturatedFat ?? "") ?? 0.0)
+        let folateQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.folate ?? "") ?? 0.0)
+        let iodineQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.iodine ?? "") ?? 0.0)
+        let magnesiumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.magnesium ?? "") ?? 0.0)
+        let manganeseQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.manganese ?? "") ?? 0.0)
+        let molybdenumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.molybdenum ?? "") ?? 0.0)
+        let niacinQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.niacin ?? "") ?? 0.0)
+        let pantothenicAcidQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.pantothenicAcid ?? "") ?? 0.0)
+        let phosphorusQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.phosphorus ?? "") ?? 0.0)
+        let potassiumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.potassium ?? "") ?? 0.0)
+        let riboflavinQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.riboflavin ?? "") ?? 0.0)
+        let seleniumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.selenium ?? "") ?? 0.0)
+        let vitaminEQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.vitaminE ?? "") ?? 0.0)
+        let vitaminKQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.vitaminK ?? "") ?? 0.0)
+        let vitaminB6Quantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.vitaminB6 ?? "") ?? 0.0)
+        let vitaminB12Quantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.vitaminB12 ?? "") ?? 0.0)
+        let vitaminDQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .micro), doubleValue: Double(viewModel?.vitaminD ?? "") ?? 0.0)
+        let zincQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.zinc ?? "") ?? 0.0)
         // Samples
         let caloriesSample = HKQuantitySample(type: calories, quantity: caloriesQuantity, start: currentDate, end: currentDate)
         let totalFatSample = HKQuantitySample(type: totalFat, quantity: totalFatQuantity, start: currentDate, end: currentDate)
