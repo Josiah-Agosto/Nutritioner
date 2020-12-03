@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C5048k" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Day" representedClassName="Day" syncable="YES">
+        <attribute name="date" attributeType="String"/>
         <relationship name="mealCell" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MealCell" inverseName="day" inverseEntity="MealCell"/>
     </entity>
-    <entity name="Meal" representedClassName="Meal" syncable="YES" codeGenerationType="class">
+    <entity name="Meal" representedClassName="Meal" syncable="YES">
         <attribute name="biotin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="caffeine" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="calcium" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -45,9 +45,9 @@
         <attribute name="zinc" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="mealCell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MealCell" inverseName="meal" inverseEntity="MealCell"/>
     </entity>
-    <entity name="MealCell" representedClassName="MealCell" syncable="YES" codeGenerationType="class">
+    <entity name="MealCell" representedClassName="MealCell" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>

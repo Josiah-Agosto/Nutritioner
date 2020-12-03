@@ -10,7 +10,7 @@ import Foundation
 struct FoodCell: Identifiable {
     var id = UUID()
     var name: String
-    var notes: String
+    var notes: String?
     var date: String
     var calories: Int
 }

@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     /// Retrieves current time as String, HH:MM AM/PM.
-    public func getCurrentStringTime() -> String {
+    static func getCurrentStringTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -20,7 +20,7 @@ extension String {
     }
     
     /// Returns current day name.
-    public func getCurrentDay() -> String {
+    static func getCurrentDay() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
@@ -33,23 +33,19 @@ extension String {
 
 extension Date {
     /// Retrieves a date and formats it, then returns it ex: Hour:Minute am/pm.
-    public func getCurrentFullDate() -> Date {
-        let date = Date()
+    static func getCurrentFullDate() -> Self {
+        let date = Self()
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
         formatter.dateFormat = "h:mm a"
-        let stringFormat = formatter.string(from: date)
-        guard let dateFromString = formatter.date(from: stringFormat) else { return Date() }
-        return dateFromString
+        formatter.timeZone = TimeZone.current
+        let timeString = formatter.string(from: date)
+        let dateString = formatter.date(from: timeString)!
+        return dateString
     }
     
     /// Returns full date formatted, ex: FullDay, FullMonth,Day, Year, Hour:Minute:Second am/pm.
-    public func getFullFormattedDate() -> Date {
-        let date = Date()
+    static func getFullFormattedDate() -> Self {
+        let date = Self()
         let dateFormatter = DateFormatter()
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
@@ -63,7 +59,7 @@ extension Date {
 
 extension Double {
     /// Converts String value to Double.
-    public func convertToDouble(_ from: String) -> Double {
+    static func convertToDouble(_ from: String) -> Double {
         let input = from
         guard input.isEmpty != true else { return 0.0 }
         guard let inputInt = Double(input) else { return 0.0 }

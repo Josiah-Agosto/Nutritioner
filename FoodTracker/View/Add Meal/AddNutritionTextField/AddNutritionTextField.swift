@@ -24,7 +24,7 @@ struct AddNutritionTextField: View {
             TextField(placeholder, text: $input)
                 .background(Color.clear)
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 3, trailing: 0))
-                .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255))
+                .foregroundColor(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
         }
         .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
         .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))

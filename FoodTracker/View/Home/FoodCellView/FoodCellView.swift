@@ -6,32 +6,35 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct FoodCellView: View {
-    var food: MealCell
+    var date: String
+    var name: String
+    var notes: String?
+    var calories: Int16
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                // TODO: Fix this with an Extension to correct the format of date.
-                Text("\(food.date!)")
+                Text(date)
                     .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .font(.custom("Helvetica Neue", size: 12))
                     .fontWeight(.medium)
                     .padding(.top, -12)
                     .padding(.leading, 8)
-                Text(food.name ?? "")
+                Text(name)
                     .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .font(.custom("Helvetica Neue", size: 18))
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
-                Text(food.notes ?? "")
+                Text(notes ?? "")
                     .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .font(.custom("Helvetica Neue", size: 15))
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
                     .lineLimit(2)
             }
             Spacer()
-            Text("\(food.calories)")
+            Text("\(calories)")
                 .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 .font(.title2)
                 .padding(.trailing, 8)

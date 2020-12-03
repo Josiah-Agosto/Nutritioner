@@ -31,13 +31,13 @@ struct MainView: View {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
                 List {
                     ForEach(mealCellData, id: \.id) { mealCell in
-                        NavigationLink(destination: SelectedMealView(food: mealCell)) {
-                            FoodCellView(food: mealCell)
+                        NavigationLink(destination: SelectedMealView(name: mealCell.name, calories: mealCell.calories)) {
+                            FoodCellView(date: mealCell.date, name: mealCell.name, notes: mealCell.notes, calories: mealCell.calories)
                                 .cornerRadius(12)
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                                 .border(Color(red: 224 / 255, green: 224 / 255, blue: 226 / 255), width: 0.1)
                         }
-                        .navigationBarTitle("\(mealCell.name ?? "Meal")")
+                        .navigationBarTitle("\(mealCell.name)")
                     }
                     .listRowBackground(Color.clear)
                 }

@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
-import Swift
 
 struct SelectedMealView: View {
-    var food: MealCell
+    var name: String
+    var calories: Int16
     
     var body: some View {
         ZStack {
             Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
-                .navigationBarTitle(food.name ?? "", displayMode: .large)
+                .navigationBarTitle(name, displayMode: .large)
                 .navigationBarItems(trailing:
-                Text("\(food.calories)")
+                Text("\(calories)")
                     .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 )
             .navigationBarTitleDisplayMode(.inline)

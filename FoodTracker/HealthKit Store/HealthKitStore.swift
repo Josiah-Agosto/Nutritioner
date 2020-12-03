@@ -13,7 +13,7 @@ class HealthKitStore {
     private var viewModel: AddMealViewModel? = nil
     private let hkHealthStore = HKHealthStore()
     // Date
-    private let currentDate = Date().getCurrentFullDate()
+    private let currentDate = Date.getCurrentFullDate()
     // Quantities
     private let calories = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!
     private let totalFat = HKObjectType.quantityType(forIdentifier: .dietaryFatTotal)!
