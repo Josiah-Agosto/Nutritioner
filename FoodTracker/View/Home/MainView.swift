@@ -17,6 +17,7 @@ struct MainView: View {
     @ObservedObject var mainViewModel = MainViewViewModel()
     @ObservedObject var addMealViewModel = AddMealViewModel()
     @State var showingNewMeal: Bool = false
+    @State var showingCalendar: Bool = false
 
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
@@ -42,22 +43,31 @@ struct MainView: View {
                     .listRowBackground(Color.clear)
                 }
                 .environment(\.defaultMinListRowHeight, 80)
-                .navigationBarItems(trailing:
+                .navigationBarItems(leading:
+                    Button(action: {
+                        showingCalendar.toggle()
+                    }, label: {
+                    Image(systemName: "calendar.circle")
+                        .font(.system(size: 27))
+                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                }), trailing:
                     Button(action: {
                         showingNewMeal.toggle()
                     }, label: {
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 27))
-                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 27))
+                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                     })
                 )
                 NavigationLink(destination: AddMealView(managedContext: _managedObjectContext, viewModel: addMealViewModel).environment(\.managedObjectContext, managedObjectContext), isActive: $showingNewMeal, label: { })
+                NavigationLink(destination: CalendarViewHolder().environment(\.managedObjectContext, managedObjectContext), isActive: $showingCalendar, label: { })
             }
             .navigationBarTitle(Text(mainViewModel.navigationBarTitle), displayMode: .large)
         }
         .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
     }
+
 }
 
 

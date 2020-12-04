@@ -135,14 +135,15 @@ struct AddMealView: View {
         }
         .background(Color.clear).edgesIgnoringSafeArea(.all)
         .navigationBarTitle("New Meal")
-        .navigationBarItems(trailing:
-            Button(action: {  }, label: {
-                Image(systemName: "doc.text.viewfinder")
-                    .font(.system(size: 27))
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
-            })
-            
-        )
+//        .navigationBarItems(trailing:
+//            Button(action: {
+//
+//            }, label: {
+//                Image(systemName: "doc.text.viewfinder")
+//                    .font(.system(size: 27))
+//                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+//            })
+//        )
         .onAppear {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
@@ -151,10 +152,3 @@ struct AddMealView: View {
     }
     
 }
-
-
-//struct AddFoodView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        AddMealView()
-//    }
-//}

@@ -113,6 +113,7 @@ class AddMealViewModel: ObservableObject {
         newMealCell.notes = notesText
         newMealCell.addToMeal(newMeal)
         //
+        newDay.id = UUID()
         newDay.date = String.getCurrentStringTime()
         newDay.addToMealCell(newMealCell)
         do {
