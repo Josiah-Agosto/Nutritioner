@@ -10,9 +10,6 @@ import SwiftUI
 struct CalendarView<DateView>: View where DateView: View {
     // MARK: - References / Properties
     @Environment(\.calendar) var calendar
-    @Environment(\.managedObjectContext) var managedContext
-    @Environment(\.presentationMode) private var presentationMode
-    @FetchRequest(entity: Day.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)]) var dayData: FetchedResults<Day>
     // Calendar Properties
     let interval: DateInterval
     let showHeaders: Bool
@@ -35,7 +32,8 @@ struct CalendarView<DateView>: View where DateView: View {
                         } else {
                             content(date).hidden()
                         }
-                    } // Day
+                    } // Day Cell
+                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .background(Color.clear)
                 } // Section
             } // Month
@@ -55,7 +53,8 @@ struct CalendarView<DateView>: View where DateView: View {
             if showHeaders {
                 Text(formatter.string(from: month))
                     .font(.title)
-                    .padding()
+                    .padding(8)
+                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .background(Color.clear)
             }
         }
