@@ -18,7 +18,6 @@ struct PersistenceController {
             mealCell.calories = 120
             mealCell.date = String.getCurrentStringTime()
             mealCell.id = UUID()
-            mealCell.meal = NSSet(object: [Meal()])
             mealCell.name = "Granola Bar"
         }
         do {

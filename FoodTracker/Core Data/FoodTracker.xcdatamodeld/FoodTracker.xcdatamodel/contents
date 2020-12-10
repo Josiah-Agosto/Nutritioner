@@ -50,6 +50,7 @@
         <attribute name="calories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="longDate" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="mealCell" inverseEntity="Day"/>
@@ -58,6 +59,6 @@
     <elements>
         <element name="Day" positionX="294.1829833984375" positionY="-59.62158203125" width="128" height="74"/>
         <element name="Meal" positionX="-63" positionY="-18" width="128" height="614"/>
-        <element name="MealCell" positionX="357.6519165039062" positionY="167.2196807861328" width="128" height="134"/>
+        <element name="MealCell" positionX="357.6519165039062" positionY="167.2196807861328" width="128" height="149"/>
     </elements>
 </model>

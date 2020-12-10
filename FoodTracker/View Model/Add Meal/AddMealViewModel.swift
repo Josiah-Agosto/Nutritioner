@@ -20,7 +20,6 @@ class AddMealViewModel: ObservableObject {
     @Published var calories: String = ""
     @Published var totalFat: String = ""
     @Published var saturatedFat: String = ""
-    @Published var transFat: String = ""
     @Published var cholesterol: String = ""
     @Published var sodium: String = ""
     @Published var totalCarbohydrate: String = ""
@@ -40,7 +39,6 @@ class AddMealViewModel: ObservableObject {
     @Published var thiamin: String = ""
     @Published var selenium: String = ""
     @Published var chromium: String = ""
-    @Published var chloride: String = ""
     @Published var caffeine: String = ""
     @Published var magnesium: String = ""
     @Published var manganese: String = ""
@@ -69,46 +67,47 @@ class AddMealViewModel: ObservableObject {
         let newDay = Day(context: context)
         let newMealCell = MealCell(context: context)
         let newMeal = Meal(context: context)
-        newMeal.calories = Double.convertToDouble(calories)
-        newMeal.totalFat = Double.convertToDouble(totalFat)
-        newMeal.saturatedFat = Double.convertToDouble(saturatedFat)
-        newMeal.cholesterol = Double.convertToDouble(cholesterol)
-        newMeal.sodium = Double.convertToDouble(sodium)
-        newMeal.totalCarbohydrates = Double.convertToDouble(totalCarbohydrate)
-        newMeal.fiber = Double.convertToDouble(fiber)
-        newMeal.sugars = Double.convertToDouble(sugars)
-        newMeal.protein = Double.convertToDouble(protein)
-        newMeal.vitaminA = Double.convertToDouble(vitaminA)
-        newMeal.vitaminC = Double.convertToDouble(vitaminC)
-        newMeal.calcium = Double.convertToDouble(calcium)
-        newMeal.iron = Double.convertToDouble(iron)
-        newMeal.biotin = Double.convertToDouble(biotin)
-        newMeal.caffeine = Double.convertToDouble(caffeine)
-        newMeal.chromium = Double.convertToDouble(chromium)
-        newMeal.copper = Double.convertToDouble(copper)
-        newMeal.fatMonounsaturated = Double.convertToDouble(monounsaturatedFat)
-        newMeal.fatPolyunsaturated = Double.convertToDouble(polyunsaturatedFat)
-        newMeal.folate = Double.convertToDouble(folate)
-        newMeal.iodine = Double.convertToDouble(iodine)
-        newMeal.magnesium = Double.convertToDouble(magnesium)
-        newMeal.manganese = Double.convertToDouble(manganese)
-        newMeal.molybdenum = Double.convertToDouble(molybdenum)
-        newMeal.niacin = Double.convertToDouble(niacin)
-        newMeal.pantothenicAcid = Double.convertToDouble(pantothenicAcid)
-        newMeal.phosphorus = Double.convertToDouble(phosphorus)
-        newMeal.potassium = Double.convertToDouble(potassium)
-        newMeal.riboflavin = Double.convertToDouble(riboflavin)
-        newMeal.selenium = Double.convertToDouble(selenium)
-        newMeal.vitaminE = Double.convertToDouble(vitaminE)
-        newMeal.vitaminK = Double.convertToDouble(vitaminK)
-        newMeal.vitaminB6 = Double.convertToDouble(vitaminB6)
-        newMeal.vitaminB12 = Double.convertToDouble(vitaminB12)
-        newMeal.vitaminD = Double.convertToDouble(vitaminD)
-        newMeal.zinc = Double.convertToDouble(zinc)
+        if (Int16(calories) != 0) { newMeal.calories = Double.convertToDouble(calories) }
+        if (Int16(totalFat) != 0) { newMeal.totalFat = Double.convertToDouble(totalFat) }
+        if (Int16(saturatedFat) != 0) { newMeal.saturatedFat = Double.convertToDouble(saturatedFat) }
+        if (Int16(cholesterol) != 0) { newMeal.cholesterol = Double.convertToDouble(cholesterol) }
+        if (Int16(sodium) != 0) { newMeal.sodium = Double.convertToDouble(sodium) }
+        if (Int16(totalCarbohydrate) != 0) { newMeal.totalCarbohydrates = Double.convertToDouble(totalCarbohydrate) }
+        if (Int16(fiber) != 0) { newMeal.fiber = Double.convertToDouble(fiber) }
+        if (Int16(sugars) != 0) { newMeal.sugars = Double.convertToDouble(sugars) }
+        if (Int16(protein) != 0) { newMeal.protein = Double.convertToDouble(protein) }
+        if (Int16(vitaminA) != 0) { newMeal.vitaminA = Double.convertToDouble(vitaminA) }
+        if (Int16(vitaminC) != 0) { newMeal.vitaminC = Double.convertToDouble(vitaminC) }
+        if (Int16(calcium) != 0) { newMeal.calcium = Double.convertToDouble(calcium) }
+        if (Int16(iron) != 0) { newMeal.iron = Double.convertToDouble(iron) }
+        if (Int16(biotin) != 0) { newMeal.biotin = Double.convertToDouble(biotin) }
+        if (Int16(caffeine) != 0) { newMeal.caffeine = Double.convertToDouble(caffeine) }
+        if (Int16(chromium) != 0) { newMeal.chromium = Double.convertToDouble(chromium) }
+        if (Int16(copper) != 0) { newMeal.copper = Double.convertToDouble(copper) }
+        if (Int16(monounsaturatedFat) != 0) { newMeal.fatMonounsaturated = Double.convertToDouble(monounsaturatedFat) }
+        if (Int16(polyunsaturatedFat) != 0) { newMeal.fatPolyunsaturated = Double.convertToDouble(polyunsaturatedFat) }
+        if (Int16(folate) != 0) { newMeal.folate = Double.convertToDouble(folate) }
+        if (Int16(iodine) != 0) { newMeal.iodine = Double.convertToDouble(iodine) }
+        if (Int16(magnesium) != 0) { newMeal.magnesium = Double.convertToDouble(magnesium) }
+        if (Int16(manganese) != 0) { newMeal.manganese = Double.convertToDouble(manganese) }
+        if (Int16(molybdenum) != 0) { newMeal.molybdenum = Double.convertToDouble(molybdenum) }
+        if (Int16(niacin) != 0) { newMeal.niacin = Double.convertToDouble(niacin) }
+        if (Int16(pantothenicAcid) != 0) { newMeal.pantothenicAcid = Double.convertToDouble(pantothenicAcid) }
+        if (Int16(phosphorus) != 0) { newMeal.phosphorus = Double.convertToDouble(phosphorus) }
+        if (Int16(potassium) != 0) { newMeal.potassium = Double.convertToDouble(potassium) }
+        if (Int16(riboflavin) != 0) { newMeal.riboflavin = Double.convertToDouble(riboflavin) }
+        if (Int16(selenium) != 0) { newMeal.selenium = Double.convertToDouble(selenium) }
+        if (Int16(vitaminE) != 0) { newMeal.vitaminE = Double.convertToDouble(vitaminE) }
+        if (Int16(vitaminK) != 0) { newMeal.vitaminK = Double.convertToDouble(vitaminK) }
+        if (Int16(vitaminB6) != 0) { newMeal.vitaminB6 = Double.convertToDouble(vitaminB6) }
+        if (Int16(vitaminB12) != 0) { newMeal.vitaminB12 = Double.convertToDouble(vitaminB12) }
+        if (Int16(vitaminD) != 0) { newMeal.vitaminD = Double.convertToDouble(vitaminD) }
+        if (Int16(zinc) != 0) { newMeal.zinc = Double.convertToDouble(zinc) }
         //
         newMealCell.id = UUID()
         newMealCell.calories = Int16(calories) ?? 0
         newMealCell.date = String.getCurrentStringTime()
+        newMealCell.longDate = String.getFullFormattedDateString()
         newMealCell.name = mealName
         newMealCell.notes = notesText
         newMealCell.addToMeal(newMeal)

@@ -13,12 +13,12 @@ struct AddMealView: View {
     @Environment(\.managedObjectContext) var managedContext
     @Environment(\.presentationMode) private var presentationMode
     // Observable Object
-    @ObservedObject var viewModel: AddMealViewModel
+    @ObservedObject var viewModel = AddMealViewModel()
     
     var body: some View {
         ZStack {
             Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
-            List {
+            Form {
                 Group {
                     AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -32,18 +32,16 @@ struct AddMealView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Total Carbohydrates (g)", input: $viewModel.totalCarbohydrate, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                    AddNutritionTextField(placeholder: "Trans Fat (g)", input: $viewModel.transFat, viewModel: viewModel)
-                        .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Cholesterol (mg)", input: $viewModel.cholesterol, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Sodium (mg)", input: $viewModel.sodium, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Fiber (g)", input: $viewModel.fiber, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                }
-                Group {
                     AddNutritionTextField(placeholder: "Sugars (g)", input: $viewModel.sugars, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                }
+                Group {
                     AddNutritionTextField(placeholder: "Protein (g)", input: $viewModel.protein, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Vitamin A (mcg)", input: $viewModel.vitaminA, viewModel: viewModel)
@@ -62,10 +60,10 @@ struct AddMealView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Caffeine", input: $viewModel.caffeine, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                }
-                Group {
                     AddNutritionTextField(placeholder: "Biotin (mcg)", input: $viewModel.biotin, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                }
+                Group {
                     AddNutritionTextField(placeholder: "Iodine (mcg)", input: $viewModel.iodine, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Copper (mcg)", input: $viewModel.copper, viewModel: viewModel)
@@ -82,17 +80,15 @@ struct AddMealView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Vitamin B12 (mcg)", input: $viewModel.vitaminB12, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                }
-                Group {
                     AddNutritionTextField(placeholder: "Thiamin (mg)", input: $viewModel.thiamin, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Niacin (mg)", input: $viewModel.niacin, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                }
+                Group {
                     AddNutritionTextField(placeholder: "Selenium (mcg)", input: $viewModel.selenium, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Chromium (mcg)", input: $viewModel.chromium, viewModel: viewModel)
-                        .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                    AddNutritionTextField(placeholder: "Chloride", input: $viewModel.chloride, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Magnesium (mg)", input: $viewModel.magnesium, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -104,8 +100,6 @@ struct AddMealView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Pantothenic Acid (mg)", input: $viewModel.pantothenicAcid, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                }
-                Group {
                     AddNutritionTextField(placeholder: "Polyunsaturated Fat", input: $viewModel.polyunsaturatedFat, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Monounsaturated Fat", input: $viewModel.monounsaturatedFat, viewModel: viewModel)
@@ -115,7 +109,7 @@ struct AddMealView: View {
                 }
                 Group {
                     Button(action: {
-                        viewModel.addToHomeKitPressed(managedContext)
+                        viewModel.addToHomeKitPressed(PersistenceController.shared.container.viewContext)
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack {
@@ -148,7 +142,6 @@ struct AddMealView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
-        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
     
 }

@@ -18,11 +18,12 @@ extension MealCell {
 
     @NSManaged public var calories: Int16
     @NSManaged public var date: String
+    @NSManaged public var longDate: String
     @NSManaged public var id: UUID
     @NSManaged public var name: String
     @NSManaged public var notes: String?
     @NSManaged public var day: Day
-    @NSManaged public var meal: NSSet
+    @NSManaged public var meal: Set<Meal>
 
 }
 

@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     /// Retrieves current time as String, HH:MM AM/PM.
-    static func getCurrentStringTime() -> String {
+    static func getCurrentStringTime() -> Self {
         let date = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -20,12 +20,23 @@ extension String {
     }
     
     /// Returns current day name.
-    static func getCurrentDay() -> String {
+    static func getCurrentDay() -> Self {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         let dayString = dateFormatter.string(from: date)
         return dayString
+    }
+    
+    /// Returns full date formatted, ex: FullDay, FullMonth,Day, Year, Hour:Minute:Second am/pm.
+    static func getFullFormattedDateString() -> Self {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        dateFormatter.dateFormat = "MMMM dd,yyyy 'at' h:mm:s a"
+        let fullDate = dateFormatter.string(from: date)
+        return fullDate
     }
 }
 

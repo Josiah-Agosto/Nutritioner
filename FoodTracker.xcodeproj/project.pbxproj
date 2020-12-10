@@ -17,6 +17,7 @@
 		BD2C797925684EB100D4C578 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C797825684EB100D4C578 /* FoodTrackerTests.swift */; };
 		BD2C798425684EB100D4C578 /* FoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */; };
 		BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */; };
+		BD3B7E872581C14700582D03 /* TableViewSeparatorStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */; };
 		BD47114A2579F573005C1BBA /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4711492579F573005C1BBA /* CameraController.swift */; };
 		BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */; };
 		BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */; };
@@ -38,6 +39,7 @@
 		BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */; };
 		BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25781257035CE00C9097D /* AddMealViewModel.swift */; };
 		BDB257B725720C0800C9097D /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB257B625720C0800C9097D /* Nutrient.swift */; };
+		BDC6BDED257AE30E002A5626 /* SelectedNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */; };
 		BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBC7F62569E40E00206122 /* FoodCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,7 @@
 		BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerUITests.swift; sourceTree = "<group>"; };
 		BD2C798525684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCloudKitContainer.swift; sourceTree = "<group>"; };
+		BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSeparatorStyleModifier.swift; sourceTree = "<group>"; };
 		BD4711492579F573005C1BBA /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerExtensions.swift; sourceTree = "<group>"; };
 		BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodViewModel.swift; sourceTree = "<group>"; };
 		BDB25781257035CE00C9097D /* AddMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewModel.swift; sourceTree = "<group>"; };
 		BDB257B625720C0800C9097D /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNutrientView.swift; sourceTree = "<group>"; };
 		BDCBC7F62569E40E00206122 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +207,7 @@
 		BD2C799C2568A98900D4C578 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD7738DE2578A25700C69755 /* Entities */,
 				BDCBC7F62569E40E00206122 /* FoodCell.swift */,
 				BDB257B625720C0800C9097D /* Nutrient.swift */,
 			);
@@ -235,12 +240,19 @@
 		BD2C799F2568A9A200D4C578 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				BD7738DE2578A25700C69755 /* Entities */,
 				BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */,
 				BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */,
 				BD73AC3225775E7B00D376B6 /* PersistenceController.swift */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		BD3B7E852581C12000582D03 /* TableViewSeparatorStyleModifier */ = {
+			isa = PBXGroup;
+			children = (
+				BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */,
+			);
+			path = TableViewSeparatorStyleModifier;
 			sourceTree = "<group>";
 		};
 		BD4711472579F4DB005C1BBA /* ViewRepresentables */ = {
@@ -278,6 +290,7 @@
 		BD6C3016256C698B00AE72E7 /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				BD3B7E852581C12000582D03 /* TableViewSeparatorStyleModifier */,
 				BD8EDCAD256E0D4E000A4E3D /* NavigationBarModifier */,
 			);
 			path = "View Modifiers";
@@ -308,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				BD8EDC93256DBDDB000A4E3D /* SelectedMealView.swift */,
+				BDC6BDEB257AE2E7002A5626 /* SelectedNutrientView */,
 			);
 			path = "Selected Meal";
 			sourceTree = "<group>";
@@ -400,6 +414,14 @@
 				BD1FE71625748DEF00AA7206 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDC6BDEB257AE2E7002A5626 /* SelectedNutrientView */ = {
+			isa = PBXGroup;
+			children = (
+				BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */,
+			);
+			path = SelectedNutrientView;
 			sourceTree = "<group>";
 		};
 		BDCBC7FB2569F21300206122 /* Home */ = {
@@ -546,6 +568,7 @@
 				BD7738D62578A24C00C69755 /* Day+CoreDataProperties.swift in Sources */,
 				BD7738DA2578A24C00C69755 /* MealCell+CoreDataProperties.swift in Sources */,
 				BD73AC3325775E7B00D376B6 /* PersistenceController.swift in Sources */,
+				BDC6BDED257AE30E002A5626 /* SelectedNutrientView.swift in Sources */,
 				BD92155D257A03BD0079672F /* CalendarView.swift in Sources */,
 				BD7738D92578A24C00C69755 /* MealCell+CoreDataClass.swift in Sources */,
 				BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */,
@@ -562,6 +585,7 @@
 				BD1FE70B25748B8E00AA7206 /* HealthKitStore.swift in Sources */,
 				BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */,
 				BD7738D72578A24C00C69755 /* Meal+CoreDataClass.swift in Sources */,
+				BD3B7E872581C14700582D03 /* TableViewSeparatorStyleModifier.swift in Sources */,
 				BDB257B725720C0800C9097D /* Nutrient.swift in Sources */,
 				BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */,
 				BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */,

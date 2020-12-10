@@ -11,6 +11,6 @@ import Combine
 
 class MainViewViewModel: ObservableObject {
     // MARK: - References / Properties
-    // Navigation Bar Title
-    @Published var navigationBarTitle: String = String.getCurrentDay()
+    @Published var showingNewMeal: Bool = false
+    @Published var showingCalendar: Bool = false
 }

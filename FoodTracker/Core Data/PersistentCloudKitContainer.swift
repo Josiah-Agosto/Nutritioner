@@ -29,6 +29,7 @@ public class PersistentCloudKitContainer {
     }()
     // MARK: - Core Data Saving support
     public static func saveContext () {
+        print("Saved!")
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

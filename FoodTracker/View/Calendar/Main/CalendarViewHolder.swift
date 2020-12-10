@@ -24,10 +24,13 @@ struct CalendarViewHolder: View {
                     .clipShape(Circle())
                     .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     .overlay(Text(String(self.calendar.component(.day, from: date))))
+                    .onTapGesture {
+                        print(date.description)
+                    }
             }
             .background(Color.clear).edgesIgnoringSafeArea(.bottom)
         }
-        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255)).edgesIgnoringSafeArea(.bottom)
+        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
         .navigationBarTitle("Calendar", displayMode: .inline)
     }
     
