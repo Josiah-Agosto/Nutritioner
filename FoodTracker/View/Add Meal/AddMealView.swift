@@ -10,15 +10,20 @@ import UIKit
 
 struct AddMealView: View {
     // MARK: - References/Properties
-    @Environment(\.managedObjectContext) var managedContext
     @Environment(\.presentationMode) private var presentationMode
     // Observable Object
-    @ObservedObject var viewModel = AddMealViewModel()
+    @ObservedObject private var viewModel = AddMealViewModel()
+    
+    init() {
+        UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
+    }
     
     var body: some View {
         ZStack {
             Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
-            Form {
+            List {
                 Group {
                     AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -29,8 +34,6 @@ struct AddMealView: View {
                     AddNutritionTextField(placeholder: "Calories", input: $viewModel.calories, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Total Fat (g)", input: $viewModel.totalFat, viewModel: viewModel)
-                        .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                    AddNutritionTextField(placeholder: "Total Carbohydrates (g)", input: $viewModel.totalCarbohydrate, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                     AddNutritionTextField(placeholder: "Cholesterol (mg)", input: $viewModel.cholesterol, viewModel: viewModel)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
@@ -109,12 +112,13 @@ struct AddMealView: View {
                 }
                 Group {
                     Button(action: {
-                        viewModel.addToHomeKitPressed(PersistenceController.shared.container.viewContext)
+                        viewModel.addToHomeKitAndCoreData()
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack {
                             Spacer()
                             Text("Add \(viewModel.mealName + " ")to HealthKit Log")
+                                .foregroundColor(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
                             Spacer()
                         }
                     })
@@ -122,6 +126,7 @@ struct AddMealView: View {
                     .background(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255), alignment: .center)
                 }
                 .listRowBackground(Color.clear)
+                .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 5, trailing: 5))
                 .cornerRadius(10)
                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
             }
@@ -129,19 +134,23 @@ struct AddMealView: View {
         }
         .background(Color.clear).edgesIgnoringSafeArea(.all)
         .navigationBarTitle("New Meal")
-//        .navigationBarItems(trailing:
-//            Button(action: {
-//
-//            }, label: {
-//                Image(systemName: "doc.text.viewfinder")
-//                    .font(.system(size: 27))
-//                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
-//            })
-//        )
-        .onAppear {
-            UITableView.appearance().backgroundColor = UIColor.clear
-            UITableViewCell.appearance().backgroundColor = UIColor.clear
-        }
+        .navigationBarItems(leading:
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Text("Cancel")
+                    .font(.custom("Helvetica Neue", size: 20))
+                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+            })
+        , trailing:
+            Button(action: {
+                print("Scanner")
+            }, label: {
+                Image(systemName: "doc.text.viewfinder")
+                    .font(.system(size: 27))
+                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+            })
+        )
     }
     
 }

@@ -5,13 +5,12 @@
 //  Created by Josiah Agosto on 11/26/20.
 //
 
-import SwiftUI
+import UIKit
 import Combine
 import CoreData
 
-class AddMealViewModel: ObservableObject {
+final class AddMealViewModel: ObservableObject {
     // MARK: - References / Properties
-    @Environment(\.managedObjectContext) var managedObjectContext
     // MARK: - Add Meal View
     // Add Meal Properties
     @Published var mealName: String = ""
@@ -22,7 +21,6 @@ class AddMealViewModel: ObservableObject {
     @Published var saturatedFat: String = ""
     @Published var cholesterol: String = ""
     @Published var sodium: String = ""
-    @Published var totalCarbohydrate: String = ""
     @Published var fiber: String = ""
     @Published var sugars: String = ""
     @Published var protein: String = ""
@@ -63,72 +61,21 @@ class AddMealViewModel: ObservableObject {
     
     // MARK: - Public Functions
     /// Adds Meal to Core Data
-    private func addNewMeal(_ context: NSManagedObjectContext) {
-        let newDay = Day(context: context)
-        let newMealCell = MealCell(context: context)
-        let newMeal = Meal(context: context)
-        if (Int16(calories) != 0) { newMeal.calories = Double.convertToDouble(calories) }
-        if (Int16(totalFat) != 0) { newMeal.totalFat = Double.convertToDouble(totalFat) }
-        if (Int16(saturatedFat) != 0) { newMeal.saturatedFat = Double.convertToDouble(saturatedFat) }
-        if (Int16(cholesterol) != 0) { newMeal.cholesterol = Double.convertToDouble(cholesterol) }
-        if (Int16(sodium) != 0) { newMeal.sodium = Double.convertToDouble(sodium) }
-        if (Int16(totalCarbohydrate) != 0) { newMeal.totalCarbohydrates = Double.convertToDouble(totalCarbohydrate) }
-        if (Int16(fiber) != 0) { newMeal.fiber = Double.convertToDouble(fiber) }
-        if (Int16(sugars) != 0) { newMeal.sugars = Double.convertToDouble(sugars) }
-        if (Int16(protein) != 0) { newMeal.protein = Double.convertToDouble(protein) }
-        if (Int16(vitaminA) != 0) { newMeal.vitaminA = Double.convertToDouble(vitaminA) }
-        if (Int16(vitaminC) != 0) { newMeal.vitaminC = Double.convertToDouble(vitaminC) }
-        if (Int16(calcium) != 0) { newMeal.calcium = Double.convertToDouble(calcium) }
-        if (Int16(iron) != 0) { newMeal.iron = Double.convertToDouble(iron) }
-        if (Int16(biotin) != 0) { newMeal.biotin = Double.convertToDouble(biotin) }
-        if (Int16(caffeine) != 0) { newMeal.caffeine = Double.convertToDouble(caffeine) }
-        if (Int16(chromium) != 0) { newMeal.chromium = Double.convertToDouble(chromium) }
-        if (Int16(copper) != 0) { newMeal.copper = Double.convertToDouble(copper) }
-        if (Int16(monounsaturatedFat) != 0) { newMeal.fatMonounsaturated = Double.convertToDouble(monounsaturatedFat) }
-        if (Int16(polyunsaturatedFat) != 0) { newMeal.fatPolyunsaturated = Double.convertToDouble(polyunsaturatedFat) }
-        if (Int16(folate) != 0) { newMeal.folate = Double.convertToDouble(folate) }
-        if (Int16(iodine) != 0) { newMeal.iodine = Double.convertToDouble(iodine) }
-        if (Int16(magnesium) != 0) { newMeal.magnesium = Double.convertToDouble(magnesium) }
-        if (Int16(manganese) != 0) { newMeal.manganese = Double.convertToDouble(manganese) }
-        if (Int16(molybdenum) != 0) { newMeal.molybdenum = Double.convertToDouble(molybdenum) }
-        if (Int16(niacin) != 0) { newMeal.niacin = Double.convertToDouble(niacin) }
-        if (Int16(pantothenicAcid) != 0) { newMeal.pantothenicAcid = Double.convertToDouble(pantothenicAcid) }
-        if (Int16(phosphorus) != 0) { newMeal.phosphorus = Double.convertToDouble(phosphorus) }
-        if (Int16(potassium) != 0) { newMeal.potassium = Double.convertToDouble(potassium) }
-        if (Int16(riboflavin) != 0) { newMeal.riboflavin = Double.convertToDouble(riboflavin) }
-        if (Int16(selenium) != 0) { newMeal.selenium = Double.convertToDouble(selenium) }
-        if (Int16(vitaminE) != 0) { newMeal.vitaminE = Double.convertToDouble(vitaminE) }
-        if (Int16(vitaminK) != 0) { newMeal.vitaminK = Double.convertToDouble(vitaminK) }
-        if (Int16(vitaminB6) != 0) { newMeal.vitaminB6 = Double.convertToDouble(vitaminB6) }
-        if (Int16(vitaminB12) != 0) { newMeal.vitaminB12 = Double.convertToDouble(vitaminB12) }
-        if (Int16(vitaminD) != 0) { newMeal.vitaminD = Double.convertToDouble(vitaminD) }
-        if (Int16(zinc) != 0) { newMeal.zinc = Double.convertToDouble(zinc) }
-        //
-        newMealCell.id = UUID()
-        newMealCell.calories = Int16(calories) ?? 0
-        newMealCell.date = String.getCurrentStringTime()
-        newMealCell.longDate = String.getFullFormattedDateString()
-        newMealCell.name = mealName
-        newMealCell.notes = notesText
-        newMealCell.addToMeal(newMeal)
-        //
-        newDay.id = UUID()
-        newDay.date = String.getCurrentStringTime()
-        newDay.addToMealCell(newMealCell)
-        do {
-            try context.save()
-        } catch let error {
-            print("Error saving to Core Data!, \(error.localizedDescription)")
-        }
+    private func addNewMeal() {
+        let nutrient = NutrientsModel(calories: calories, fatTotal: totalFat, fatSaturated: saturatedFat, cholesterol: cholesterol, sodium: sodium, fiber: fiber, protein: protein, vitaminA: vitaminA, vitaminC: vitaminC, calcium: calcium, iron: iron, biotin: biotin, zinc: zinc, sugar: sugars, niacin: niacin, folate: folate, iodine: iodine, copper: copper, thiamin: thiamin, selenium: selenium, chromium: chromium, caffeine: caffeine, magnesium: magnesium, manganese: manganese, potassium: potassium, riboflavin: riboflavin, phosphorus: phosphorus, molybdenum: molybdenum, carbohydrates: carbohydrates, vitaminD: vitaminD, vitaminE: vitaminE, vitaminK: vitaminK, vitaminB6: vitaminB6, vitaminB12: vitaminB12, pantothenicAcid: pantothenicAcid, fatPolyunsaturated: polyunsaturatedFat, fatMonounsaturated: monounsaturatedFat)
+        let meal = MealModel(name: mealName, calories: calories, notes: notesText, date: String.getCurrentStringDate(), longDate: String.getFullFormattedDateString())
+        let day = DayModel(date: String.getCurrentStringDate(), mealModel: meal)
+        DataManager.shared.addFullMeal(with: nutrient, meal, day)
+        CoreDataHelper.shared.saveToContext()
     }
     
     // MARK: - Actions
-    public func addToHomeKitPressed(_ context: NSManagedObjectContext) {
+    public func addToHomeKitAndCoreData() {
         HealthKitStore(self).saveMealToHealthKit { (success) in
             if success {
-                self.addNewMeal(context)
+                self.addNewMeal()
             } else {
-                print("Error!")
+                print("Error! Health Kit.")
             }
         }
     }

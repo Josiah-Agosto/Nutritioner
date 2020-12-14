@@ -13,7 +13,7 @@ class HealthKitStore {
     private var viewModel: AddMealViewModel? = nil
     private let hkHealthStore = HKHealthStore()
     // Date
-    private let currentDate = Date.getCurrentFullDate()
+    private let currentDate = Date()
     // Quantities
     private let calories = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!
     private let totalFat = HKObjectType.quantityType(forIdentifier: .dietaryFatTotal)!
@@ -82,7 +82,7 @@ class HealthKitStore {
         let saturatedFatQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.saturatedFat ?? "") ?? 0.0)
         let cholesterolQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.cholesterol ?? "") ?? 0.0)
         let sodiumQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.sodium ?? "") ?? 0.0)
-        let totalCarbohydrateQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.totalCarbohydrate ?? "") ?? 0.0)
+        let carbohydratesQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.carbohydrates ?? "") ?? 0.0)
         let fiberQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.fiber ?? "") ?? 0.0)
         let sugarQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.sugars ?? "") ?? 0.0)
         let proteinQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.protein ?? "") ?? 0.0)
@@ -119,7 +119,7 @@ class HealthKitStore {
         let saturatedFatSample = HKQuantitySample(type: saturatedFat, quantity: saturatedFatQuantity, start: currentDate, end: currentDate)
         let cholesterolSample = HKQuantitySample(type: cholesterol, quantity: cholesterolQuantity, start: currentDate, end: currentDate)
         let sodiumSample = HKQuantitySample(type: sodium, quantity: sodiumQuantity, start: currentDate, end: currentDate)
-        let totalCarbohydrateSample = HKQuantitySample(type: totalCarbohydrate, quantity: totalCarbohydrateQuantity, start: currentDate, end: currentDate)
+        let carbohydratesSample = HKQuantitySample(type: totalCarbohydrate, quantity: carbohydratesQuantity, start: currentDate, end: currentDate)
         let fiberSample = HKQuantitySample(type: fiber, quantity: fiberQuantity, start: currentDate, end: currentDate)
         let sugarSample = HKQuantitySample(type: sugar, quantity: sugarQuantity, start: currentDate, end: currentDate)
         let proteinSample = HKQuantitySample(type: protein, quantity: proteinQuantity, start: currentDate, end: currentDate)
@@ -151,7 +151,7 @@ class HealthKitStore {
         let vitaminDSample = HKQuantitySample(type: vitaminD, quantity: vitaminDQuantity, start: currentDate, end: currentDate)
         let zincSample = HKQuantitySample(type: zinc, quantity: zincQuantity, start: currentDate, end: currentDate)
         // Saving values
-        hkHealthStore.save([caloriesSample, totalFatSample, saturatedFatSample, cholesterolSample, sodiumSample, totalCarbohydrateSample, fiberSample, sugarSample, proteinSample, vitaminASample, vitaminCSample, calciumSample, ironSample, biotinSample, caffeineSample, chromiumSample, copperSample, fatMonounsaturatedSample, fatPolyunsaturatedSample, folateSample, iodineSample, magnesiumSample, manganeseSample, molybdenumSample, niacinSample, pantothenicAcidSample, phosphorusSample, potassiumSample, riboflavinSample, seleniumSample, vitaminESample, vitaminKSample, vitaminB6Sample, vitaminB12Sample, vitaminDSample, zincSample]) { (success, error) in
+        hkHealthStore.save([caloriesSample, totalFatSample, saturatedFatSample, cholesterolSample, sodiumSample, carbohydratesSample, fiberSample, sugarSample, proteinSample, vitaminASample, vitaminCSample, calciumSample, ironSample, biotinSample, caffeineSample, chromiumSample, copperSample, fatMonounsaturatedSample, fatPolyunsaturatedSample, folateSample, iodineSample, magnesiumSample, manganeseSample, molybdenumSample, niacinSample, pantothenicAcidSample, phosphorusSample, potassiumSample, riboflavinSample, seleniumSample, vitaminESample, vitaminKSample, vitaminB6Sample, vitaminB12Sample, vitaminDSample, zincSample]) { (success, error) in
             if !success {
                 completion(false)
                 print("Error, \(error!.localizedDescription)")

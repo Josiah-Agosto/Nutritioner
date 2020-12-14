@@ -1,5 +1,5 @@
 //
-//  FoodCell.swift
+//  MealModel.swift
 //  FoodTracker
 //
 //  Created by Josiah Agosto on 11/21/20.
@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct FoodCell: Identifiable {
-    var id = UUID()
+struct MealModel: Identifiable {
+    let id = UUID()
     var name: String
+    var calories: String
     var notes: String?
     var date: String
-    var calories: Int
+    var longDate: String
 }

@@ -29,7 +29,7 @@ struct SelectedMealView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                             SelectedNutrientView(nutrientName: "Total Fat (g)", nutrientValue: "\(nutrient.totalFat)")
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                            SelectedNutrientView(nutrientName: "Total Carbohydrates (g)", nutrientValue: "\(nutrient.totalCarbohydrates)")
+                            SelectedNutrientView(nutrientName: "Carbohydrates (g)", nutrientValue: "\(nutrient.carbohydrates)")
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                             SelectedNutrientView(nutrientName: "Cholesterol (mg)", nutrientValue: "\(nutrient.cholesterol)")
                                 .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)

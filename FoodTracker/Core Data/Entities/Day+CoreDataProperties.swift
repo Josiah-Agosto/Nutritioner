@@ -16,9 +16,9 @@ extension Day {
         return NSFetchRequest<Day>(entityName: "Day")
     }
 
-    @NSManaged public var id: UUID
+    @NSManaged public var id: UUID?
     @NSManaged public var date: String
-    @NSManaged public var mealCell: NSSet
+    @NSManaged public var mealCell: Set<MealCell>
 
 }
 

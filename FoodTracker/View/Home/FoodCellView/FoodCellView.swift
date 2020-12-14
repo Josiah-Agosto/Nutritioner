@@ -12,7 +12,7 @@ struct FoodCellView: View {
     var date: String
     var name: String
     var notes: String?
-    var calories: Int16
+    var calories: String
     
     var body: some View {
         HStack {
@@ -34,12 +34,12 @@ struct FoodCellView: View {
                     .lineLimit(2)
             }
             Spacer()
-            Text("\(calories)")
+            Text(calories)
                 .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                 .font(.title2)
                 .padding(.trailing, 8)
         }
         .frame(height: 80)
-        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
+        .background(Color.clear)
     }
 }

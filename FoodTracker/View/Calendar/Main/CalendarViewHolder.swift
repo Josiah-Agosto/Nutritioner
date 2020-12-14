@@ -10,9 +10,7 @@ import SwiftUI
 struct CalendarViewHolder: View {
     // MARK: - References / Properties
     @Environment(\.calendar) var calendar
-    @Environment(\.managedObjectContext) var managedContext
     @Environment(\.presentationMode) private var presentationMode
-    @FetchRequest(entity: Day.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Day.date, ascending: true)]) var dayData: FetchedResults<Day>
     
     var body: some View {
         ScrollView {
@@ -28,9 +26,10 @@ struct CalendarViewHolder: View {
                         print(date.description)
                     }
             }
-            .background(Color.clear).edgesIgnoringSafeArea(.bottom)
+            .background(Color.clear)
         }
-        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
+        .padding(.bottom, 12)
+        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255)).edgesIgnoringSafeArea(.bottom)
         .navigationBarTitle("Calendar", displayMode: .inline)
     }
     

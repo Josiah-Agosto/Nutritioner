@@ -11,8 +11,6 @@ import Combine
 
 struct MainView: View {
     // MARK: - References / Properties
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: MealCell.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \MealCell.calories, ascending: true)]) var mealCellData: FetchedResults<MealCell>
     // View Models
     @ObservedObject var mainViewModel = MainViewViewModel()
     @ObservedObject var addMealViewModel = AddMealViewModel()
@@ -29,58 +27,73 @@ struct MainView: View {
             ZStack {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
                 List {
-                    ForEach(mealCellData, id: \.id) { mealCell in
+                    ForEach(mainViewModel.meals, id: \.id) { mealCell in
                         NavigationLink(destination: SelectedMealView(mainViewModel: mainViewModel, mealCell: mealCell)) {
                             FoodCellView(date: mealCell.date, name: mealCell.name, notes: mealCell.notes, calories: mealCell.calories)
-                                .cornerRadius(12)
-                                .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                                .border(Color(red: 224 / 255, green: 224 / 255, blue: 226 / 255), width: 0.1)
                         }
+                        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
+                        .cornerRadius(12)
+                        .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                        .border(Color(red: 224 / 255, green: 224 / 255, blue: 226 / 255), width: 0.1)
                         .navigationBarTitle("\(mealCell.name)")
                     }
-                    .onDelete(perform: removeMealFromCoreData(at:))
+                    .onDelete(perform: mainViewModel.removeMealFromCoreData(at:))
                     .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 5, trailing: 5))
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .listSeparatorStyle(style: .none)
                 .environment(\.defaultMinListRowHeight, 80)
                 .navigationBarItems(leading:
                     Button(action: {
-                        mainViewModel.showingCalendar.toggle()
+                        mainViewModel.showingView = true
+                        mainViewModel.activeSheet = .calendar
                     }, label: {
                     Image(systemName: "calendar.circle")
                         .font(.system(size: 27))
                         .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
-                }), trailing:
+                    }), trailing:
                     Button(action: {
-                        mainViewModel.showingNewMeal.toggle()
+                        mainViewModel.showingView = true
+                        mainViewModel.activeSheet = .addMeal
                     }, label: {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 27))
                         .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
                     })
                 )
-                NavigationLink(destination: AddMealView(managedContext: _managedObjectContext, viewModel: addMealViewModel).environment(\.managedObjectContext, managedObjectContext), isActive: $mainViewModel.showingNewMeal, label: { })
-                NavigationLink(destination: CalendarViewHolder().environment(\.managedObjectContext, managedObjectContext), isActive: $mainViewModel.showingCalendar, label: { })
+            }
+            .fullScreenCover(isPresented: $mainViewModel.showingView) {
+                NavigationView {
+                    if mainViewModel.activeSheet == .addMeal {
+                        AddMealView()
+                    } else {
+                        CalendarViewHolder()
+                    }
+                }
+                .onDisappear {
+                    self.mainViewModel.fetchMealCells()
+                }
             }
             .navigationBarTitle(Text(String.getCurrentDay()), displayMode: .large)
         }
         .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
     }
+
+}
+
+// Allows for Navigation Bar to stay Large.
+struct PreventNavigationBarCollapseView: View {
+    // MARK: - References / Properties
+    private var colorSpacer = Color.red
     
-    // TODO: Remove this from this view.
-    public func removeMealFromCoreData(at offsets: IndexSet) {
-        for offset in offsets {
-            let mealCell = mealCellData[offset]
-            managedObjectContext.delete(mealCell)
-        }
-        do {
-            try managedObjectContext.save()
-        } catch let error {
-            print("Error, \(error.localizedDescription)")
-        }
+    var body: some View {
+        Rectangle()
+            .fill(colorSpacer)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0)
     }
 }
+
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {

@@ -19,11 +19,20 @@ extension String {
         return formatter.string(from: date)
     }
     
-    /// Returns current day name.
+    /// Retrieves current Day as String.
     static func getCurrentDay() -> Self {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
+        let dayString = dateFormatter.string(from: date)
+        return dayString
+    }
+    
+    /// Retrieves current date in Month/Day/Year format.
+    static func getCurrentStringDate() -> Self {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
         let dayString = dateFormatter.string(from: date)
         return dayString
     }

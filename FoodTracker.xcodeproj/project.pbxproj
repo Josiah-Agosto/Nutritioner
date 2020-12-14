@@ -18,6 +18,8 @@
 		BD2C798425684EB100D4C578 /* FoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */; };
 		BD2C79982568958B00D4C578 /* PersistentCloudKitContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */; };
 		BD3B7E872581C14700582D03 /* TableViewSeparatorStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */; };
+		BD3B7E8F2582BB9500582D03 /* ActiveMainSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B7E8E2582BB9500582D03 /* ActiveMainSheet.swift */; };
+		BD3B7E982582E5C300582D03 /* SelectedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B7E972582E5C300582D03 /* SelectedDateView.swift */; };
 		BD47114A2579F573005C1BBA /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4711492579F573005C1BBA /* CameraController.swift */; };
 		BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */; };
 		BD6C3018256C69A200AE72E7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */; };
@@ -38,9 +40,12 @@
 		BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2576F2570357800C9097D /* MainViewViewModel.swift */; };
 		BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */; };
 		BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25781257035CE00C9097D /* AddMealViewModel.swift */; };
-		BDB257B725720C0800C9097D /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB257B625720C0800C9097D /* Nutrient.swift */; };
+		BDB257B725720C0800C9097D /* NutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB257B625720C0800C9097D /* NutrientsModel.swift */; };
 		BDC6BDED257AE30E002A5626 /* SelectedNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */; };
-		BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBC7F62569E40E00206122 /* FoodCell.swift */; };
+		BDCBC7F72569E40E00206122 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCBC7F62569E40E00206122 /* MealModel.swift */; };
+		BDE007D92583260700D94E90 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007D82583260700D94E90 /* CoreDataHelper.swift */; };
+		BDE007DF25833BC800D94E90 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007DE25833BC800D94E90 /* DataManager.swift */; };
+		BDE007F325841F1500D94E90 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007F225841F1500D94E90 /* DayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,8 @@
 		BD2C798525684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCloudKitContainer.swift; sourceTree = "<group>"; };
 		BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSeparatorStyleModifier.swift; sourceTree = "<group>"; };
+		BD3B7E8E2582BB9500582D03 /* ActiveMainSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMainSheet.swift; sourceTree = "<group>"; };
+		BD3B7E972582E5C300582D03 /* SelectedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDateView.swift; sourceTree = "<group>"; };
 		BD4711492579F573005C1BBA /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		BD5A44E02575B618005BCA75 /* FoodTrackerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerExtensions.swift; sourceTree = "<group>"; };
 		BD6C3017256C69A200AE72E7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -99,9 +106,12 @@
 		BDB2576F2570357800C9097D /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodViewModel.swift; sourceTree = "<group>"; };
 		BDB25781257035CE00C9097D /* AddMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewModel.swift; sourceTree = "<group>"; };
-		BDB257B625720C0800C9097D /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		BDB257B625720C0800C9097D /* NutrientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsModel.swift; sourceTree = "<group>"; };
 		BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNutrientView.swift; sourceTree = "<group>"; };
-		BDCBC7F62569E40E00206122 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		BDCBC7F62569E40E00206122 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
+		BDE007D82583260700D94E90 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		BDE007DE25833BC800D94E90 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BDE007F225841F1500D94E90 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,17 +172,17 @@
 		BD2C796025684EAE00D4C578 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BD2C796525684EB100D4C578 /* Assets.xcassets */,
-				BD1FE71225748DCD00AA7206 /* FoodTracker.entitlements */,
 				BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */,
 				BD2C796F25684EB100D4C578 /* Info.plist */,
+				BD1FE71225748DCD00AA7206 /* FoodTracker.entitlements */,
+				BD2C796525684EB100D4C578 /* Assets.xcassets */,
 				BD2C799F2568A9A200D4C578 /* Core Data */,
+				BD5A44DF2575B607005BCA75 /* Extensions */,
 				BD1FE70925748B7C00AA7206 /* HealthKit Store */,
+				BDE007DD25833BAD00D94E90 /* Managers */,
 				BD2C799C2568A98900D4C578 /* Model */,
 				BD2C799D2568A98F00D4C578 /* View */,
 				BD2C799E2568A99400D4C578 /* View Model */,
-				BD4711472579F4DB005C1BBA /* ViewRepresentables */,
-				BD5A44DF2575B607005BCA75 /* Extensions */,
 				BD2C796725684EB100D4C578 /* Preview Content */,
 			);
 			path = FoodTracker;
@@ -207,9 +217,10 @@
 		BD2C799C2568A98900D4C578 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BD7738DE2578A25700C69755 /* Entities */,
-				BDCBC7F62569E40E00206122 /* FoodCell.swift */,
-				BDB257B625720C0800C9097D /* Nutrient.swift */,
+				BDCBC7F62569E40E00206122 /* MealModel.swift */,
+				BDB257B625720C0800C9097D /* NutrientsModel.swift */,
+				BD3B7E8E2582BB9500582D03 /* ActiveMainSheet.swift */,
+				BDE007F225841F1500D94E90 /* DayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +228,8 @@
 		BD2C799D2568A98F00D4C578 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD4711472579F4DB005C1BBA /* ViewRepresentables */,
+				BD3B7E962582E5B400582D03 /* Selected Date */,
 				BD92155B257A03A90079672F /* Calendar */,
 				BD8EDCC6256E19D1000A4E3D /* Add Meal */,
 				BDCBC7FB2569F21300206122 /* Home */,
@@ -240,6 +253,8 @@
 		BD2C799F2568A9A200D4C578 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				BD7738DE2578A25700C69755 /* Entities */,
+				BDE007D7258325FA00D94E90 /* Helper */,
 				BD2C796C25684EB100D4C578 /* FoodTracker.xcdatamodeld */,
 				BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */,
 				BD73AC3225775E7B00D376B6 /* PersistenceController.swift */,
@@ -253,6 +268,14 @@
 				BD3B7E862581C14700582D03 /* TableViewSeparatorStyleModifier.swift */,
 			);
 			path = TableViewSeparatorStyleModifier;
+			sourceTree = "<group>";
+		};
+		BD3B7E962582E5B400582D03 /* Selected Date */ = {
+			isa = PBXGroup;
+			children = (
+				BD3B7E972582E5C300582D03 /* SelectedDateView.swift */,
+			);
+			path = "Selected Date";
 			sourceTree = "<group>";
 		};
 		BD4711472579F4DB005C1BBA /* ViewRepresentables */ = {
@@ -433,6 +456,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		BDE007D7258325FA00D94E90 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BDE007D82583260700D94E90 /* CoreDataHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BDE007DD25833BAD00D94E90 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BDE007DE25833BC800D94E90 /* DataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -566,6 +605,7 @@
 				BD2C796E25684EB100D4C578 /* FoodTracker.xcdatamodeld in Sources */,
 				BD8EDC94256DBDDB000A4E3D /* SelectedMealView.swift in Sources */,
 				BD7738D62578A24C00C69755 /* Day+CoreDataProperties.swift in Sources */,
+				BDE007F325841F1500D94E90 /* DayModel.swift in Sources */,
 				BD7738DA2578A24C00C69755 /* MealCell+CoreDataProperties.swift in Sources */,
 				BD73AC3325775E7B00D376B6 /* PersistenceController.swift in Sources */,
 				BDC6BDED257AE30E002A5626 /* SelectedNutrientView.swift in Sources */,
@@ -577,16 +617,20 @@
 				BD6C3021256CAC0F00AE72E7 /* FoodCellView.swift in Sources */,
 				BD7738D52578A24C00C69755 /* Day+CoreDataClass.swift in Sources */,
 				BD7738D82578A24C00C69755 /* Meal+CoreDataProperties.swift in Sources */,
-				BDCBC7F72569E40E00206122 /* FoodCell.swift in Sources */,
+				BDCBC7F72569E40E00206122 /* MealModel.swift in Sources */,
 				BD2C796425684EAE00D4C578 /* MainView.swift in Sources */,
 				BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */,
+				BDE007D92583260700D94E90 /* CoreDataHelper.swift in Sources */,
+				BDE007DF25833BC800D94E90 /* DataManager.swift in Sources */,
 				BD921569257A059D0079672F /* CalendarViewModel.swift in Sources */,
 				BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */,
+				BD3B7E982582E5C300582D03 /* SelectedDateView.swift in Sources */,
 				BD1FE70B25748B8E00AA7206 /* HealthKitStore.swift in Sources */,
 				BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */,
 				BD7738D72578A24C00C69755 /* Meal+CoreDataClass.swift in Sources */,
 				BD3B7E872581C14700582D03 /* TableViewSeparatorStyleModifier.swift in Sources */,
-				BDB257B725720C0800C9097D /* Nutrient.swift in Sources */,
+				BD3B7E8F2582BB9500582D03 /* ActiveMainSheet.swift in Sources */,
+				BDB257B725720C0800C9097D /* NutrientsModel.swift in Sources */,
 				BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */,
 				BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */,
 				BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */,

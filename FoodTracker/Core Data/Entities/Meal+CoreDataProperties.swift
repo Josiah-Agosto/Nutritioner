@@ -20,7 +20,6 @@ extension Meal {
     @NSManaged public var caffeine: Double
     @NSManaged public var calcium: Double
     @NSManaged public var calories: Double
-    @NSManaged public var caloriesFromFat: Double
     @NSManaged public var cholesterol: Double
     @NSManaged public var chromium: Double
     @NSManaged public var copper: Double
@@ -44,7 +43,7 @@ extension Meal {
     @NSManaged public var sodium: Double
     @NSManaged public var sugars: Double
     @NSManaged public var thiamin: Double
-    @NSManaged public var totalCarbohydrates: Double
+    @NSManaged public var carbohydrates: Double
     @NSManaged public var totalFat: Double
     @NSManaged public var vitaminA: Double
     @NSManaged public var vitaminB6: Double
