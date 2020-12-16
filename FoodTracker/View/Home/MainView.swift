@@ -26,6 +26,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
+                PreventNavigationBarCollapseView()
                 List {
                     ForEach(mainViewModel.meals, id: \.id) { mealCell in
                         NavigationLink(destination: SelectedMealView(mainViewModel: mainViewModel, mealCell: mealCell)) {

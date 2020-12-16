@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 import CoreData
 
 final class AddMealViewModel: ObservableObject {
@@ -58,6 +57,7 @@ final class AddMealViewModel: ObservableObject {
     @Published var placeholderText: String = ""
     @Published var notesText: String = ""
     @Published var notesTextHeight: CGFloat = 0
+    @Published var tappedViewPosition: CGFloat = 0
     
     // MARK: - Public Functions
     /// Adds Meal to Core Data
@@ -67,6 +67,17 @@ final class AddMealViewModel: ObservableObject {
         let day = DayModel(date: String.getCurrentStringDate(), mealModel: meal)
         DataManager.shared.addFullMeal(with: nutrient, meal, day)
         CoreDataHelper.shared.saveToContext()
+    }
+    
+    /// Returns second half of screen.
+    public func isViewInSecondPortionOfView(_ mid: CGFloat, _ tappedViewPosition: CGFloat) -> Bool {
+        if tappedViewPosition >= mid {
+            print("Passed Mid")
+            return true
+        } else {
+            print("Pre Mid")
+            return false
+        }
     }
     
     // MARK: - Actions
@@ -79,4 +90,5 @@ final class AddMealViewModel: ObservableObject {
             }
         }
     }
+
 }
