@@ -63,11 +63,18 @@ class CoreDataHelper: CoreDataHelperProtocol {
     }
     
     //
-    public func retrieveCaloriesFromMeals(_ of: [MealCell]) -> Int16 {
+    public func calculateCalories(_ from: [MealCell]) -> Int16 {
         var allCalories: Int16 = 0
-        let _ = of.forEach { (meal) in
+        let _ = from.forEach { (meal) in
             allCalories += Int16(meal.calories) ?? 0
         }
         return allCalories
+    }
+    
+    //
+    public func removeCalories(_ from: MealCell, _ and: Int16) -> Int16 {
+        let removedCalories = Int16(from.calories) ?? 0
+        let calculatedCalories = and - removedCalories
+        return calculatedCalories
     }
 }

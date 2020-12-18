@@ -35,7 +35,7 @@ struct FoodCellView: View {
             }
             Spacer()
             Text(calories)
-                .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                 .font(.title2)
                 .padding(.trailing, 8)
         }

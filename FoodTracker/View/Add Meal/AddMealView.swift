@@ -124,7 +124,7 @@ struct AddMealView: View {
                             }
                         })
                         .frame(height: 55)
-                        .background(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255), alignment: .center)
+                        .background(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255), alignment: .center)
                     }
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 5, trailing: 5))
@@ -143,7 +143,7 @@ struct AddMealView: View {
             }, label: {
                 Text("Cancel")
                     .font(.custom("Helvetica Neue", size: 20))
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
             })
         , trailing:
             Button(action: {
@@ -151,7 +151,7 @@ struct AddMealView: View {
             }, label: {
                 Image(systemName: "doc.text.viewfinder")
                     .font(.system(size: 27))
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
             })
         )
     }

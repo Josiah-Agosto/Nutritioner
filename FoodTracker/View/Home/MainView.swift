@@ -48,7 +48,7 @@ struct MainView: View {
                     }, label: {
                     Image(systemName: "calendar.circle")
                         .font(.system(size: 27))
-                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                        .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                     }), trailing:
                     Button(action: {
                         mainViewModel.showingView = true
@@ -56,7 +56,7 @@ struct MainView: View {
                     }, label: {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 27))
-                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                        .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                     })
                 )
             }
@@ -78,10 +78,10 @@ struct MainView: View {
                     VStack {
                         Text(String.getCurrentDay())
                             .font(.system(size: 14))
-                            .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255))
-                        Text("\(Int16.convertStringToSafeInt16(mainViewModel.totalCalories, "\(CoreDataHelper.shared.retrieveCaloriesFromMeals(mainViewModel.meals))"))")
+                            .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
+                        Text("\(Int16.convertStringToSafeInt16(mainViewModel.totalCalories, "\(CoreDataHelper.shared.calculateCalories(mainViewModel.meals))"))")
                             .font(.system(size: 23))
-                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                            .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                     }
                 }
             }

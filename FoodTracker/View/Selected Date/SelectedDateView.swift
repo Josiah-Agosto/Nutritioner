@@ -44,7 +44,7 @@ struct SelectedDateView: View {
             }, label: {
                 Text("Cancel")
                     .font(.custom("Helvetica Neue", size: 20))
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
             })
         )
         .toolbar {
@@ -53,9 +53,9 @@ struct SelectedDateView: View {
                     Text(String.getCurrentDay())
                         .font(.system(size: 14))
                         .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255))
-                    Text("\(Int16.convertStringToSafeInt16(selectedDateViewModel.totalCalories, "\(CoreDataHelper.shared.retrieveCaloriesFromMeals(selectedDateViewModel.meals))"))")
+                    Text("\(Int16.convertStringToSafeInt16(selectedDateViewModel.totalCalories, "\(CoreDataHelper.shared.calculateCalories(selectedDateViewModel.meals))"))")
                         .font(.system(size: 23))
-                        .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                        .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                 }
             }
         }

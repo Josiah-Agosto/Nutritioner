@@ -44,7 +44,7 @@ struct NutritionTextFieldReader: View {
                 TextField(placeholder, text: $input)
                     .background(Color.clear)
                     .padding(EdgeInsets(top: 0, leading: 4, bottom: 3, trailing: 0))
-                    .foregroundColor(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                    .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                     .onTapGesture {
                         viewModel.tappedViewPosition = reader.frame(in: .named("Custom")).midY
                     }

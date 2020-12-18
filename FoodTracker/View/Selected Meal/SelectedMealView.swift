@@ -19,7 +19,7 @@ struct SelectedMealView: View {
                     .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
                     .font(.subheadline)
                 Text("\(mealCell.calories)")
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    .foregroundColor(Color(red: 236 / 255, green: 84 / 255, blue: 103 / 255))
                     .font(.title)
                 List {
                     ForEach(Array(mealCell.meal)) { nutrient in
