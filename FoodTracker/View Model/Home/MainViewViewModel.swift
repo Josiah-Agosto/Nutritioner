@@ -6,17 +6,12 @@
 //
 
 import Foundation
-import Combine
-
-protocol MainViewViewModelProtocol {
-    var meals: [MealCell] { get }
-    func fetchMealCells()
-}
 
 class MainViewViewModel: ObservableObject {
     // MARK: - References / Properties
     @Published var meals = [MealCell]()
     @Published var showingView: Bool = false
+    @Published var totalCalories: Int16 = 0
     @Published var activeSheet: ActiveMainSheet = .addMeal
     //
     private var dataManager: DataManagerProtocol
@@ -34,13 +29,14 @@ class MainViewViewModel: ObservableObject {
         }
         fetchMealCells()
     }
+
 }
 
 
 
-extension MainViewViewModel: MainViewViewModelProtocol {
+extension MainViewViewModel: FetchMealDataProtocol {
     //
-    public func fetchMealCells() {
+    func fetchMealCells() {
         meals = dataManager.fetchMeal(from: String.getCurrentStringDate())
     }
 }

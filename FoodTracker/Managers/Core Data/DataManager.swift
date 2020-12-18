@@ -13,6 +13,11 @@ protocol DataManagerProtocol {
     func addFullMeal(with nutrients: NutrientsModel, _ meal: MealModel, _ day: DayModel)
 }
 
+protocol FetchMealDataProtocol {
+    var meals: [MealCell] { get }
+    func fetchMealCells()
+}
+
 class DataManager: DataManagerProtocol {
     // MARK: References / Properties
     static let shared = DataManager()

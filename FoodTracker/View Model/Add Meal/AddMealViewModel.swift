@@ -64,7 +64,7 @@ final class AddMealViewModel: ObservableObject {
     private func addNewMeal() {
         let nutrient = NutrientsModel(calories: calories, fatTotal: totalFat, fatSaturated: saturatedFat, cholesterol: cholesterol, sodium: sodium, fiber: fiber, protein: protein, vitaminA: vitaminA, vitaminC: vitaminC, calcium: calcium, iron: iron, biotin: biotin, zinc: zinc, sugar: sugars, niacin: niacin, folate: folate, iodine: iodine, copper: copper, thiamin: thiamin, selenium: selenium, chromium: chromium, caffeine: caffeine, magnesium: magnesium, manganese: manganese, potassium: potassium, riboflavin: riboflavin, phosphorus: phosphorus, molybdenum: molybdenum, carbohydrates: carbohydrates, vitaminD: vitaminD, vitaminE: vitaminE, vitaminK: vitaminK, vitaminB6: vitaminB6, vitaminB12: vitaminB12, pantothenicAcid: pantothenicAcid, fatPolyunsaturated: polyunsaturatedFat, fatMonounsaturated: monounsaturatedFat)
         let meal = MealModel(name: mealName, calories: calories, notes: notesText, date: String.getCurrentStringDate(), longDate: String.getFullFormattedDateString())
-        let day = DayModel(date: String.getCurrentStringDate(), mealModel: meal)
+        let day = DayModel(date: String.getCurrentStringDate(), totalCalories: calories, mealModel: meal)
         DataManager.shared.addFullMeal(with: nutrient, meal, day)
         CoreDataHelper.shared.saveToContext()
     }
@@ -72,10 +72,8 @@ final class AddMealViewModel: ObservableObject {
     /// Returns second half of screen.
     public func isViewInSecondPortionOfView(_ mid: CGFloat, _ tappedViewPosition: CGFloat) -> Bool {
         if tappedViewPosition >= mid {
-            print("Passed Mid")
             return true
         } else {
-            print("Pre Mid")
             return false
         }
     }

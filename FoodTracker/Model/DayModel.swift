@@ -10,5 +10,6 @@ import Foundation
 struct DayModel: Identifiable {
     let id = UUID()
     var date: String
+    var totalCalories: String
     var mealModel: MealModel
 }

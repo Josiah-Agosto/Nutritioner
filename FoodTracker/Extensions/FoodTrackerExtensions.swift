@@ -37,6 +37,22 @@ extension String {
         return dayString
     }
     
+    /// Retrieves inputed date in Month/Day/Year format.
+    static func getInputedDate(_ from: Date) -> Self {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let dayString = dateFormatter.string(from: from)
+        return dayString
+    }
+    
+    // Retrieves inputed date in Long Day of Week, Long Month, Day and Year.
+    static func getInputedDateLongFormat(_ from: Date) -> Self {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        let dayString = dateFormatter.string(from: from)
+        return dayString
+    }
+    
     /// Returns full date formatted, ex: FullDay, FullMonth,Day, Year, Hour:Minute:Second am/pm.
     static func getFullFormattedDateString() -> Self {
         let date = Date()
@@ -61,6 +77,16 @@ extension Date {
         let timeString = formatter.string(from: date)
         let dateString = formatter.date(from: timeString)!
         return dateString
+    }
+    
+    /// Retrieves current date in Month/Day/Year format.
+    static func getCurrentStringDate() -> Self {
+        let date = Self()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let dayString = dateFormatter.string(from: date)
+        let dayDate = dateFormatter.date(from: dayString)!
+        return dayDate
     }
     
     /// Returns full date formatted, ex: FullDay, FullMonth,Day, Year, Hour:Minute:Second am/pm.
@@ -116,10 +142,22 @@ extension Calendar {
 
 extension Double {
     /// Converts String value to Double.
-    static func convertToDouble(_ from: String) -> Double {
+    static func convertToDouble(_ from: String) -> Self {
         let input = from
         guard input.isEmpty != true else { return 0.0 }
         guard let inputInt = Double(input) else { return 0.0 }
         return inputInt
+    }
+}
+
+
+
+extension Int16 {
+    //
+    static func convertStringToSafeInt16(_ from: Int16, _ with: String) -> Self {
+        let convert = Int16(with) ?? 0
+        let input = from
+        let combined = input + convert
+        return combined
     }
 }

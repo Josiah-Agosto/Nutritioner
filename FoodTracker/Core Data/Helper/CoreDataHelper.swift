@@ -23,6 +23,7 @@ class CoreDataHelper: CoreDataHelperProtocol {
     }
     
     //MARK: -  Protocol Methods
+    //
     func create(_ object: NSManagedObject) {
         do {
             try context.save()
@@ -31,7 +32,7 @@ class CoreDataHelper: CoreDataHelperProtocol {
         }
     }
     
-    
+    //
     func fetch<T: NSManagedObject>(_ objectType: T.Type, predicate: NSPredicate? = nil, limit: Int? = nil) -> Result<[T], Error> {
         let request = objectType.fetchRequest()
         request.predicate = predicate
@@ -46,7 +47,7 @@ class CoreDataHelper: CoreDataHelperProtocol {
         }
     }
     
-    
+    //
     func saveToContext() {
         do {
             try context.save()
@@ -55,9 +56,18 @@ class CoreDataHelper: CoreDataHelperProtocol {
         }
     }
     
-    
+    //
     func delete(_ object: NSManagedObject) {
         context.delete(object)
         saveToContext()
+    }
+    
+    //
+    public func retrieveCaloriesFromMeals(_ of: [MealCell]) -> Int16 {
+        var allCalories: Int16 = 0
+        let _ = of.forEach { (meal) in
+            allCalories += Int16(meal.calories) ?? 0
+        }
+        return allCalories
     }
 }

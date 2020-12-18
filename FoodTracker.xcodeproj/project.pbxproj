@@ -35,10 +35,9 @@
 		BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */; };
 		BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */; };
 		BD92155D257A03BD0079672F /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92155C257A03BD0079672F /* CalendarView.swift */; };
-		BD921569257A059D0079672F /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD921568257A059D0079672F /* CalendarViewModel.swift */; };
+		BD921569257A059D0079672F /* SelectedDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD921568257A059D0079672F /* SelectedDateViewModel.swift */; };
 		BD921571257A17210079672F /* CalendarViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD921570257A17210079672F /* CalendarViewHolder.swift */; };
 		BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2576F2570357800C9097D /* MainViewViewModel.swift */; };
-		BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */; };
 		BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25781257035CE00C9097D /* AddMealViewModel.swift */; };
 		BDB257B725720C0800C9097D /* NutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB257B625720C0800C9097D /* NutrientsModel.swift */; };
 		BDC6BDED257AE30E002A5626 /* SelectedNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */; };
@@ -102,10 +101,9 @@
 		BD8EDCC7256E19DD000A4E3D /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		BD8EDCD0256E1D19000A4E3D /* AddNutritionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNutritionTextField.swift; sourceTree = "<group>"; };
 		BD92155C257A03BD0079672F /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		BD921568257A059D0079672F /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		BD921568257A059D0079672F /* SelectedDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDateViewModel.swift; sourceTree = "<group>"; };
 		BD921570257A17210079672F /* CalendarViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewHolder.swift; sourceTree = "<group>"; };
 		BDB2576F2570357800C9097D /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
-		BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodViewModel.swift; sourceTree = "<group>"; };
 		BDB25781257035CE00C9097D /* AddMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewModel.swift; sourceTree = "<group>"; };
 		BDB257B625720C0800C9097D /* NutrientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsModel.swift; sourceTree = "<group>"; };
 		BDC6BDEC257AE30D002A5626 /* SelectedNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNutrientView.swift; sourceTree = "<group>"; };
@@ -244,9 +242,8 @@
 		BD2C799E2568A99400D4C578 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				BD921567257A058F0079672F /* Calendar */,
+				BD921567257A058F0079672F /* Selected Date */,
 				BDB25780257035BB00C9097D /* Add Meal */,
-				BDB257742570357D00C9097D /* Selected Food */,
 				BDB2576E2570319B00C9097D /* Home */,
 			);
 			path = "View Model";
@@ -384,12 +381,12 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		BD921567257A058F0079672F /* Calendar */ = {
+		BD921567257A058F0079672F /* Selected Date */ = {
 			isa = PBXGroup;
 			children = (
-				BD921568257A059D0079672F /* CalendarViewModel.swift */,
+				BD921568257A059D0079672F /* SelectedDateViewModel.swift */,
 			);
-			path = Calendar;
+			path = "Selected Date";
 			sourceTree = "<group>";
 		};
 		BD921578257A173E0079672F /* Main */ = {
@@ -415,14 +412,6 @@
 				BDB2576F2570357800C9097D /* MainViewViewModel.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		BDB257742570357D00C9097D /* Selected Food */ = {
-			isa = PBXGroup;
-			children = (
-				BDB25778257035AA00C9097D /* SelectedFoodViewModel.swift */,
-			);
-			path = "Selected Food";
 			sourceTree = "<group>";
 		};
 		BDB25780257035BB00C9097D /* Add Meal */ = {
@@ -642,8 +631,7 @@
 				BD8EDCD1256E1D19000A4E3D /* AddNutritionTextField.swift in Sources */,
 				BDE007D92583260700D94E90 /* CoreDataHelper.swift in Sources */,
 				BDE007DF25833BC800D94E90 /* DataManager.swift in Sources */,
-				BD921569257A059D0079672F /* CalendarViewModel.swift in Sources */,
-				BDB25779257035AA00C9097D /* SelectedFoodViewModel.swift in Sources */,
+				BD921569257A059D0079672F /* SelectedDateViewModel.swift in Sources */,
 				BD3B7E982582E5C300582D03 /* SelectedDateView.swift in Sources */,
 				BD1FE70B25748B8E00AA7206 /* HealthKitStore.swift in Sources */,
 				BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */,

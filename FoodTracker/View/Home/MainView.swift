@@ -18,7 +18,6 @@ struct MainView: View {
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue", size: 10)!]
     }
     
     // MARK: - Body
@@ -26,23 +25,21 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255).edgesIgnoringSafeArea(.all)
-                PreventNavigationBarCollapseView()
                 List {
                     ForEach(mainViewModel.meals, id: \.id) { mealCell in
-                        NavigationLink(destination: SelectedMealView(mainViewModel: mainViewModel, mealCell: mealCell)) {
+                        NavigationLink(destination: SelectedMealView(mealCell: mealCell)) {
                             FoodCellView(date: mealCell.date, name: mealCell.name, notes: mealCell.notes, calories: mealCell.calories)
                         }
                         .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
                         .cornerRadius(12)
                         .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         .border(Color(red: 224 / 255, green: 224 / 255, blue: 226 / 255), width: 0.1)
-                        .navigationBarTitle("\(mealCell.name)")
-                    }
-                    .onDelete(perform: mainViewModel.removeMealFromCoreData(at:))
+                    }.onDelete(perform: mainViewModel.removeMealFromCoreData(at:))
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 5, trailing: 5))
                     .buttonStyle(PlainButtonStyle())
                 }
+                .padding(.top, 0)
                 .environment(\.defaultMinListRowHeight, 80)
                 .navigationBarItems(leading:
                     Button(action: {
@@ -75,7 +72,19 @@ struct MainView: View {
                     self.mainViewModel.fetchMealCells()
                 }
             }
-            .navigationBarTitle(Text(String.getCurrentDay()), displayMode: .large)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text(String.getCurrentDay())
+                            .font(.system(size: 14))
+                            .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 170 / 255))
+                        Text("\(Int16.convertStringToSafeInt16(mainViewModel.totalCalories, "\(CoreDataHelper.shared.retrieveCaloriesFromMeals(mainViewModel.meals))"))")
+                            .font(.system(size: 23))
+                            .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    }
+                }
+            }
         }
         .navigationBarColor(backgroundColor: UIColor(red: 215 / 255, green: 215 / 255, blue: 219 / 255, alpha: 1.0), tintColor: UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0))
         .edgesIgnoringSafeArea(.all)
@@ -86,12 +95,12 @@ struct MainView: View {
 // Allows for Navigation Bar to stay Large.
 struct PreventNavigationBarCollapseView: View {
     // MARK: - References / Properties
-    private var colorSpacer = Color.red
+    private var colorSpacer = Color(UIColor(white: 0.0, alpha: 0.0005))
     
     var body: some View {
         Rectangle()
             .fill(colorSpacer)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 1)
     }
 }
 

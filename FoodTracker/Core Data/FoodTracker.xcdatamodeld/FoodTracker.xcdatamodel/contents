@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C5061b" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C5061b" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Day" representedClassName="Day" syncable="YES">
         <attribute name="date" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="totalCalories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="mealCell" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MealCell" inverseName="day" inverseEntity="MealCell"/>
     </entity>
     <entity name="Meal" representedClassName="Meal" syncable="YES">
@@ -56,7 +57,7 @@
         <relationship name="meal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" inverseName="mealCell" inverseEntity="Meal"/>
     </entity>
     <elements>
-        <element name="Day" positionX="294.1829833984375" positionY="-59.62158203125" width="128" height="74"/>
+        <element name="Day" positionX="294.1829833984375" positionY="-59.62158203125" width="128" height="89"/>
         <element name="Meal" positionX="-63" positionY="-18" width="128" height="599"/>
         <element name="MealCell" positionX="357.6519165039062" positionY="167.2196807861328" width="128" height="149"/>
     </elements>

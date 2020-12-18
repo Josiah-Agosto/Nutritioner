@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SelectedMealView: View {
     // MARK: - References / Properties
-    @ObservedObject var mainViewModel = MainViewViewModel()
     var mealCell: MealCell
     
     var body: some View {

@@ -23,22 +23,25 @@ struct CalendarView<DateView>: View where DateView: View {
     
     // MARK: - Body
     var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
-            ForEach(months, id: \.self) { month in
-                Section(header: header(for: month)) {
-                    ForEach(days(for: month), id: \.self) { date in
-                        if calendar.isDate(date, equalTo: month, toGranularity: .month) {
-                            content(date).id(date)
-                        } else {
-                            content(date).hidden()
-                        }
-                    } // Day Cell
-                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
-                    .background(Color.clear)
-                } // Section
-            } // Month
-        } // LazyVGrid
-        .background(Color.clear)
+        ScrollView {
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
+                ForEach(months, id: \.self) { month in
+                    Section(header: header(for: month)) {
+                        ForEach(days(for: month), id: \.self) { date in
+                            if calendar.isDate(date, equalTo: month, toGranularity: .month) {
+                                content(date).id(date)
+                            } else {
+                                content(date).hidden()
+                            }
+                        } // Day Cell
+                        .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                        .background(Color.clear)
+                    } // Section
+                } // Month
+            } // LazyVGrid
+            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+            .background(Color.clear)
+        }
     }
     
     private var months: [Date] {
