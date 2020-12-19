@@ -45,7 +45,7 @@ extension String {
         return dayString
     }
     
-    // Retrieves inputed date in Long Day of Week, Long Month, Day and Year.
+    /// Retrieves inputed date in Long Day of Week, Long Month, Day and Year.
     static func getInputedDateLongFormat(_ from: Date) -> Self {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
@@ -63,6 +63,24 @@ extension String {
         let fullDate = dateFormatter.string(from: date)
         return fullDate
     }
+    
+    /// Takes String date and makes it show day of week.
+    static func convertStringDateToDayOfWeek(_ from: String) -> Self {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "MM/dd/yyyy"
+        if let date = formatter.date(from: from) {
+            let newFormatter = DateFormatter()
+            newFormatter.dateFormat = "EEEE"
+            let newFormatterString = newFormatter.string(from: date)
+            if let newDateString = newFormatter.date(from: newFormatterString) {
+                let newStringDay = newFormatter.string(from: newDateString)
+                return newStringDay
+            }
+        }
+        return "Unavailable"
+    }
+    
 }
 
 
@@ -84,6 +102,16 @@ extension Date {
         let date = Self()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
+        let dayString = dateFormatter.string(from: date)
+        let dayDate = dateFormatter.date(from: dayString)!
+        return dayDate
+    }
+    
+    /// Retrieves current Day.
+    static func getCurrentDay() -> Self {
+        let date = Self()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
         let dayString = dateFormatter.string(from: date)
         let dayDate = dateFormatter.date(from: dayString)!
         return dayDate
