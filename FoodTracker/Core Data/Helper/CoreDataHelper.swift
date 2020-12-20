@@ -71,7 +71,7 @@ class CoreDataHelper: CoreDataHelperProtocol {
         if !from.isEmpty {
             SharedData.shared.addValuesToPlist(Int(allCalories), String.convertStringDateToDayOfWeek(from[0].longDate), from.count)
         } else {
-            SharedData.shared.addValuesToPlist(15, String.getCurrentDay(), 1)
+            SharedData.shared.addValuesToPlist(0, String.getCurrentDay(), 0)
         }
         return allCalories
     }
