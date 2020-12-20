@@ -30,8 +30,6 @@ struct AddMealView: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.servingSize, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
-                        AddNutritionTextField(placeholder: "Servings Per Container", input: $viewModel.servingsPerContainer, viewModel: viewModel)
-                            .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Calories", input: $viewModel.calories, viewModel: viewModel)
                             .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Total Fat (g)", input: $viewModel.totalFat, viewModel: viewModel)

@@ -14,7 +14,6 @@ final class AddMealViewModel: ObservableObject {
     // Add Meal Properties
     @Published var mealName: String = ""
     @Published var servingSize: String = ""
-    @Published var servingsPerContainer: String = ""
     @Published var calories: String = ""
     @Published var totalFat: String = ""
     @Published var saturatedFat: String = ""
@@ -63,7 +62,7 @@ final class AddMealViewModel: ObservableObject {
     /// Adds Meal to Core Data
     private func addNewMeal() {
         let nutrient = NutrientsModel(calories: calories, fatTotal: totalFat, fatSaturated: saturatedFat, cholesterol: cholesterol, sodium: sodium, fiber: fiber, protein: protein, vitaminA: vitaminA, vitaminC: vitaminC, calcium: calcium, iron: iron, biotin: biotin, zinc: zinc, sugar: sugars, niacin: niacin, folate: folate, iodine: iodine, copper: copper, thiamin: thiamin, selenium: selenium, chromium: chromium, caffeine: caffeine, magnesium: magnesium, manganese: manganese, potassium: potassium, riboflavin: riboflavin, phosphorus: phosphorus, molybdenum: molybdenum, carbohydrates: carbohydrates, vitaminD: vitaminD, vitaminE: vitaminE, vitaminK: vitaminK, vitaminB6: vitaminB6, vitaminB12: vitaminB12, pantothenicAcid: pantothenicAcid, fatPolyunsaturated: polyunsaturatedFat, fatMonounsaturated: monounsaturatedFat)
-        let meal = MealModel(name: mealName, calories: calories, notes: notesText, date: String.getCurrentStringTime(), longDate: String.getCurrentStringDate())
+        let meal = MealModel(name: mealName, calories: String.multiplyCalories(calories, servingSize), notes: notesText, date: String.getCurrentStringTime(), longDate: String.getCurrentStringDate())
         let day = DayModel(date: String.getCurrentStringDate(), totalCalories: calories, mealModel: meal)
         DataManager.shared.addFullMeal(with: nutrient, meal, day)
         CoreDataHelper.shared.saveToContext()

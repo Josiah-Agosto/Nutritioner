@@ -82,6 +82,15 @@ extension String {
         return "Unavailable"
     }
     
+    /// Multiplies inputed calories by servings.
+    static func multiplyCalories(_ of: String, _ fromServings: String) -> Self {
+        let calories = Int(of) ?? 0
+        let servings = Int(fromServings) ?? 1
+        let caloriesAfterServings = calories * servings
+        let stringCalories = "\(caloriesAfterServings)"
+        return stringCalories
+    }
+    
 }
 
 
