@@ -26,7 +26,7 @@ class DataManager: DataManagerProtocol {
     // MARK: - Protocol Methods
     /// Fetches Meal Cells for Day.
     func fetchMeal(from date: String) -> [MealCell] {
-        let predicate = NSPredicate(format: "date = %@", date as CVarArg)
+        let predicate = NSPredicate(format: "longDate = %@", date as CVarArg)
         let result = coreDataHelper.fetch(MealCell.self, predicate: predicate, limit: nil)
         switch result {
             case .success(let mealCell):

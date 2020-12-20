@@ -16,7 +16,8 @@ extension String {
         formatter.dateFormat = "h:mm a"
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
-        return formatter.string(from: date)
+        let timeString = formatter.string(from: date)
+        return timeString
     }
     
     /// Retrieves current Day as String.
