@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:../NutritionTracker/Preview Content">
+      location = "self:/Users/josiahagosto/Desktop/Xcode Files/NutritionTracker/Nutritioner.xcodeproj">
    </FileRef>
 </Workspace>
