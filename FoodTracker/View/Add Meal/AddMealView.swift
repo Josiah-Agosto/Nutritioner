@@ -145,7 +145,7 @@ struct AddMealView: View {
             })
         , trailing:
             Button(action: {
-                print("Scanner")
+
             }, label: {
                 Image(systemName: "doc.text.viewfinder")
                     .font(.system(size: 27))

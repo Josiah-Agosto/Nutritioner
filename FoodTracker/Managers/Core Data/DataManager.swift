@@ -42,7 +42,6 @@ class DataManager: DataManagerProtocol {
         let result = coreDataHelper.fetch(Day.self, predicate: nil, limit: nil)
         switch result {
             case .success(let day):
-                print(day)
                 return day
             case .failure(_):
                 return []

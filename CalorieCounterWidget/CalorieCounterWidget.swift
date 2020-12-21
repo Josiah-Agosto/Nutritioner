@@ -35,7 +35,6 @@ struct CalorieCounterProvider: TimelineProvider {
         let groupUrl = FileManager.sharedContainerUrl().appendingPathComponent("WidgetData.plist")
         if let data = try? Data(contentsOf: groupUrl) {
             if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] {
-                print("Data: \(result)")
                 return result
             }
         }

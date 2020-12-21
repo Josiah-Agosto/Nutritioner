@@ -28,7 +28,5 @@ extension SelectedDateViewModel: FetchMealDataProtocol {
     //
     func fetchMealCells() {
         meals = dataManager.fetchMeal(from: selectedDate)
-        print(selectedDate)
-        print("Meal: \(meals)")
     }
 }
