@@ -112,17 +112,17 @@
 		BD22B056258E322D009988AB /* CalorieCounterWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalorieCounterWidgetExtension.entitlements; sourceTree = "<group>"; };
 		BD2C3F1D259013AD00E7B610 /* Meal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BD2C3F1E259013AD00E7B610 /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BD2C795E25684EAE00D4C578 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2C795E25684EAE00D4C578 /* NutritionTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutritionTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerApp.swift; sourceTree = "<group>"; };
 		BD2C796325684EAE00D4C578 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BD2C796525684EB100D4C578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD2C796825684EB100D4C578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD2C796D25684EB100D4C578 /* FoodTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodTracker.xcdatamodel; sourceTree = "<group>"; };
 		BD2C796F25684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD2C797425684EB100D4C578 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2C797425684EB100D4C578 /* NutritionTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutritionTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C797825684EB100D4C578 /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		BD2C797A25684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD2C797F25684EB100D4C578 /* FoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2C797F25684EB100D4C578 /* NutritionTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutritionTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerUITests.swift; sourceTree = "<group>"; };
 		BD2C798525684EB100D4C578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD2C79972568958B00D4C578 /* PersistentCloudKitContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCloudKitContainer.swift; sourceTree = "<group>"; };
@@ -274,9 +274,9 @@
 		BD2C795F25684EAE00D4C578 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD2C795E25684EAE00D4C578 /* FoodTracker.app */,
-				BD2C797425684EB100D4C578 /* FoodTrackerTests.xctest */,
-				BD2C797F25684EB100D4C578 /* FoodTrackerUITests.xctest */,
+				BD2C795E25684EAE00D4C578 /* NutritionTracker.app */,
+				BD2C797425684EB100D4C578 /* NutritionTrackerTests.xctest */,
+				BD2C797F25684EB100D4C578 /* NutritionTrackerUITests.xctest */,
 				BD22AFC3258D43DD009988AB /* CalorieCounterWidgetExtension.appex */,
 			);
 			name = Products;
@@ -618,9 +618,9 @@
 			productReference = BD22AFC3258D43DD009988AB /* CalorieCounterWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		BD2C795D25684EAD00D4C578 /* FoodTracker */ = {
+		BD2C795D25684EAD00D4C578 /* NutritionTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD2C798825684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTracker" */;
+			buildConfigurationList = BD2C798825684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTracker" */;
 			buildPhases = (
 				BD2C795A25684EAD00D4C578 /* Sources */,
 				BD2C795B25684EAD00D4C578 /* Frameworks */,
@@ -632,14 +632,14 @@
 			dependencies = (
 				BD22AFCF258D43E9009988AB /* PBXTargetDependency */,
 			);
-			name = FoodTracker;
+			name = NutritionTracker;
 			productName = FoodTracker;
-			productReference = BD2C795E25684EAE00D4C578 /* FoodTracker.app */;
+			productReference = BD2C795E25684EAE00D4C578 /* NutritionTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD2C797325684EB100D4C578 /* FoodTrackerTests */ = {
+		BD2C797325684EB100D4C578 /* NutritionTrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD2C798B25684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTrackerTests" */;
+			buildConfigurationList = BD2C798B25684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTrackerTests" */;
 			buildPhases = (
 				BD2C797025684EB100D4C578 /* Sources */,
 				BD2C797125684EB100D4C578 /* Frameworks */,
@@ -650,14 +650,14 @@
 			dependencies = (
 				BD2C797625684EB100D4C578 /* PBXTargetDependency */,
 			);
-			name = FoodTrackerTests;
+			name = NutritionTrackerTests;
 			productName = FoodTrackerTests;
-			productReference = BD2C797425684EB100D4C578 /* FoodTrackerTests.xctest */;
+			productReference = BD2C797425684EB100D4C578 /* NutritionTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BD2C797E25684EB100D4C578 /* FoodTrackerUITests */ = {
+		BD2C797E25684EB100D4C578 /* NutritionTrackerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD2C798E25684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTrackerUITests" */;
+			buildConfigurationList = BD2C798E25684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTrackerUITests" */;
 			buildPhases = (
 				BD2C797B25684EB100D4C578 /* Sources */,
 				BD2C797C25684EB100D4C578 /* Frameworks */,
@@ -668,9 +668,9 @@
 			dependencies = (
 				BD2C798125684EB100D4C578 /* PBXTargetDependency */,
 			);
-			name = FoodTrackerUITests;
+			name = NutritionTrackerUITests;
 			productName = FoodTrackerUITests;
-			productReference = BD2C797F25684EB100D4C578 /* FoodTrackerUITests.xctest */;
+			productReference = BD2C797F25684EB100D4C578 /* NutritionTrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -698,7 +698,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD2C795925684EAD00D4C578 /* Build configuration list for PBXProject "FoodTracker" */;
+			buildConfigurationList = BD2C795925684EAD00D4C578 /* Build configuration list for PBXProject "NutritionTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -711,9 +711,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD2C795D25684EAD00D4C578 /* FoodTracker */,
-				BD2C797325684EB100D4C578 /* FoodTrackerTests */,
-				BD2C797E25684EB100D4C578 /* FoodTrackerUITests */,
+				BD2C795D25684EAD00D4C578 /* NutritionTracker */,
+				BD2C797325684EB100D4C578 /* NutritionTrackerTests */,
+				BD2C797E25684EB100D4C578 /* NutritionTrackerUITests */,
 				BD22AFC2258D43DD009988AB /* CalorieCounterWidgetExtension */,
 			);
 		};
@@ -834,12 +834,12 @@
 		};
 		BD2C797625684EB100D4C578 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD2C795D25684EAD00D4C578 /* FoodTracker */;
+			target = BD2C795D25684EAD00D4C578 /* NutritionTracker */;
 			targetProxy = BD2C797525684EB100D4C578 /* PBXContainerItemProxy */;
 		};
 		BD2C798125684EB100D4C578 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD2C795D25684EAD00D4C578 /* FoodTracker */;
+			target = BD2C795D25684EAD00D4C578 /* NutritionTracker */;
 			targetProxy = BD2C798025684EB100D4C578 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1081,7 +1081,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodTracker.app/FoodTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutritionTracker.app/NutritionTracker";
 			};
 			name = Debug;
 		};
@@ -1103,7 +1103,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodTracker.app/FoodTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutritionTracker.app/NutritionTracker";
 			};
 			name = Release;
 		};
@@ -1159,7 +1159,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD2C795925684EAD00D4C578 /* Build configuration list for PBXProject "FoodTracker" */ = {
+		BD2C795925684EAD00D4C578 /* Build configuration list for PBXProject "NutritionTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD2C798625684EB100D4C578 /* Debug */,
@@ -1168,7 +1168,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD2C798825684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTracker" */ = {
+		BD2C798825684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD2C798925684EB100D4C578 /* Debug */,
@@ -1177,7 +1177,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD2C798B25684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTrackerTests" */ = {
+		BD2C798B25684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD2C798C25684EB100D4C578 /* Debug */,
@@ -1186,7 +1186,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD2C798E25684EB100D4C578 /* Build configuration list for PBXNativeTarget "FoodTrackerUITests" */ = {
+		BD2C798E25684EB100D4C578 /* Build configuration list for PBXNativeTarget "NutritionTrackerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD2C798F25684EB100D4C578 /* Debug */,
