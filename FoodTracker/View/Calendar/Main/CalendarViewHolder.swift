@@ -19,10 +19,10 @@ struct CalendarViewHolder: View {
                 Text("Per Day")
                     .hidden()
                     .padding(5)
-                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
-                    .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255))
+                    .foregroundColor(Color("MealCellText"))
+                    .background(Color("Contrast"))
                     .clipShape(Circle())
-                    .shadow(color: Color.black.opacity(0.1), radius: 6, x: -1.0, y: -0.5)
+                    .shadow(color: Color("Shadow"), radius: 6, x: -1.0, y: -0.5)
                     .overlay(Text(String(self.calendar.component(.day, from: date))))
                     .onTapGesture {
                         selectedDateViewModel.selectedDate = String.getInputedDate(date)
@@ -34,7 +34,7 @@ struct CalendarViewHolder: View {
             .background(Color.clear)
         }
         .padding(.bottom, 12)
-        .background(Color(red: 215 / 255, green: 215 / 255, blue: 219 / 255)).edgesIgnoringSafeArea(.bottom)
+        .background(Color("Background")).edgesIgnoringSafeArea(.bottom)
         .navigationBarTitle("Calendar", displayMode: .inline)
         .sheet(isPresented: $selectedDateViewModel.showingSelectedDate) {
             NavigationView {
@@ -47,7 +47,7 @@ struct CalendarViewHolder: View {
             }, label: {
                 Text("Cancel")
                     .font(.custom("Helvetica Neue", size: 20))
-                    .foregroundColor(Color(red: 255 / 255, green: 55 / 255, blue: 95 / 255))
+                    .foregroundColor(Color("AppColor"))
             })
         )
     }

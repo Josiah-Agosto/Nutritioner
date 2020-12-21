@@ -2,7 +2,7 @@
 //  Meal+CoreDataClass.swift
 //  FoodTracker
 //
-//  Created by Josiah Agosto on 12/2/20.
+//  Created by Josiah Agosto on 12/20/20.
 //
 //
 

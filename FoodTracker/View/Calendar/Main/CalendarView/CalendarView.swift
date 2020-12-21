@@ -34,7 +34,7 @@ struct CalendarView<DateView>: View where DateView: View {
                                 content(date).hidden()
                             }
                         } // Day Cell
-                        .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                        .foregroundColor(Color("MealCellText"))
                         .background(Color.clear)
                     } // Section
                 } // Month
@@ -57,7 +57,7 @@ struct CalendarView<DateView>: View where DateView: View {
                 Text(formatter.string(from: month))
                     .font(.title)
                     .padding(8)
-                    .foregroundColor(Color(red: 170 / 255, green: 170 / 255, blue: 0.6))
+                    .foregroundColor(Color("MealCellText"))
                     .background(Color.clear)
             }
         }

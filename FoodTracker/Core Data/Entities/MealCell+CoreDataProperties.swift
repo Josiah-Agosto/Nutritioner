@@ -19,7 +19,7 @@ extension MealCell {
     @NSManaged public var calories: String
     @NSManaged public var date: String
     @NSManaged public var longDate: String
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: UUID
     @NSManaged public var name: String
     @NSManaged public var notes: String?
     @NSManaged public var day: Day
