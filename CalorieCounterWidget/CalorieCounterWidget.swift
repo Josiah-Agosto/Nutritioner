@@ -102,6 +102,6 @@ struct CalorieCounterWidget_Previews: PreviewProvider {
 extension FileManager {
     // Links container with this identifier
     static func sharedContainerUrl() -> URL {
-        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.JosiahAgosto")!
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.JosiahAgosto.NutritionTracker.CalorieCounterWidget")!
     }
 }

@@ -20,7 +20,7 @@
 		BD22B035258DF737009988AB /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22B034258DF737009988AB /* SharedData.swift */; };
 		BD2C3F1F259013B700E7B610 /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C3F1E259013AD00E7B610 /* Meal+CoreDataProperties.swift */; };
 		BD2C3F20259013B700E7B610 /* Meal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C3F1D259013AD00E7B610 /* Meal+CoreDataClass.swift */; };
-		BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */; };
+		BD2C796225684EAE00D4C578 /* NutritionTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796125684EAE00D4C578 /* NutritionTrackerApp.swift */; };
 		BD2C796425684EAE00D4C578 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C796325684EAE00D4C578 /* MainView.swift */; };
 		BD2C796625684EB100D4C578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2C796525684EB100D4C578 /* Assets.xcassets */; };
 		BD2C796925684EB100D4C578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2C796825684EB100D4C578 /* Preview Assets.xcassets */; };
@@ -98,7 +98,7 @@
 
 /* Begin PBXFileReference section */
 		BD1FE70A25748B8E00AA7206 /* HealthKitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitStore.swift; sourceTree = "<group>"; };
-		BD1FE71225748DCD00AA7206 /* FoodTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodTracker.entitlements; sourceTree = "<group>"; };
+		BD1FE71225748DCD00AA7206 /* NutritionTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutritionTracker.entitlements; sourceTree = "<group>"; };
 		BD1FE71625748DEF00AA7206 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BD22AFC3258D43DD009988AB /* CalorieCounterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalorieCounterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD22AFC4258D43DD009988AB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -109,11 +109,11 @@
 		BD22AFEC258D5B9C009988AB /* CalorieWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieWidgetEntry.swift; sourceTree = "<group>"; };
 		BD22B02D258DE5E1009988AB /* WidgetData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WidgetData.plist; sourceTree = "<group>"; };
 		BD22B034258DF737009988AB /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
-		BD22B056258E322D009988AB /* CalorieCounterWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalorieCounterWidgetExtension.entitlements; sourceTree = "<group>"; };
+		BD22B056258E322D009988AB /* CalorieCounterWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CalorieCounterWidgetExtension.entitlements; path = NutritionTracker/CalorieCounterWidgetExtension.entitlements; sourceTree = "<group>"; };
 		BD2C3F1D259013AD00E7B610 /* Meal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BD2C3F1E259013AD00E7B610 /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BD2C795E25684EAE00D4C578 /* NutritionTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutritionTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerApp.swift; sourceTree = "<group>"; };
+		BD2C796125684EAE00D4C578 /* NutritionTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTrackerApp.swift; sourceTree = "<group>"; };
 		BD2C796325684EAE00D4C578 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BD2C796525684EB100D4C578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD2C796825684EB100D4C578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -262,9 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				BD22B056258E322D009988AB /* CalorieCounterWidgetExtension.entitlements */,
-				BD2C796025684EAE00D4C578 /* FoodTracker */,
-				BD2C797725684EB100D4C578 /* FoodTrackerTests */,
-				BD2C798225684EB100D4C578 /* FoodTrackerUITests */,
+				BD2C796025684EAE00D4C578 /* NutritionTracker */,
+				BD2C797725684EB100D4C578 /* NutritionTrackerTests */,
+				BD2C798225684EB100D4C578 /* NutritionTrackerUITests */,
 				BD22AFC8258D43DD009988AB /* CalorieCounterWidget */,
 				BD2C795F25684EAE00D4C578 /* Products */,
 				BDB257AD2572038A00C9097D /* Frameworks */,
@@ -282,12 +282,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD2C796025684EAE00D4C578 /* FoodTracker */ = {
+		BD2C796025684EAE00D4C578 /* NutritionTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BD2C796125684EAE00D4C578 /* FoodTrackerApp.swift */,
+				BD2C796125684EAE00D4C578 /* NutritionTrackerApp.swift */,
 				BD2C796F25684EB100D4C578 /* Info.plist */,
-				BD1FE71225748DCD00AA7206 /* FoodTracker.entitlements */,
+				BD1FE71225748DCD00AA7206 /* NutritionTracker.entitlements */,
 				BD2C3F2D25901A5F00E7B610 /* Utilities */,
 				BD2C799F2568A9A200D4C578 /* Core Data */,
 				BD5A44DF2575B607005BCA75 /* Extensions */,
@@ -296,35 +296,35 @@
 				BD2C799C2568A98900D4C578 /* Model */,
 				BD2C799D2568A98F00D4C578 /* View */,
 				BD2C799E2568A99400D4C578 /* View Model */,
-				BD2C796725684EB100D4C578 /* Preview Content */,
+				BD2C796725684EB100D4C578 /* PreviewContent */,
 			);
-			path = FoodTracker;
+			path = NutritionTracker;
 			sourceTree = "<group>";
 		};
-		BD2C796725684EB100D4C578 /* Preview Content */ = {
+		BD2C796725684EB100D4C578 /* PreviewContent */ = {
 			isa = PBXGroup;
 			children = (
 				BD2C796825684EB100D4C578 /* Preview Assets.xcassets */,
 			);
-			path = "Preview Content";
+			path = PreviewContent;
 			sourceTree = "<group>";
 		};
-		BD2C797725684EB100D4C578 /* FoodTrackerTests */ = {
+		BD2C797725684EB100D4C578 /* NutritionTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD2C797825684EB100D4C578 /* FoodTrackerTests.swift */,
 				BD2C797A25684EB100D4C578 /* Info.plist */,
 			);
-			path = FoodTrackerTests;
+			path = NutritionTrackerTests;
 			sourceTree = "<group>";
 		};
-		BD2C798225684EB100D4C578 /* FoodTrackerUITests */ = {
+		BD2C798225684EB100D4C578 /* NutritionTrackerUITests */ = {
 			isa = PBXGroup;
 			children = (
 				BD2C798325684EB100D4C578 /* FoodTrackerUITests.swift */,
 				BD2C798525684EB100D4C578 /* Info.plist */,
 			);
-			path = FoodTrackerUITests;
+			path = NutritionTrackerUITests;
 			sourceTree = "<group>";
 		};
 		BD2C799C2568A98900D4C578 /* Model */ = {
@@ -802,7 +802,7 @@
 				BD3B7E8F2582BB9500582D03 /* ActiveMainSheet.swift in Sources */,
 				BDB257B725720C0800C9097D /* NutrientsModel.swift in Sources */,
 				BD5A44E12575B618005BCA75 /* FoodTrackerExtensions.swift in Sources */,
-				BD2C796225684EAE00D4C578 /* FoodTrackerApp.swift in Sources */,
+				BD2C796225684EAE00D4C578 /* NutritionTrackerApp.swift in Sources */,
 				BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */,
 				BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */,
 			);
@@ -861,7 +861,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker.CalorieCounterWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JosiahAgosto.NutritionTracker.CalorieCounterWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -885,7 +885,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker.CalorieCounterWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JosiahAgosto.NutritionTracker.CalorieCounterWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1017,19 +1017,19 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FoodTracker/FoodTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NutritionTracker/NutritionTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FoodTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = NutritionTracker/PreviewContent;
 				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = NutritionTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JosiahAgosto.NutritionTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1043,19 +1043,19 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FoodTracker/FoodTracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NutritionTracker/NutritionTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FoodTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = NutritionTracker/PreviewContent;
 				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = NutritionTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Josiah-Agosto.FoodTracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JosiahAgosto.NutritionTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
