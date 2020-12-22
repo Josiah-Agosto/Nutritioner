@@ -342,7 +342,7 @@
 		BD2C799D2568A98F00D4C578 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD4711472579F4DB005C1BBA /* ViewRepresentables */,
+				BD4711472579F4DB005C1BBA /* View Representables */,
 				BD3B7E962582E5B400582D03 /* Selected Date */,
 				BD92155B257A03A90079672F /* Calendar */,
 				BD8EDCC6256E19D1000A4E3D /* Add Meal */,
@@ -393,12 +393,12 @@
 			path = "Selected Date";
 			sourceTree = "<group>";
 		};
-		BD4711472579F4DB005C1BBA /* ViewRepresentables */ = {
+		BD4711472579F4DB005C1BBA /* View Representables */ = {
 			isa = PBXGroup;
 			children = (
 				BD4711482579F563005C1BBA /* CameraController */,
 			);
-			path = ViewRepresentables;
+			path = "View Representables";
 			sourceTree = "<group>";
 		};
 		BD4711482579F563005C1BBA /* CameraController */ = {

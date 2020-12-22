@@ -26,7 +26,7 @@ struct AddMealView: View {
             GeometryReader { reader in
                 List {
                     Group {
-                        AddNutritionTextField(placeholder: "Meal Name", input: $viewModel.mealName, viewModel: viewModel)
+                        AddNutritionTextField(placeholder: "Meal Name (required)", input: $viewModel.mealName, viewModel: viewModel)
                             .shadow(color: Color("Shadow"), radius: 6, x: -1.0, y: -0.5)
                         AddNutritionTextField(placeholder: "Serving Size", input: $viewModel.servingSize, viewModel: viewModel)
                             .shadow(color: Color("Shadow"), radius: 6, x: -1.0, y: -0.5)
@@ -111,8 +111,13 @@ struct AddMealView: View {
                     }
                     Group {
                         Button(action: {
-                            viewModel.addToHomeKitAndCoreData()
-                            presentationMode.wrappedValue.dismiss()
+                            if !viewModel.mealName.isEmpty {
+                                viewModel.isAcceptable = true
+                                viewModel.addToHomeKitAndCoreData()
+                                presentationMode.wrappedValue.dismiss()
+                            } else {
+                                viewModel.isAcceptable = false
+                            }
                         }, label: {
                             HStack {
                                 Spacer()

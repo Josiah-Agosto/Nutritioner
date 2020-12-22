@@ -57,6 +57,8 @@ final class AddMealViewModel: ObservableObject {
     @Published var notesText: String = ""
     @Published var notesTextHeight: CGFloat = 0
     @Published var tappedViewPosition: CGFloat = 0
+    //
+    @Published var isAcceptable: Bool = true
     
     // MARK: - Public Functions
     /// Adds Meal to Core Data
