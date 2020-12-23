@@ -396,17 +396,17 @@
 		BD4711472579F4DB005C1BBA /* View Representables */ = {
 			isa = PBXGroup;
 			children = (
-				BD4711482579F563005C1BBA /* CameraController */,
+				BD4711482579F563005C1BBA /* Camera */,
 			);
 			path = "View Representables";
 			sourceTree = "<group>";
 		};
-		BD4711482579F563005C1BBA /* CameraController */ = {
+		BD4711482579F563005C1BBA /* Camera */ = {
 			isa = PBXGroup;
 			children = (
 				BD4711542579F735005C1BBA /* Controller */,
 			);
-			path = CameraController;
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		BD4711542579F735005C1BBA /* Controller */ = {

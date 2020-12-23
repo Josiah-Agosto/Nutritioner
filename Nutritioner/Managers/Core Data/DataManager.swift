@@ -9,13 +9,19 @@ import Foundation
 
 protocol DataManagerProtocol {
     func fetchMeal(from date: String) -> [MealCell]
-    func fetchDay() -> [Day]
+    func fetchDay(from date: String) -> [Day]
     func addFullMeal(with nutrients: NutrientsModel, _ meal: MealModel, _ day: DayModel)
 }
 
 protocol FetchMealDataProtocol {
     var meals: [MealCell] { get }
     func fetchMealCells()
+}
+
+protocol FetchDayProtocol {
+    var day: [Day] { get }
+    var meals: [MealCell] { get }
+    func fetchMealCellsInDay(_ from: String)
 }
 
 class DataManager: DataManagerProtocol {
@@ -37,9 +43,9 @@ class DataManager: DataManagerProtocol {
     }
     
     /// Fetches A Day with a predicate of dayModel is same as Core data data.
-    func fetchDay() -> [Day] {
-//        let predicate = NSPredicate(format: "date = %@", dayModel.date as CVarArg)
-        let result = coreDataHelper.fetch(Day.self, predicate: nil, limit: nil)
+    func fetchDay(from date: String) -> [Day] {
+        let predicate = NSPredicate(format: "date = %@", date as CVarArg)
+        let result = coreDataHelper.fetch(Day.self, predicate: predicate, limit: nil)
         switch result {
             case .success(let day):
                 return day

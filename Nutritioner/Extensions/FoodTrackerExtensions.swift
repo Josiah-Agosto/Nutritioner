@@ -29,6 +29,14 @@ extension String {
         return dayString
     }
     
+    /// Retrieves current Day from a date as String.
+    static func getCurrentDay(_ from: Date) -> Self {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let dayString = dateFormatter.string(from: from)
+        return dayString
+    }
+    
     /// Retrieves current date in Month/Day/Year format.
     static func getCurrentStringDate() -> Self {
         let date = Date()
@@ -68,16 +76,13 @@ extension String {
     /// Takes String date and makes it show day of week.
     static func convertStringDateToDayOfWeek(_ from: String) -> Self {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "MM/dd/yyyy"
         if let date = formatter.date(from: from) {
             let newFormatter = DateFormatter()
             newFormatter.dateFormat = "EEEE"
             let newFormatterString = newFormatter.string(from: date)
-            if let newDateString = newFormatter.date(from: newFormatterString) {
-                let newStringDay = newFormatter.string(from: newDateString)
-                return newStringDay
-            }
+            print(newFormatterString)
+            return newFormatterString
         }
         return "Unavailable"
     }
@@ -116,6 +121,17 @@ extension Date {
         let dayDate = dateFormatter.date(from: dayString)!
         return dayDate
     }
+    
+    // Converts a string date format to actual Date with the same format.
+//    static func convertToDate(_ input: String) -> Self {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZ"
+//        let newFormatter = DateFormatter()
+//        newFormatter.dateFormat = "MM/dd/yyyy"
+//        let inputedDate = newFormatter.date(from: input)!
+//        let stringInputDate = newFormatter.string(from: inputedDate)
+//        return Date()
+//    }
     
     /// Retrieves current Day.
     static func getCurrentDay() -> Self {

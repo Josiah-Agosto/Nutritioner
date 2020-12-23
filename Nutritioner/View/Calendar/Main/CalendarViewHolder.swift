@@ -27,8 +27,8 @@ struct CalendarViewHolder: View {
                     .onTapGesture {
                         selectedDateViewModel.selectedDate = String.getInputedDate(date)
                         selectedDateViewModel.selectedFormattedDate = String.getInputedDateLongFormat(date)
+                        selectedDateViewModel.fetchMealCellsInDay(selectedDateViewModel.selectedDate)
                         selectedDateViewModel.showingSelectedDate.toggle()
-                        selectedDateViewModel.fetchMealCells()
                     }
             }
             .background(Color.clear)
@@ -38,8 +38,9 @@ struct CalendarViewHolder: View {
         .navigationBarTitle("Calendar", displayMode: .inline)
         .sheet(isPresented: $selectedDateViewModel.showingSelectedDate) {
             NavigationView {
-                SelectedDateView()
+                SelectedDateView(selectedDateViewModel: selectedDateViewModel)
             }
+            .highPriorityGesture(selectedDateViewModel.dragGesture)
         }
         .navigationBarItems(leading:
             Button(action: {

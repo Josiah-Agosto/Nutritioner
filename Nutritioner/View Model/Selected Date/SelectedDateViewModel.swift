@@ -6,14 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SelectedDateViewModel: ObservableObject {
     // MARK: - References / Properties
     @Published var showingSelectedDate: Bool = false
+    @Published var day = [Day]()
     @Published var meals = [MealCell]()
     @Published var selectedDate: String = ""
     @Published var selectedFormattedDate: String = ""
     @Published var totalCalories: Int16 = 0
+    let dragGesture = DragGesture()
     private var dataManager: DataManagerProtocol
     
     //
@@ -24,9 +27,14 @@ class SelectedDateViewModel: ObservableObject {
 
 
 //
-extension SelectedDateViewModel: FetchMealDataProtocol {
+extension SelectedDateViewModel: FetchDayProtocol {
     //
-    func fetchMealCells() {
-        meals = dataManager.fetchMeal(from: selectedDate)
+    func fetchMealCellsInDay(_ from: String) {
+        day = dataManager.fetchDay(from: from)
+        for dayMeals in day {
+            let newMeals = Array(dayMeals.mealCell)
+            meals = newMeals
+        }
     }
+
 }
