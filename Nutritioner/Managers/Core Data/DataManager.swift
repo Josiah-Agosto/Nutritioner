@@ -58,7 +58,7 @@ class DataManager: DataManagerProtocol {
     private func addNutrients(_ nutrientsModel: NutrientsModel) -> Meal {
         let mealEntity = Meal.entity()
         let newNutrients = Meal(entity: mealEntity, insertInto: coreDataHelper.context)
-        if (Int16(nutrientsModel.calories ?? "0") != 0) { newNutrients.calories = Double.convertToDouble(nutrientsModel.calories ?? "0") }
+        if (Int16(String.checkForPercent(nutrientsModel.calories!)) != 0) { newNutrients.calories = Double.convertToDouble(String.checkForPercent(nutrientsModel.calories!)) }
         if (Int16(nutrientsModel.fatTotal ?? "0") != 0) { newNutrients.totalFat = Double.convertToDouble(nutrientsModel.fatTotal ?? "0") }
         if (Int16(nutrientsModel.fatSaturated ?? "0") != 0) { newNutrients.saturatedFat = Double.convertToDouble(nutrientsModel.fatSaturated ?? "0") }
         if (Int16(nutrientsModel.cholesterol ?? "0") != 0) { newNutrients.cholesterol = Double.convertToDouble(nutrientsModel.cholesterol ?? "0") }
@@ -108,7 +108,7 @@ class DataManager: DataManagerProtocol {
         newMealCell.longDate = mealModel.longDate
         newMealCell.name = mealModel.name
         newMealCell.notes = mealModel.notes
-        newMealCell.calories = mealModel.calories ?? "0"
+        newMealCell.calories = mealModel.calories!
         newMealCell.addToMeal(nutrientEntity)
         return newMealCell
     }

@@ -148,15 +148,15 @@ struct AddMealView: View {
                     .font(.custom("Helvetica Neue", size: 20))
                     .foregroundColor(Color("AppColor"))
             })
-        , trailing:
-            Button(action: {
-
-            }, label: {
-                Image(systemName: "doc.text.viewfinder")
-                    .font(.system(size: 27))
-                    .foregroundColor(Color("AppColor"))
-            })
         )
+//        trailing:
+//            Button(action: {
+//
+//            }, label: {
+//                Image(systemName: "doc.text.viewfinder")
+//                    .font(.system(size: 27))
+//                    .foregroundColor(Color("AppColor"))
+//        })
     }
     
 }

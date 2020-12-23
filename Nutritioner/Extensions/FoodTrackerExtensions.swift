@@ -81,7 +81,6 @@ extension String {
             let newFormatter = DateFormatter()
             newFormatter.dateFormat = "EEEE"
             let newFormatterString = newFormatter.string(from: date)
-            print(newFormatterString)
             return newFormatterString
         }
         return "Unavailable"
@@ -89,11 +88,25 @@ extension String {
     
     /// Multiplies inputed calories by servings.
     static func multiplyCalories(_ of: String, _ fromServings: String) -> Self {
-        let calories = Int(of) ?? 0
+        let calories = Int(String.checkForPercent(of)) ?? 0
         let servings = Int(fromServings) ?? 1
         let caloriesAfterServings = calories * servings
         let stringCalories = "\(caloriesAfterServings)"
         return stringCalories
+    }
+    
+    ///
+    static func checkForPercent(_ input: String) -> String {
+        let inputedInput = input
+        if inputedInput.contains("%") {
+            let checkForNonNumber = inputedInput.replacingOccurrences(of: "%", with: "")
+            guard let safeInput = Double(checkForNonNumber) else { return "" }
+            let decimal = safeInput / 100
+            let includingDailyPercentValue = Int(decimal * 2000)
+            let stringNumber = "\(includingDailyPercentValue)"
+            return stringNumber
+        }
+        return inputedInput
     }
     
 }
@@ -201,6 +214,16 @@ extension Double {
         guard input.isEmpty != true else { return 0.0 }
         guard let inputInt = Double(input) else { return 0.0 }
         return inputInt
+    }
+    
+    /// Converts number to daily percent value.
+    static func calculateDailyPercentValue(_ input: String) -> Self {
+        let inputLocal = input
+        let checkForNonNumber = inputLocal.replacingOccurrences(of: "%", with: "")
+        guard let safeInput = Double(checkForNonNumber) else { return 0 }
+        let decimal = safeInput / 100
+        let includingDailyPercentValue = decimal * 2000
+        return includingDailyPercentValue
     }
 }
 

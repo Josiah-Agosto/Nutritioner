@@ -77,7 +77,7 @@ class HealthKitStore {
     /// - Parameter completion: True if successful false if error.
     public func saveMealToHealthKit(with completion: @escaping(Bool) -> Void) {
         // Quantities
-        let caloriesQuantity = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: Double(String.multiplyCalories(viewModel?.calories ?? "0", viewModel?.servingSize ?? "1")) ?? 0.0)
+        let caloriesQuantity = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: Double(String.multiplyCalories(String.checkForPercent(viewModel!.calories), viewModel?.servingSize ?? "1")) ?? 0.0)
         let totalFatQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.totalFat ?? "") ?? 0.0)
         let saturatedFatQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: Double(viewModel?.saturatedFat ?? "") ?? 0.0)
         let cholesterolQuantity = HKQuantity(unit: HKUnit.gramUnit(with: .milli), doubleValue: Double(viewModel?.cholesterol ?? "") ?? 0.0)
