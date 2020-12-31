@@ -11,4 +11,12 @@ struct CalorieWidgetDataModel: Encodable {
     let calories: Int
     let currentDay: String
     let mealCounter: Int
+    let latestMeal: LatestMeal
+}
+
+
+struct LatestMeal: Encodable {
+    let mealTitle: String
+    let mealTime: String
+    let mealCalories: String
 }

@@ -79,7 +79,7 @@ struct MainView: View {
                         Text(String.getCurrentDay())
                             .font(.system(size: 14))
                             .foregroundColor(Color("AppColor"))
-                        Text("\(Int16.convertStringToSafeInt16(mainViewModel.totalCalories, "\(CoreDataHelper.shared.calculateCalories(mainViewModel.meals))"))")
+                        Text("\(Int16.convertStringToSafeInt16(mainViewModel.totalCalories, "\(CoreDataHelper.shared.calculateCalories(mainViewModel.meals, mainViewModel.day))"))")
                             .font(.system(size: 23))
                             .foregroundColor(Color("AppColor"))
                     }

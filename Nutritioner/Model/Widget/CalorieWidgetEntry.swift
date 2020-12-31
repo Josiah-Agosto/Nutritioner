@@ -13,4 +13,5 @@ struct CalorieWidgetEntry: TimelineEntry {
     let calories: Int
     let currentDay: String
     let mealCounter: Int
+    let latestMeal: LatestMeal
 }

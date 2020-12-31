@@ -46,6 +46,7 @@
 		BD92155D257A03BD0079672F /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92155C257A03BD0079672F /* CalendarView.swift */; };
 		BD921569257A059D0079672F /* SelectedDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD921568257A059D0079672F /* SelectedDateViewModel.swift */; };
 		BD921571257A17210079672F /* CalendarViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD921570257A17210079672F /* CalendarViewHolder.swift */; };
+		BD96F4B9259D305300609AE3 /* CalorieWidgetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D4657258EC1770083039E /* CalorieWidgetDataModel.swift */; };
 		BD9D4658258EC1770083039E /* CalorieWidgetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D4657258EC1770083039E /* CalorieWidgetDataModel.swift */; };
 		BDB257702570357800C9097D /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2576F2570357800C9097D /* MainViewViewModel.swift */; };
 		BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB25781257035CE00C9097D /* AddMealViewModel.swift */; };
@@ -56,6 +57,7 @@
 		BDE007D92583260700D94E90 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007D82583260700D94E90 /* CoreDataHelper.swift */; };
 		BDE007DF25833BC800D94E90 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007DE25833BC800D94E90 /* DataManager.swift */; };
 		BDE007F325841F1500D94E90 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE007F225841F1500D94E90 /* DayModel.swift */; };
+		BDFD3810259C51660082844E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD380F259C51660082844E /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,7 @@
 		BDE007D82583260700D94E90 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		BDE007DE25833BC800D94E90 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BDE007F225841F1500D94E90 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
+		BDFD380F259C51660082844E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1FE71725748DEF00AA7206 /* HealthKit.framework in Frameworks */,
+				BDFD3810259C51660082844E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +545,7 @@
 		BDB257AD2572038A00C9097D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDFD380F259C51660082844E /* CloudKit.framework */,
 				BD1FE71625748DEF00AA7206 /* HealthKit.framework */,
 				BD22AFC4258D43DD009988AB /* WidgetKit.framework */,
 				BD22AFC6258D43DD009988AB /* SwiftUI.framework */,
@@ -761,6 +766,7 @@
 			files = (
 				BD22AFCA258D43DD009988AB /* CalorieCounterWidget.swift in Sources */,
 				BD22AFEE258D5B9C009988AB /* CalorieWidgetEntry.swift in Sources */,
+				BD96F4B9259D305300609AE3 /* CalorieWidgetDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

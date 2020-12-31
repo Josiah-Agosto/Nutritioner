@@ -63,15 +63,15 @@ class CoreDataHelper: CoreDataHelperProtocol {
     }
     
     //
-    public func calculateCalories(_ from: [MealCell]) -> Int16 {
+    public func calculateCalories(_ from: [MealCell], _ and: [Day]) -> Int16 {
         var allCalories: Int16 = 0
         let _ = from.forEach { (meal) in
             allCalories += Int16(meal.calories) ?? 0
         }
         if !from.isEmpty {
-            SharedData.shared.addValuesToPlist(Int(allCalories), String.convertStringDateToDayOfWeek(from[0].longDate), from.count)
+            SharedData.shared.addValuesToPlist(Int(allCalories), String.convertStringDateToDayOfWeek(from[0].longDate), from.count, LatestMeal(mealTitle: and.last?.mealCell.first?.name ?? "No Data", mealTime: and.last?.mealCell.first?.date ?? "No Data", mealCalories: and.last?.mealCell.first?.calories ?? "0"))
         } else {
-            SharedData.shared.addValuesToPlist(0, String.getCurrentDay(), 0)
+            SharedData.shared.addValuesToPlist(0, String.getCurrentDay(), 0, LatestMeal(mealTitle: "No Data", mealTime: "No Data", mealCalories: "0"))
         }
         return allCalories
     }

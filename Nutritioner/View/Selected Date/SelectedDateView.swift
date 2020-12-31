@@ -38,7 +38,7 @@ struct SelectedDateView: View {
                     Text(String.convertStringDateToDayOfWeek(selectedDateViewModel.selectedDate))
                         .font(.system(size: 14))
                         .foregroundColor(Color("AppColor"))
-                    Text("\(CoreDataHelper.shared.calculateCalories(selectedDateViewModel.meals))")
+                    Text("\(CoreDataHelper.shared.calculateCalories(selectedDateViewModel.meals, selectedDateViewModel.day))")
                         .font(.system(size: 23))
                         .foregroundColor(Color("AppColor"))
                 }

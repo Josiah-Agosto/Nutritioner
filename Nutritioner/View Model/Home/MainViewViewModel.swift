@@ -10,6 +10,7 @@ import Foundation
 class MainViewViewModel: ObservableObject {
     // MARK: - References / Properties
     @Published var meals = [MealCell]()
+    @Published var day = [Day]()
     @Published var showingView: Bool = false
     @Published var totalCalories: Int16 = 0
     @Published var activeSheet: ActiveMainSheet = .addMeal
@@ -37,6 +38,7 @@ class MainViewViewModel: ObservableObject {
 extension MainViewViewModel: FetchMealDataProtocol {
     //
     func fetchMealCells() {
+        day = dataManager.fetchDay(from: String.getCurrentStringDate())
         meals = dataManager.fetchMeal(from: String.getCurrentStringDate())
     }
 }

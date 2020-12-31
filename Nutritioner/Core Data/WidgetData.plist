@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>latestMeal</key>
+	<dict>
+		<key>mealCalories</key>
+		<string></string>
+		<key>mealTitle</key>
+		<string></string>
+		<key>mealTime</key>
+		<string></string>
+	</dict>
 	<key>mealCounter</key>
 	<string>0</string>
 	<key>currentDay</key>
