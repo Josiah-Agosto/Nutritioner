@@ -1,6 +1,6 @@
 //
-//  FoodTrackerApp.swift
-//  FoodTracker
+//  NutritionerApp.swift
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/20/20.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 @main
-struct FoodTrackerApp: App {
+struct NutritionerApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

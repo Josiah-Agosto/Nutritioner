@@ -1,6 +1,6 @@
 //
 //  CalorieWidgetDataModel.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/19/20.
 //

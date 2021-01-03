@@ -1,8 +1,8 @@
 //
 //  Meal+CoreDataClass.swift
-//  FoodTracker
+//  Nutritioner
 //
-//  Created by Josiah Agosto on 12/20/20.
+//  Created by Josiah Agosto on 1/3/21.
 //
 //
 

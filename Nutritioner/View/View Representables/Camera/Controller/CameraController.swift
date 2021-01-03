@@ -1,6 +1,6 @@
 //
 //  CameraController.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/3/20.
 //

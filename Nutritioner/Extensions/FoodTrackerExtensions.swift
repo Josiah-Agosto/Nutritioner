@@ -1,6 +1,6 @@
 //
-//  FoodTrackerExtensions.swift
-//  FoodTracker
+//  NutritionerExtensions.swift
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/30/20.
 //

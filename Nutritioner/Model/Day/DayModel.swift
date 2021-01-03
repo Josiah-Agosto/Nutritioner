@@ -1,6 +1,6 @@
 //
 //  DayModel.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/11/20.
 //

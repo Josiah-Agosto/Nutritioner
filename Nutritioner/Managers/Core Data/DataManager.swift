@@ -1,6 +1,6 @@
 //
 //  DataManager.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/11/20.
 //
@@ -94,7 +94,7 @@ class DataManager: DataManagerProtocol {
         if (Int16(nutrientsModel.vitaminB12 ?? "0") != 0) { newNutrients.vitaminB12 = Double.convertToDouble(nutrientsModel.vitaminB12 ?? "0") }
         if (Int16(nutrientsModel.vitaminD ?? "0") != 0) { newNutrients.vitaminD = Double.convertToDouble(nutrientsModel.vitaminD ?? "0") }
         if (Int16(nutrientsModel.zinc ?? "0") != 0) { newNutrients.zinc = Double.convertToDouble(nutrientsModel.zinc ?? "0") }
-        coreDataHelper.create(newNutrients)
+//        coreDataHelper.create(newNutrients)
         return newNutrients
     }
 

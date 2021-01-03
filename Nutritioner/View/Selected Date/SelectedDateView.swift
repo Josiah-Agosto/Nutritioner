@@ -1,6 +1,6 @@
 //
 //  SelectedDateView.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/10/20.
 //

@@ -1,6 +1,6 @@
 //
 //  AddMealViewModel.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/26/20.
 //

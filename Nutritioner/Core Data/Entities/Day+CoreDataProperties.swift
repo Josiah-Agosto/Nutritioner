@@ -1,8 +1,8 @@
 //
 //  Day+CoreDataProperties.swift
-//  FoodTracker
+//  Nutritioner
 //
-//  Created by Josiah Agosto on 12/2/20.
+//  Created by Josiah Agosto on 1/3/21.
 //
 //
 
@@ -16,8 +16,8 @@ extension Day {
         return NSFetchRequest<Day>(entityName: "Day")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var date: String
+    @NSManaged public var id: UUID?
     @NSManaged public var totalCalories: Int16
     @NSManaged public var mealCell: Set<MealCell>
 
@@ -40,6 +40,7 @@ extension Day {
 
 }
 
-extension Day : Identifiable {
 
+extension Day: Identifiable {
+    
 }

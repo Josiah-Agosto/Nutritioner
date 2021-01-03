@@ -1,6 +1,6 @@
 //
 //  KeyboardManager.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/14/20.
 //

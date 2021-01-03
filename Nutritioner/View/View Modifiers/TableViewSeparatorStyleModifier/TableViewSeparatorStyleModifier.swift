@@ -1,6 +1,6 @@
 //
 //  TableViewSeparatorStyleModifier.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 12/9/20.
 //

@@ -1,6 +1,6 @@
 //
 //  PersistentCloudKitContainer.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/20/20.
 //
@@ -16,29 +16,11 @@ public class PersistentCloudKitContainer {
     // MARK: - Initializer
     private init() {}
     // MARK: - Core Data stack
-    public static var persistentContainer: NSPersistentCloudKitContainer = {
-        let container = NSPersistentCloudKitContainer(name: "FoodTracker")
-//        // Local Store
-//        let localStoreLocation = URL(fileURLWithPath: "")
-//        let localStoreDescription = NSPersistentStoreDescription(url: localStoreLocation)
-//        localStoreDescription.configuration = "Local"
-//        // Cloud-Kit Store
-//        let cloudStoreLocation = URL(fileURLWithPath: "")
-//        let cloudStoreDescription = NSPersistentStoreDescription(url: cloudStoreLocation)
-//        cloudStoreDescription.configuration = "Cloud"
-//        cloudStoreDescription.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "com.JosiahAgosto.Nutritioner")
-//        // Update container list of store descriptions
-//        container.persistentStoreDescriptions = [localStoreDescription, cloudStoreDescription]
-//        //
-//        guard let description = container.persistentStoreDescriptions.first else {
-//            fatalError("Could not retrieve a persistent store description.")
-//        }
-//        //
-//        let id = "iCloud.com.JosiahAgosto.Nutritioner"
-//        let options = NSPersistentCloudKitContainerOptions(containerIdentifier: id)
-//
-//        description.cloudKitContainerOptions = options
-//        //
+    public static var persistentContainer: NSPersistentContainer = {
+        let modelUrl = Bundle.main.url(forResource: "Nutritioner", withExtension: "momd")!
+        let managedObjectModel = NSManagedObjectModel(contentsOf: modelUrl)!
+        let container = NSPersistentContainer(name: "Nutritioner", managedObjectModel: managedObjectModel)
+        container.viewContext.stalenessInterval = 0.0
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

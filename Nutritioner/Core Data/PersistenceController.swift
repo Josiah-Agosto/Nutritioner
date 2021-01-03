@@ -1,6 +1,6 @@
 //
 //  PersistenceController.swift
-//  Test
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/28/20.
 //
@@ -34,7 +34,11 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "FoodTracker")
+        let modelUrl = Bundle.main.url(forResource: "Nutritioner", withExtension: "momd")!
+        let managedObjectModel = NSManagedObjectModel(contentsOf: modelUrl)!
+        print("Core Data: \(modelUrl), \n \(managedObjectModel)")
+        container = NSPersistentContainer(name: "Nutritioner", managedObjectModel: managedObjectModel)
+        container.viewContext.stalenessInterval = 0.0
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

@@ -1,6 +1,6 @@
 //
 //  MainView.swift
-//  FoodTracker
+//  Nutritioner
 //
 //  Created by Josiah Agosto on 11/20/20.
 //

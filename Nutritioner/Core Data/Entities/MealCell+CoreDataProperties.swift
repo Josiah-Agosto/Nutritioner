@@ -1,8 +1,8 @@
 //
 //  MealCell+CoreDataProperties.swift
-//  FoodTracker
+//  Nutritioner
 //
-//  Created by Josiah Agosto on 12/2/20.
+//  Created by Josiah Agosto on 1/3/21.
 //
 //
 
@@ -18,8 +18,8 @@ extension MealCell {
 
     @NSManaged public var calories: String
     @NSManaged public var date: String
-    @NSManaged public var longDate: String
     @NSManaged public var id: UUID
+    @NSManaged public var longDate: String
     @NSManaged public var name: String
     @NSManaged public var notes: String?
     @NSManaged public var day: Day
@@ -44,6 +44,7 @@ extension MealCell {
 
 }
 
-extension MealCell : Identifiable {
 
+extension MealCell: Identifiable {
+    
 }

@@ -22,10 +22,12 @@ struct CalorieCounterProvider: TimelineProvider {
 
     // The data that I want to present.
     func getTimeline(in context: Context, completion: @escaping (Timeline<CalorieWidgetEntry>) -> ()) {
+        let mealFetch = fetchMeals()
+        let latestMealFetch = mealFetch["latestMeal"] as! [String: String]
         let currentDate = Date()
         let dayOffset = 1
         let entryDate = Calendar.current.date(byAdding: .hour, value: dayOffset, to: currentDate)!
-        let entry = CalorieWidgetEntry(date: currentDate, calories: fetchMeals()["calories"] as! Int, currentDay: fetchMeals()["currentDay"] as! String, mealCounter: fetchMeals()["mealCounter"] as! Int, latestMeal: LatestMeal(mealTitle: "", mealTime: "", mealCalories: ""))
+        let entry = CalorieWidgetEntry(date: currentDate, calories: mealFetch["calories"] as! Int, currentDay: mealFetch["currentDay"] as! String, mealCounter: mealFetch["mealCounter"] as! Int, latestMeal: LatestMeal(mealTitle: latestMealFetch["mealTitle"] ?? "", mealTime: latestMealFetch["mealTime"] ?? "", mealCalories: latestMealFetch["mealCalories"] ?? ""))
         let timeline = Timeline(entries: [entry], policy: .after(entryDate))
         completion(timeline)
     }

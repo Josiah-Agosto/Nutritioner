@@ -5,7 +5,7 @@
 	<key>latestMeal</key>
 	<dict>
 		<key>mealCalories</key>
-		<string></string>
+		<string>0</string>
 		<key>mealTitle</key>
 		<string></string>
 		<key>mealTime</key>
