@@ -95,7 +95,7 @@ struct CalorieWidgetView: View {
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
-            .padding(EdgeInsets(top: 0, leading: 8, bottom: 5, trailing: 8))
+            .padding(EdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8))
             .background(Color.clear)
         }
     }

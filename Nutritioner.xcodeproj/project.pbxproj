@@ -1040,6 +1040,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nutritioner/Nutritioner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = Nutritioner/PreviewContent;
 				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_PREVIEWS = YES;
@@ -1066,6 +1067,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nutritioner/Nutritioner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = Nutritioner/PreviewContent;
 				DEVELOPMENT_TEAM = 55T4UN5QF4;
 				ENABLE_PREVIEWS = YES;
