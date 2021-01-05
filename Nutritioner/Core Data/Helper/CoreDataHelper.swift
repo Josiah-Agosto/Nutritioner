@@ -10,10 +10,13 @@ import CoreData
 
 protocol CoreDataHelperProtocol {
     func create(_ object: NSManagedObject)
-    func fetch(_ objectType: NSManagedObject.Type, predicate: NSPredicate?, limit: Int?) -> Result<[NSManagedObject], Error>
+    func fetchDay(_ objectType: NSManagedObject.Type, predicate: NSPredicate?, limit: Int?) -> Result<[NSManagedObject], Error>
+    func fetchMeal(_ objectType: NSManagedObject.Type, predicate: NSPredicate?, limit: Int?) -> Result<[NSManagedObject], Error>
+    func fetchMealCell(_ objectType: NSManagedObject.Type, predicate: NSPredicate?, limit: Int?) -> Result<[NSManagedObject], Error>
     func saveToContext()
     func delete(_ object: NSManagedObject)
 }
+
 
 class CoreDataHelper: CoreDataHelperProtocol {
     // MARK: - References / Properties
@@ -33,15 +36,45 @@ class CoreDataHelper: CoreDataHelperProtocol {
     }
     
     //
-    func fetch<T: NSManagedObject>(_ objectType: T.Type, predicate: NSPredicate? = nil, limit: Int? = nil) -> Result<[T], Error> {
-        let request = objectType.fetchRequest()
+    func fetchDay<T: NSManagedObject>(_ objectType: T.Type, predicate: NSPredicate? = nil, limit: Int? = nil) -> Result<[T], Error> {
+        let request = NSFetchRequest<T>(entityName: "Day")
         request.predicate = predicate
         if let limit = limit {
             request.fetchLimit = limit
         }
         do {
             let result = try context.fetch(request)
-            return .success(result as? [T] ?? [])
+            return .success(result as [T])
+        } catch let error {
+            return .failure(error)
+        }
+    }
+    
+    //
+    func fetchMeal<T: NSManagedObject>(_ objectType: T.Type, predicate: NSPredicate?, limit: Int?) -> Result<[T], Error> {
+        let request = NSFetchRequest<T>(entityName: "Meal")
+        request.predicate = predicate
+        if let limit = limit {
+            request.fetchLimit = limit
+        }
+        do {
+            let result = try context.fetch(request)
+            return .success(result as [T])
+        } catch let error {
+            return .failure(error)
+        }
+    }
+    
+    //
+    func fetchMealCell<T: NSManagedObject>(_ objectType: T.Type, predicate: NSPredicate?, limit: Int?) -> Result<[T], Error> {
+        let request = NSFetchRequest<T>(entityName: "MealCell")
+        request.predicate = predicate
+        if let limit = limit {
+            request.fetchLimit = limit
+        }
+        do {
+            let result = try context.fetch(request)
+            return .success(result as [T])
         } catch let error {
             return .failure(error)
         }

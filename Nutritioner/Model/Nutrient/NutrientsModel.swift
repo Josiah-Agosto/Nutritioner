@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Shouldn't this have an ID since there will be many of these.
+
 struct NutrientsModel {
     var calories: String?
     var fatTotal: String?

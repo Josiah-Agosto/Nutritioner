@@ -53,7 +53,7 @@ extension Meal {
     @NSManaged public var vitaminE: Double
     @NSManaged public var vitaminK: Double
     @NSManaged public var zinc: Double
-    @NSManaged public var mealCell: MealCell
+    @NSManaged public var mealCell: MealCell?
 
 }
 
