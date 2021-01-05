@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD16503025A412BB00AF665D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16502F25A412BB00AF665D /* WidgetManager.swift */; };
+		BD16503525A4170500AF665D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16502F25A412BB00AF665D /* WidgetManager.swift */; };
 		BD1FE70B25748B8E00AA7206 /* HealthKitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FE70A25748B8E00AA7206 /* HealthKitStore.swift */; };
 		BD1FE71725748DEF00AA7206 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1FE71625748DEF00AA7206 /* HealthKit.framework */; };
 		BD22AFC5258D43DD009988AB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD22AFC4258D43DD009988AB /* WidgetKit.framework */; };
@@ -99,6 +101,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD16502F25A412BB00AF665D /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
 		BD1FE70A25748B8E00AA7206 /* HealthKitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitStore.swift; sourceTree = "<group>"; };
 		BD1FE71225748DCD00AA7206 /* Nutritioner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nutritioner.entitlements; sourceTree = "<group>"; };
 		BD1FE71625748DEF00AA7206 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD16502E25A412A500AF665D /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				BD16502F25A412BB00AF665D /* WidgetManager.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		BD1FE70925748B7C00AA7206 /* HealthKit Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +608,7 @@
 		BDE007DD25833BAD00D94E90 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				BD16502E25A412A500AF665D /* Widget */,
 				BDD1B2DF25884AD2005D902C /* Keyboard */,
 				BDD1B2DE25884ACA005D902C /* Core Data */,
 			);
@@ -765,6 +777,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD22AFCA258D43DD009988AB /* CalorieCounterWidget.swift in Sources */,
+				BD16503525A4170500AF665D /* WidgetManager.swift in Sources */,
 				BD22AFEE258D5B9C009988AB /* CalorieWidgetEntry.swift in Sources */,
 				BD96F4B9259D305300609AE3 /* CalorieWidgetDataModel.swift in Sources */,
 			);
@@ -811,6 +824,7 @@
 				BD2C796225684EAE00D4C578 /* NutritionerApp.swift in Sources */,
 				BDB25782257035CE00C9097D /* AddMealViewModel.swift in Sources */,
 				BD8EDCC8256E19DD000A4E3D /* AddMealView.swift in Sources */,
+				BD16503025A412BB00AF665D /* WidgetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

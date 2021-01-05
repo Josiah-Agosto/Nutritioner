@@ -36,7 +36,6 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         let modelUrl = Bundle.main.url(forResource: "Nutritioner", withExtension: "momd")!
         let managedObjectModel = NSManagedObjectModel(contentsOf: modelUrl)!
-        print("Core Data: \(modelUrl), \n \(managedObjectModel)")
         container = NSPersistentContainer(name: "Nutritioner", managedObjectModel: managedObjectModel)
         container.viewContext.stalenessInterval = 0.0
         if inMemory {

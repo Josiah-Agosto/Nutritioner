@@ -9,6 +9,9 @@ import WidgetKit
 import SwiftUI
 
 struct CalorieCounterProvider: TimelineProvider {
+    // MARK: - References / Properties
+    var widgetManager = WidgetManager.shared
+    
     // Previewing Purposes
     func placeholder(in context: Context) -> CalorieWidgetEntry {
         CalorieWidgetEntry(date: Date(), calories: 650, currentDay: "WEDNESDAY", mealCounter: 6, latestMeal: LatestMeal(mealTitle: "Chicken Salad", mealTime: "12:15PM", mealCalories: "105"))
@@ -22,25 +25,19 @@ struct CalorieCounterProvider: TimelineProvider {
 
     // The data that I want to present.
     func getTimeline(in context: Context, completion: @escaping (Timeline<CalorieWidgetEntry>) -> ()) {
-        let mealFetch = fetchMeals()
-        let latestMealFetch = mealFetch["latestMeal"] as! [String: String]
         let currentDate = Date()
-        let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
-        let entry = CalorieWidgetEntry(date: currentDate, calories: mealFetch["calories"] as! Int, currentDay: mealFetch["currentDay"] as! String, mealCounter: mealFetch["mealCounter"] as! Int, latestMeal: LatestMeal(mealTitle: latestMealFetch["mealTitle"] ?? "", mealTime: latestMealFetch["mealTime"] ?? "", mealCalories: latestMealFetch["mealCalories"] ?? ""))
-        let timeline = Timeline(entries: [entry], policy: .after(entryDate))
-        completion(timeline)
-    }
-    
-    // Fetches App Group Property List Data.
-    private func fetchMeals() -> [String: Any] {
-        let groupUrl = FileManager.sharedContainerUrl().appendingPathComponent("WidgetData.plist")
-        if let data = try? Data(contentsOf: groupUrl) {
-            if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] {
-                print("Widget Data: \(result)")
-                return result
+        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        widgetManager.fetchMeals { (result) in
+            switch result {
+                case .success(let widgetData):
+                    let latestMealFetch = widgetData["latestMeal"] as! [String: String]
+                    let entry = CalorieWidgetEntry(date: currentDate, calories: widgetData["calories"] as! Int, currentDay: widgetData["currentDay"] as! String, mealCounter: widgetData["mealCounter"] as! Int, latestMeal: LatestMeal(mealTitle: latestMealFetch["mealTitle"] ?? "", mealTime: latestMealFetch["mealTime"] ?? "", mealCalories: latestMealFetch["mealCalories"] ?? ""))
+                    let timeline = Timeline(entries: [entry], policy: .after(nextDate))
+                    completion(timeline)
+                case .failure(let error):
+                    print("Data Error, \(error.localizedDescription)")
             }
         }
-        return [:]
     }
     
 }

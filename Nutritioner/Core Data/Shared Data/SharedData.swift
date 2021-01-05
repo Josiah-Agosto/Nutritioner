@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 class SharedData {
     // MARK: - References / Properties
@@ -19,6 +20,7 @@ class SharedData {
         do {
             let data = try encoder.encode(caloriesWidget)
             try data.write(to: urlPath)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch let error {
             print("Error, \(error.localizedDescription)")
         }
