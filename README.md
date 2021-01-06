@@ -1,4 +1,5 @@
 # Nutritioner
+Check out on the App Store.
 
 ## Description:
 Log your meals nutrition facts throughout the day with all your nutrition data sent to HealthKit and saved on device.
